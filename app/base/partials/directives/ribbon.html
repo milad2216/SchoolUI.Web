@@ -1,0 +1,107 @@
+﻿
+<div id="ribbon">
+
+    <div id="status-bar">
+        <div class="status-bar clearfix">
+            <div id="status-icons">
+                <div class="navigation">
+                    <ul>
+                        <li ng-repeat="status in statuses" class="statusbar-label status-time">
+                            <div class="statusbar-label">
+                                <i class="fa fa-caret-left inner" aria-hidden="true"></i>
+                                <span>{{status.label}} :</span>
+                                <a ng-click="openLink(status)" ng-show="status.form || status.key">{{status.value}}</a>
+                                <span ng-show="!status.form && !status.key">{{status.value}}</span>
+                            </div>
+                        </li>
+                        <li class="status-time">
+                            <i class="fa fa-calendar inner" aria-hidden="true"></i>
+                            <div id="pdate1" class="statusbar-label">
+                            </div>
+                        </li>
+                        <li class="status-time">
+                            <i class="fa fa-clock-o inner" aria-hidden="true"></i>
+                            <div id="txt" class="statusbar-label">
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="cursor-default">
+                                <i class="fa fa-user inner" aria-hidden="true"></i>
+                                <div class="statusbar-label">
+                                    کاربر  : {{currentUser.fullName}}
+                                </div>
+                            </a>
+                            <ul class="nav-username">
+
+                                <li>
+                                    <a>
+                                        نوع  : {{currentUser.userTypeTitle}}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        واحد سازمانی : {{currentUser.organizationUnitTitle}}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        پست سازمانی : {{currentUser.organizationPositionTitle}}
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a class="cursor-default">
+                                <i class="fa fa-cog" aria-hidden="true"></i>
+                            </a>
+
+                            <ul>
+
+                                <li ng-click="settingColor()">
+                                    <a>
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        تنظیمات شخصی
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a ng-click="" href="#/logout">
+                                        <i class="fa fa-power-off" aria-hidden="true"></i>
+                                        خروج
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-click="" href="#/logout" class="logout">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="site-name"><a href="/#/home">سیستم جامع یکپارچه</a></div>
+
+        </div>
+
+    </div>
+
+    <div class="ribbon-container">
+        <div id="ribbon-tab-header-strip" class="slick" dir="rtl"></div>
+    </div>
+
+</div>
+
+
+
+

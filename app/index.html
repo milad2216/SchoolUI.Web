@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="rtl" class="{{main_theme}}">
+<head>
+
+    <script src="/Scripts/core/jquery-1.9.1.min.js"></script>
+
+    <script src="/Scripts/core/angular.min.js"></script>
+    <script src="/Scripts/core/angular-sanitize.min.js"></script>
+    <script src="/Scripts/core/angular-ui-router.min.js"></script>
+    <script src="/Scripts/bower_components/angular-ui-notification.min.js"></script>
+    <script src="/Scripts/bower_components/angular-animate.min.js"></script>
+    <script src="/Scripts/bower_components/angular-block-ui.js"></script>
+    <script src="/Scripts/bower_components/bootstrap/bootstrap.min.js"></script>
+    <script src="/Scripts/bower_components/bootstrap/ui-bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="/Scripts/bower_components/velocity.min.js"></script>
+    <script src="/Scripts/bower_components/screenfull.min.js"></script>
+    <script src="/Scripts/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="/Scripts/bower_components/JalaliDate.js"></script>
+    <script src="/Scripts/bower_components/date/moment.min.js"></script>
+    <script src="/Scripts/bower_components/date/moment-jalaali.js"></script>
+    <script src="/Scripts/bower_components/kendo/kendo.web.js"></script>
+    <script src="/Scripts/bower_components/kendo/cultures/kendo.fa-IR.js"></script>
+    <script src="/Scripts/bower_components/kendo/kendo.angular.min.js"></script>
+    <script src="/Scripts/bower_components/angular-block-ui.js"></script>
+    <script src="/Scripts/core/modernizr.js"></script>
+    <link href="/Content/assets/icons/flags/flags.min.css" rel="stylesheet" />
+    <link href="/Content/assets/css/style_switcher.min.css" rel="stylesheet" />
+    <link href="/Content/assets/css/themes/_theme_a.min.css" rel="stylesheet" />
+    <link href="/Content/assets/css/themes/_theme_b.min.css" rel="stylesheet" />
+    <link href="/Content/assets/css/themes/_theme_c.min.css" rel="stylesheet" />
+    <link href="/Content/assets/css/themes/_theme_d.min.css" rel="stylesheet" />
+    <link href="/Content/assets/css/themes/_theme_e.min.css" rel="stylesheet" />
+    <link href="/Content/assets/css/themes/_theme_f.min.css" rel="stylesheet" />
+    <link href="/Content/assets/css/themes/_theme_g.min.css" rel="stylesheet" />
+    <link href="/Content/assets/css/themes/_theme_h.min.css" rel="stylesheet" />
+    <link href="/Content/assets/css/themes/_theme_i.min.css" rel="stylesheet" />
+    <link href="/Content/assets/css/themes/_theme_dark.css" rel="stylesheet" />
+    <link href="/Content/assets/css/uikit.rtl.css" rel="stylesheet" />
+    <link href="/Content/assets/css/main.css" rel="stylesheet" />
+    <link href="/Content/toolbar-menu.css" rel="stylesheet" />
+    <link href="/Content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/bootstrap/bootstrap-rtl.css" rel="stylesheet" />
+    <link href="/Content/bootstrap/animate.css" rel="stylesheet" />
+    <link href="/Content/control.css" rel="stylesheet" />
+    <link href="/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/Notification/angular-csp.css" rel="stylesheet" />
+    <link href="/Content/Notification/angular-ui-notification.min.css" rel="stylesheet" />
+    <link href="/Content/angular/angular-block-ui.css" rel="stylesheet" />
+    <link href="/Content/layout.css" rel="stylesheet" />
+    <link href="/Content/kendo/2016.1.412/kendo.common.min.css" rel="stylesheet" />
+    <link href="/Content/kendo/2016.1.412/kendo.rtl.min.css" rel="stylesheet" />
+    <link href="" id="kendoCSS" rel="stylesheet" />
+    <link href="/Content/Notification/angular-ui-notification.min.css" rel="stylesheet" />
+    <script data-main="/app/main.js" src="/Scripts/core/require.js"></script>
+
+    <link runat="server" rel="icon" href="/Content/images/favicon.ico" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body class="page_aside_collapsed header_full" block-ui="main2" ng-class="{
+    'sidebar_main_active': primarySidebarActive && !miniSidebarActive ,
+    'sidebar_main_open': primarySidebarOpen && !miniSidebarActive && !slimSidebarActive && largeScreen ,
+    'sidebar_mini': miniSidebarActive && largeScreen ,
+    'sidebar_slim sidebar_slim_inactive': slimSidebarActive && largeScreen  ,
+    'sidebar_main_hiding': primarySidebarHiding,
+    'uk-height-1-1': page_full_height,
+    'footer_active': footerActive,
+    'main_search_persistent': mainSearchPersistent}" ng-controller="mainController" ng-init="initializeController()">
+    <div ng-if="statusforlayout">
+        <pn-header useful-menu="useMnu()" logout2="logout()"></pn-header>
+        <div id="page_content">
+            <div id="page_content_inner" class="p">
+                <div class="uk-clearfix uk-position-relative">
+                    
+                    <div class="content-view">
+                        <div id="page_overflow" style="overflow-y:unset !important">
+                            <!--pn-page-overflow-->
+                            <div id="top_bar2" ng-show="featureTab.Show">
+                                <div class="tab_bar2_inner">
+                                    <div class="pn-tab-header md-top-bar">
+                                        <div class="pn-tab-list slick" dir="rtl">
+                                            <div ng-mousedown="middleButton($event,tab)" class="li-pn-tab waves-effect"
+                                                 ng-class="{active:true}"
+                                                 ng-click="onClickTab(tab)">
+                                                <a class="pn-tab-header-link pn-tab-header-link2">{{featureTab.Title}}</a>
+                                                <i ng-click="closeTab()" class="fa fa-times-circle close-image" aria-hidden="true"></i>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pn-tab-container pn-tab-ui-views"  ng-show="featureTab.Show">
+                                <ul class="uiTabs">
+
+                                    <li ui-view></li>
+                                </ul>
+                                <div style="clear:both;"></div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div id="footer2" class="statusbar">
+                        <ul>
+                            <li>
+                                <span>
+                                    کاربر  : {{currentUser.fullName}}
+                                </span>
+                            </li>
+
+                            <li>
+                                <span>
+                                    نوع  : {{currentUser.userTypeTitle}}
+                                </span>
+                            </li>
+
+                            <li>
+                                <span>
+                                    واحد سازمانی : {{currentUser.organizationUnitTitle}}
+                                </span>
+                            </li>
+                            <li>
+                                <span>
+                                    پست سازمانی : {{currentUser.organizationPositionTitle}}
+                                </span>
+                            </li>
+                            <li ng-repeat="status in statuses">
+                                <span>{{status.label}} :</span>
+                                <a ng-click="openLink(status)" ng-show="status.form || status.key">{{status.value}}</a>
+                                <span ng-show="!status.form && !status.key">{{status.value}}</span>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <pn-right-menu click-action="clickAction(data)" api="useMnuApi" fab-sheet="additem(item)"></pn-right-menu>
+
+        <pn-style-switcher></pn-style-switcher>
+
+
+
+        <!--<div>
+            <div class="md-fab-wrapper md-fab-in-card">
+                <div class="md-fab md-fab-accent md-fab-sheet">
+                    <pn-md-fab-sheet api-fab-sheet="apiFabSheet"></pn-md-fab-sheet>
+                </div>
+            </div>
+        </div>-->
+
+        <div class="md-fab-wrapper md-fab-in-card">
+            <!--<pn-md-fab-sheet></pn-md-fab-sheet>-->
+            <div class="md-fab md-fab-accent md-fab-sheet" api-fab-sheet="apiFabSheet" pn-md-fab-sheet>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="statusforlogin" ui-view="login" style="padding-top:64px;" ></div>
+</body>
+</html>

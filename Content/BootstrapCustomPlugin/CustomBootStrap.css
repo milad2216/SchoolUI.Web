@@ -1,0 +1,209 @@
+﻿input[type="text"], select, input[type="number"], input[type="input"] {
+    height: 26px !important;
+    width: 100%;
+}
+
+
+.k-picker-wrap .k-state-default {
+    height: 26px !important;
+}
+
+input[type="number"] {
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.row .ng-pristine .ng-valid {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.panel-body {
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+input[type="number"] {
+    height: 25px;
+}
+
+.pn-select > a.dropdown-toggle {
+    height: 30px;
+}
+
+fieldset {
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    border: 1px solid #999;
+    margin-top: 10px;
+    /*-webkit-box-shadow: 0 0 10px #999;
+    -ms-box-shadow: 0 0 10px #999;
+    box-shadow: 0 0 10px #999;*/
+    background-color: #F4F6F8;
+}
+
+.formframe {
+    border: 0px;
+    margin-top: 2px;
+}
+
+
+legend {
+    height: 30px;
+    background: #EAEDF1;
+    text-align: right;
+    padding-right: 4px;
+    width: 400px;
+    margin-bottom: 10px;
+    border: 1px solid #B7B7B7;
+}
+
+.k-header {
+    background: #EAEDF1;
+}
+
+.k-widget {
+    border: 1px solid #B7B7B7;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+
+.col-md-8 {
+    padding: 2px;
+}
+
+.k-grouping-header {
+    background: #EAEDF1;
+}
+
+.k-grid-header {
+    background: #EAEDF1;
+}
+
+.k-pager-wrap {
+    background: #EAEDF1;
+}
+
+
+.pn-select {
+    font-size: 17px;
+}
+
+    .pn-select > .dropdown-menu > ul > li > a {
+        font-size: 17px;
+    }
+
+.modal-body p {
+    font-size: 18px;
+}
+
+.modal-footer button {
+    font-size: 15px;
+}
+
+#body {
+    padding: 0px;
+}
+
+.pn-tab-container {
+    padding: 0px;
+}
+
+
+.pn-tab-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.panel-footer {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #EAEDF1;
+}
+
+
+.panel-default > .panel-heading {
+    background-color: #EAEDF1 !important;
+    /*height: 26px;*/
+}
+
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+    height: 26px !important;
+}
+
+
+input.k-textbox {
+    height: 26px !important;
+}
+
+
+
+input[type="text"], select, input[type="number"] {
+    height: 34px;
+    width: 100%;
+}
+
+.panel-footer {
+    border-top: 0px solid #ddd;
+}
+
+.profile {
+   
+}
+/* Profile sidebar */
+.profile-sidebar {
+   
+    background: #DDD;
+        padding-left: 3px;
+    padding-top: 10px;
+}
+
+.profile-usermenu {
+    /*margin-top: 30px;*/
+}
+
+    .profile-usermenu ul li {
+        border-bottom: 1px solid #f0f4f7;
+        padding: 0px;
+    }
+
+        .profile-usermenu ul li:last-child {
+            border-bottom: none;
+        }
+
+        .profile-usermenu ul li a {
+            color: #93a3b5;
+            font-size: 16px;
+            /*font-weight:bold;*/
+        }
+
+            .profile-usermenu ul li a i {
+               
+                font-size: 14px;
+            }
+
+            .profile-usermenu ul li a:hover {
+                background-color: #fafcfd;
+                color: #5b9bd1;
+            }
+
+        .profile-usermenu ul li.active {
+            border-bottom: none;
+        }
+
+            .profile-usermenu ul li.active a {
+                color: #5b9bd1;
+                background-color: #C7DFEF;
+                border-right: 2px solid #5b9bd1;
+                margin-right: -2px;
+            }
+
+/* Profile Content */
+.profile-content {
+    
+     background: #DDD;
+    min-height: 460px;
+}

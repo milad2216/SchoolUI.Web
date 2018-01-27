@@ -1,0 +1,46 @@
+﻿<div class="row">
+
+    <div class="col-md-4"   ng-show="showEntityViewer" id="entityViewerGridId">
+        <pn-entity-viewer options="options" 
+                          on-change="onChange(data)" 
+                          api="entityViwerApi" 
+                          title="{{enityViewerTitle}}" 
+                          on-ready="onReady()"
+                          height="{{viewerHeight}}"
+                          class="{{evClassNames}}"
+                         
+                          >
+        </pn-entity-viewer>
+    </div>
+
+    <div ng-class="gridClass" >
+        <pn-gridview
+                     ng-show="showGrid" 
+                     config="gridConfig"
+                     class="{{gvClassNames}}" 
+                     columns="gridColumns" 
+                     schema="gridSchema" 
+                     api="gridApi" 
+                     on-kendo-ready="onKendoReady(kendo, options)"
+                     selecteditems="selectedItems"
+                     parameters="parameters"
+                     on-dbl-click="dblClick(e)"
+                     on-kendo-dataBound="onKendoDataBound(e)"
+                     on-select-row="onSelectRow(e)"
+        ></pn-gridview>
+             <acc-coding 
+             hierarchy-height="400" 
+             page-size="20"
+             height="500"
+             ng-if="showTree"
+             on-selected-grid="onSelectedGrid2(e)" 
+             on-change-level="onChangeLevel2(e)" 
+             coding-config="codingConfig"
+             api="codingConfig.api"            
+             is-load-structure="true"
+             state-model="true"
+             ></acc-coding>
+
+    </div>
+
+</div>

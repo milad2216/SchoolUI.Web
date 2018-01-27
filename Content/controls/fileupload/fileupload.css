@@ -1,0 +1,51 @@
+﻿.k-upload-status {
+left:10px !important;right:auto !important}
+.k-upload{border-radius:0px !important
+}
+.k-upload-files .k-button {
+    
+    margin-right:8px !important;margin-left:0px !important;
+}
+.k-upload .k-icon{
+     margin-right:8px !important;margin-left:0px !important;
+}
+.k-upload .k-filename {
+margin-left:0px !important;margin-right:1em !important;}
+
+.k-state-disabled .k-upload-button {
+background-color:#f7f7f7 !important;
+color: #797979;
+}
+.k-upload .k-upload-button {
+    color:#797979 ;
+    height:27px;
+    background-image:none !important;
+ border-radius:0px !important;
+ background-color:#fff;
+direction:rtl !important;}
+
+.k-upload-files {
+max-height: 90px !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.k-upload-files {
+margin-bottom:0px !important}
+.k-upload .k-dropzone {
+padding:3px !important}
+.k-upload .k-button:active {
+    color:#797979 !important;
+    border:1px solid #eee !important;
+background-color:transparent !important}
+    .k-upload-button span {
+        margin-right: 7px;
+    }
+
+.k-upload-button input {
+color:#fff !important}
+.k-upload .k-button:focus:active:not(.k-state-disabled):not([disabled]) {
+    border: 1px solid #eee !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    color: #797979 !important;
+}

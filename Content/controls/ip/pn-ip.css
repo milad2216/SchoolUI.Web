@@ -1,0 +1,43 @@
+
+.ip-div {
+    direction: ltr !important;
+}
+
+.ipv4-input {
+    width: 10%;
+    display: inline-block;
+}
+
+    .ipv4-input label {
+        width: 2% !important;
+        display: inline-block;
+    }
+
+    .ipv4-input input {
+        width: 92% !important;
+        display: inline-block;
+    }
+
+    .ipv4-input .form-group {
+        direction: ltr;
+    }
+
+
+.ipv6-input {
+    width: 11%;
+    display: inline-block;
+}
+
+    .ipv6-input input {
+        width: 92% !important;
+        display: inline-block !important;
+    }
+
+    .ipv6-input label {
+        width: 2% !important;
+        display: inline-block !important;
+    }
+
+    .ipv6-input .form-group {
+        direction: ltr;
+    }

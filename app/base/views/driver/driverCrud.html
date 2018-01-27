@@ -1,0 +1,94 @@
+﻿<form id="driverForm" name="driverForm">
+    <div class="row margin-top-10">
+        <div class="col-md-3">
+
+            <span class="col-md-4 label">نام</span>
+            <input type="text" class="col-md-8 " required ng-model="driver.FirstName" placeholder="نام به فارسی">
+
+        </div>
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">نام خانوادگی</span>
+            <input type="text" class="col-md-8 " required ng-model="driver.LastName" placeholder="نام خانوادگی به فارسی">
+
+        </div>
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">نام پدر</span>
+            <input type="text" class="col-md-8 " ng-model="driver.FaderName" placeholder="نام پدر به فارسی">
+
+        </div>
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">محل تولد</span>
+            <input type="text" class="col-md-8 " required ng-model="driver.BirthPlace" placeholder="محل تولد به فارسی">
+
+        </div>
+
+    </div>
+    <div class="row margin-top-10">
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">محل صدور</span>
+            <input type="text" class="col-md-8 " required ng-model="driver.BirthCertificateIssuancePlace" placeholder="محل صدور به فارسی">
+
+        </div>
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">تاریخ تولد</span>
+            <input type="date" text-required='انتخاب تاریخ تولد اجباریست' kendo-date-picker options="dateOptionsBirthDate" class="col-md-8 form-control k-rtl" name="BirthDate" k-ng-model="driver.BirthDate" />
+
+        </div>
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">کد ملی</span>
+            <input type="text" class="col-md-8 " required ng-model="driver.NationalCode" placeholder="کد ملی">
+
+        </div>
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">تلفن همراه</span>
+            <input type="text" class="col-md-8 " ng-model="driver.MobilePhoneNumber" placeholder="تلفن همراه">
+
+        </div>
+    </div>
+    <div class="row margin-top-10">
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">تلفن اضطراری</span>
+            <input type="text" class="col-md-8 " required ng-model="driver.EmergencyPhoneNumber" placeholder="تلفن اضطراری">
+
+        </div>
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">نوع ماشین</span>
+            <input type="text" class="col-md-8 " required ng-model="driver.CarType" placeholder="نوع ماشین">
+
+        </div>
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">رنگ ماشین</span>
+            <input type="text" class="col-md-8 " ng-model="driver.CarColor" placeholder="رنگ ماشین">
+
+        </div>
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">پلاک ماشین</span>
+            <input type="text" class="col-md-8 " ng-model="driver.PlaqueNumber" placeholder="پلاک ماشین">
+
+        </div>
+    </div>
+
+
+    <div class="row margin-top-10">
+        <div class="col-md-6">
+            <span class="col-md-3  label">عکس راننده</span>
+            <div class="col-md-9 margin-top15">
+                <pn-file-upload ng-model="Base64ImageFile" config="base64ImageFileOptions" api="api" on-selected="base64ImageFileOnSelect(fileStream, fileInfo)" on-remove="base64ImageFileOnRemove(e)"></pn-file-upload>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button type="submit" ng-click="saveEntity()">ذخیره</button>
+    </div>
+</form>

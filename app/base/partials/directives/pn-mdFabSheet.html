@@ -1,0 +1,8 @@
+﻿<div ng-show="destination.length>0">
+    <i class="material-icons">view_headline</i>
+    <div class="md-fab-sheet-actions">
+        <a class="md-color-white" ng-repeat="des in destination track by $index" ><span ng-click="featureClickUseMnu(des)">{{des.SystemFeatureTitle}}</span> 
+            <i class="material-icons usefulmenu" ng-click="removeitem($index)">clear</i>
+        </a>
+    </div>
+</div>

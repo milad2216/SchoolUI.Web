@@ -1,0 +1,19 @@
+﻿<div class="profile box-shadow">
+    <div class="row">
+        <div ng-class="{'col-md-12 col-sm-12 col-xs-12':dir,'col-md-2 col-sm-2 col-xs-12 pl-0':!dir }">
+            <div class="profile-sidebar">
+                <div class="profile-usermenu" ng-class="{'add-fixtab ':boolChangeClass}">
+                    <ul id="tabHeader" class="nav">
+                        <li ng-repeat="tab in data.fixedTabs"  class="list-group-item" ng-class="{'active-tab' : $state.current.name === tab.SystemFeatureViewAction , 'disabled': tab.isDisabled === true }"><a ng-click="tabClick($event, tab)" ui-sref="{{tab.SystemFeatureViewAction}}" translate >{{ tab.SystemFeatureTitle}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div ng-class="{'col-md-12 col-sm-12 col-xs-12':dir ,'col-md-10 col-sm-10 col-xs-12 pr-0':!dir}">
+            <div class="profile-content">
+                <div ng-repeat="tab in data.fixedTabs" ui-view="{{tab.SystemFeatureViewAction}}" ng-show="$state.current.name===tab.SystemFeatureViewAction"></div>
+            <div ui-view></div></div>
+        </div>
+    </div>
+</div>

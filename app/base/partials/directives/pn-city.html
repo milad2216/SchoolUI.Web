@@ -1,0 +1,57 @@
+﻿<div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12" ng-show="optionCombo.Item0.Items.length>0">
+        <div class="form-group">
+            <label class="col-md-4 col-sm-4 col-xs-4" for="Title" translate> کشور:</label>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <pn-combo-box disabled="disabled" textField="Description" valueField="Key" ng-model="optionCombo.Item0.SelectedItem"
+                              source="optionCombo.Item0.Items"
+                              on-change="onChangeItem0(combo)">
+                </pn-combo-box>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12" ng-show="optionCombo.Item1.Items.length>0">
+        <div class="form-group">
+            <label class="col-md-4 col-sm-4 col-xs-4" for="Title" translate> استان:</label>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <pn-combo-box disabled="disabled" textField="Description" valueField="Key" ng-model="optionCombo.Item1.SelectedItem"
+                              source="optionCombo.Item1.Items"
+                              on-change="onChangeItem1(combo)">
+                </pn-combo-box>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12" ng-show="optionCombo.Item2.Items.length>0">
+        <div class="form-group">
+            <label class="col-md-4 col-sm-4 col-xs-4" for="Title" translate> شهرستان:</label>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <pn-combo-box disabled="disabled" textField="Description" valueField="Key" ng-model="optionCombo.Item2.SelectedItem"
+                              source="optionCombo.Item2.Items"
+                              on-change="onChangeItem2(combo)">
+                </pn-combo-box>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12" ng-show="optionCombo.Item3.Items.length>0">
+        <div class="form-group">
+            <label class="col-md-4 col-sm-4 col-xs-4" for="Title" translate> بخش:</label>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <pn-combo-box disabled="disabled" textField="Description" valueField="Key" ng-model="optionCombo.Item3.SelectedItem"
+                              source="optionCombo.Item3.Items"
+                              on-change="onChangeItem3(combo)">
+                </pn-combo-box>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12" ng-show="optionCombo.Item4.Items.length>0">
+        <div class="form-group">
+            <label class="col-md-4 col-sm-4 col-xs-4" for="Title" translate> شهر:</label>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <pn-combo-box disabled="disabled" textField="Description" valueField="Key" ng-model="optionCombo.Item4.SelectedItem"
+                              source="optionCombo.Item4.Items"
+                              on-change="onChangeItem4(combo)">
+                </pn-combo-box>
+            </div>
+        </div>
+    </div>
+</div>

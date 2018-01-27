@@ -1,0 +1,45 @@
+﻿<div class="pn-calculator">
+    <table class="">
+        <tr>
+            <td colspan="4" class="dim">
+                <div>{{vm.display}}</div>
+            </td>
+        </tr>
+        <tr>
+            <td ng-click="vm.action($event, 'percent')"><span class="">%</span></td>
+            <td ng-click="vm.action($event, 'radical')"><span class="">&radic;</span></td>
+            <td ng-click="vm.action($event, 'power2')"><span class="">x&sup2</span></td>
+            <td ng-click="vm.action($event, 'yechi')"><span class="">&frac12;</span></td>
+        </tr>
+        <tr>
+            <td ng-click="vm.action($event, 'ce')"><span class="">CE</span></td>
+            <td ng-click="vm.action($event, 'c')"><span class="">C</span></td>
+            <td ng-click="vm.action($event, 'backescape')"><span class="">&larr;</span></td>
+            <td ng-click="vm.action($event, 'divide')"><span class="">&divide;</span></td>
+        </tr>
+        <tr>
+            <td ng-click="vm.number(7)"><span class="">7</span></td>
+            <td ng-click="vm.number(8)"><span class="">8</span></td>
+            <td ng-click="vm.number(9)"><span class="">9</span></td>
+            <td ng-click="vm.action('times')"><span class="">&times;</span></td>
+        </tr>
+        <tr>
+            <td ng-click="vm.number(4)"><span class="">4</span></td>
+            <td ng-click="vm.number(5)"><span class="">5</span></td>
+            <td ng-click="vm.number(6)"><span class="">6</span></td>
+            <td ng-click="vm.action('minus')"><span class="">&minus;</span></td>
+        </tr>
+        <tr>
+            <td ng-click="vm.number(1)"><span class="">1</span></td>
+            <td ng-click="vm.number(2)"><span class="">2</span></td>
+            <td ng-click="vm.number(3)"><span class="">3</span></td>
+            <td ng-click="vm.action('plus')"><span class="">+</span></td>
+        </tr>
+        <tr>
+            <td ng-click="vm.action('sign')"><span class="">&plusmn;</span></td>
+            <td ng-click="vm.number(0)"><span class="">0</span></td>
+            <td ng-click="vm.action('.')"><span class="">.</span></td>
+            <td ng-click="vm.calculate()"><span class="">=</span></td>
+        </tr>
+    </table>
+</div>

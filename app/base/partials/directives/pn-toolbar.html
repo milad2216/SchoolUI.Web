@@ -1,0 +1,12 @@
+﻿       <div class="col-md-12 col-sm-12 col-xs-12"  >
+ <div id="main-toolbar-menu" >
+     <div class="toolbar-menu-item" ng-repeat="button in $root.currentTab.toolbar" ng-hide="button.Display==false||button.Display=='false' " >
+                <button class="waves-effect button-style" ng-click='this[button.ActionViewUrl.replace("()","")]()' ng-disabled="button.Disabled.toLowerCase()=='disabled'?true:false">
+                    <img src="../../../../Content/images/toolbar/{{button.LatinName}}.png"/>
+                    {{button.Description}}
+                </button>
+                <i ng-if="(button.Order==1003 && $root.currentTab.toolbar>3) || (button.Order==1005 && $root.currentTab.toolbar>5)" class="toolbar-menu-sprator"></i>
+            </div>
+        </div>
+</div>
+

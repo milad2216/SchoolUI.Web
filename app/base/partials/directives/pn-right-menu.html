@@ -1,0 +1,24 @@
+﻿<aside id="sidebar_main" pn-custom-scrollbar>
+    <div class="menu_section">
+        <ul>
+            <li ui-sref-active="current_section" ng-repeat="subsys in $root.sections" ng-class="{'submenu_trigger': true, 'sidebar_submenu': true}">
+                <a class="subsystem waves-effect" ng-click="submenuToggle($event)">
+                    <span class="menu_icon"><img src="/Content/images/Menu/{{subsys.SystemKey}}.png" /></span>
+                    <span class="menu_title">{{subsys.SystemTitle}}</span>
+                </a>
+                <ul ng-if="subsys.Childs.length>0" class="ul-features">
+                    <li>
+                        <div ng-repeat="item in subsys.Childs" ng-class="{'submenu_trigger': false}">
+                            <div  style="position:relative">
+                                <a class="waves-effect submenu-2"  ng-click="featureClick(item.Action,item.Title)"><img src="/Content/images/Menu/{{item.key}}.png" />{{item.Title}}</a>
+                                <span class="useful-menu" ng-show="useful" ng-click="addItem(item,subsys)"><i class="fa fa-plus-square-o" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</aside>
+

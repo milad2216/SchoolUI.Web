@@ -1,0 +1,51 @@
+﻿.entity-viewer-shell-body .form-group .k-widget, [data-role=maskedtextbox] {
+    /*width: 70% !important;*/
+}
+
+.entity-viewer-shell-body .group-child > .row {
+    margin-bottom: 5px;
+}
+
+.entity-viewer-shell-body {
+    padding: 5px;
+}
+
+    .entity-viewer-shell-body [class*="col-"] {
+        padding-left: 10px !important;
+        padding-right: 2px !important;
+    }
+
+    .entity-viewer-shell-body .ltr {
+        direction: ltr;
+    }
+
+    .entity-viewer-shell-body .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .entity-viewer-shell-body .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+
+
+    .entity-viewer-shell-body .row {
+        margin-right: 0px !important;
+    }
+
+
+pn-numeric, pn-float, pn-string {
+    width: 100%;
+}

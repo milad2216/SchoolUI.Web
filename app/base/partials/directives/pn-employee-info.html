@@ -1,0 +1,93 @@
+﻿
+<fieldset  ng-hide="{{hiddenAll}}">
+
+    <legend> جستجوی پرسنل </legend>
+    <div class="row " ng-hide="{{hiddenSearch}}">
+
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <label for="Personnel" translate>CommonTitle.PersonnelFamily</label>
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8">
+            <pn-lookup options="optionsPersonnel" api="apiPersonnel" ng-model="ModelPersonnel" extra-data="ExtraData"></pn-lookup>
+        </div>
+    </div>
+
+
+
+
+    <div class="row  bold-box-personal" ng-hide="{{hiddenInfo}}">
+
+       
+        <div class="col-md-11 col-sm-11 col-xs-12">
+            <div class="row ">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-4 col-xs-4"> <label translate> کد ملی: </label>
+                    </div> <div class="col-md-8  col-sm-8 col-xs-8">
+                        <pn-Textbox ng-model="selectPersonel.NationalId" disabled="{{disabledInfo}}"></pn-Textbox>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-4 col-xs-4"> <label translate> نام: </label>
+                    </div> <div class="col-md-8  col-sm-8 col-xs-8">
+                        <pn-Textbox ng-model="selectPersonel.FirstName" disabled="{{disabledInfo}}"></pn-Textbox>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-4 col-xs-4"> <label translate> شماره شناسنامه:</label>
+                    </div> <div class="col-md-8  col-sm-8 col-xs-8">
+                        <pn-Textbox ng-model="selectPersonel.BirthCertificateId" disabled="{{disabledInfo}}"></pn-Textbox>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-4 col-xs-4"> <label translate> تاریخ تولد:</label>
+                    </div> <div class="col-md-8  col-sm-8 col-xs-8">
+                        <pn-date-picker id="Date" ng-model="selectPersonel.SolarBirthDate" ng-disabled="disabledInfo"></pn-date-picker>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-4 col-xs-4"> <label translate> شماره پرسنلی: </label>
+                    </div> <div class="col-md-8  col-sm-8 col-xs-8">
+                        <pn-Textbox ng-model="selectPersonel.EmployeeId" disabled="{{disabledInfo}}"></pn-Textbox>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-4 col-xs-4"> <label translate> نام خانوادگی:</label>
+                    </div> <div class="col-md-8  col-sm-8 col-xs-8">
+                        <pn-Textbox ng-model="selectPersonel.LastName" disabled="{{disabledInfo}}"></pn-Textbox>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-4 col-xs-4"> <label translate> نام پدر:</label>
+                    </div> <div class="col-md-8  col-sm-8 col-xs-8">
+                        <pn-Textbox ng-model="selectPersonel.FatherName" disabled="{{disabledInfo}}"></pn-Textbox>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-4 col-xs-4"> <label translate>جنسیت:</label>
+                    </div> <div class="col-md-8  col-sm-8 col-xs-8">
+                        <pn-Textbox ng-model="selectPersonel.SexValue" disabled="{{disabledInfo}}"></pn-Textbox>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1 col-sm-1 col-xs-12">
+            <img src="../../../Content/images/user-profile-icon.png" class="Emplo" />
+        </div>
+    </div>
+
+
+    <div class="row" ng-hide="{{hiddenGrid}}">
+        <pn-gridview config="gridConfig"
+                     class="k-gridwithheader"
+                     columns="gridColumns"
+                     schema="gridSchema"
+                     api="gridApi"
+                     on-kendo-data-bound="onGrid_onDataBound(kendo)"
+                     on-kendo-ready="onKendoReady(kendo, options)"
+                     selecteditems="gridSelectedItems"></pn-gridview>
+    </div>
+</fieldset>
+

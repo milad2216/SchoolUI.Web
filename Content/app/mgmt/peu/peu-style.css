@@ -1,0 +1,35 @@
+﻿.selfevaluation-form .index-accordion .title {
+    background-color: #d5dced;
+}
+
+.selfevaluation-form .app-modal-window .modal-dialog {
+    width: 90%;
+}
+
+.selfevaluation-form .modal-footer .btn {
+    border: 1px solid transparent !important;
+}
+
+.selfevaluation-form .modal-footer button i {
+    margin-left: 5px;
+}
+
+.selfevaluation-form textarea{
+    min-width:60%;
+    width:70%;
+    max-width:90%;
+    height:100px;
+    max-height:250px;
+    padding:10px;
+}
+.selfevaluation-form .collapsible-item.open > .body{
+    max-height:100% !important;
+}
+
+.selfevaluation-form .collapsible-item > .body {
+  
+        -webkit-transition: max-height 0.3s ease-out;
+        -moz-transition:    max-height 0.3s ease-out;
+        -o-transition:      max-height 0.3s ease-out;
+        transition:         max-height 0.3s ease-out;
+    }

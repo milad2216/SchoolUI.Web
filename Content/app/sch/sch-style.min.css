@@ -1,0 +1,12 @@
+.sch-styles .image-uploader img{margin-top:8px}
+.sch-styles .image-uploader .image-delet-button{position:relative;top:0;border-radius:0 0 5px 5px;display:block;margin:0 auto}
+.sch-styles .image-uploader .image-delet-button .material-icons{color:#fff}
+.sch-styles .image-uploader .file-selector{margin:10px 2px 10px 2px}
+.sch-styles .image-uploader .file-selector .material-icons{color:#fff}
+.sch-styles .image-uploader .input-file{width:.1px;height:.1px;opacity:0;overflow:hidden;position:absolute;z-index:-1}
+.sch-styles .image-uploader .img-preview{max-width:100%;margin:5px 0}
+.sch-styles .image-uploader .img-preview img{margin:0 auto}
+.sch-styles .full-width{width:100%}
+.sch-styles .score_table td.redColor{color:red}
+.sch-styles .score_table td.blueColor{color:#00f}
+.sch-styles .score_table td.greenColor{color:#228b22}

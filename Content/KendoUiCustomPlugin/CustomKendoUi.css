@@ -1,0 +1,30 @@
+﻿.k-tabstrip .k-content.k-state-active {
+    background-color: #EAEDF1;
+}
+
+.k-datepicker > span {
+    height: 25px;
+}
+
+input[kendo-jalali-date-picker] {
+    height: 18px!important;
+}
+
+span.k-dropdown-wrap {
+    height: 26px;
+}
+input[disabled]{
+    background: #EEEEEE !important; 
+}
+
+pn-date-picker{
+    display: block;
+}
+
+.k-datepicker{
+    width:100%;
+}
+.k-icon .k-i-refresh {
+    width: 9px;
+    height: 9px;
+}

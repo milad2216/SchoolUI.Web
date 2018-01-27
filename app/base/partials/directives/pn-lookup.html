@@ -1,0 +1,80 @@
+﻿<fieldset class="pn-look" ng-disabled="disabled|| options.disabled" ng-hide="isHidden">
+
+    <div ng-if="options.multiSelect">
+        <div class="form-control panel-multi-item-lookup" tabindex="-1" popover-placement="bottom" popover="{{htmlPopover()}}" popover-title="نمایش همه" popover-animation="true"> {{chosenItems.length}}  مورد  </div>
+        <input  type="button" class="button" ng-disabled="options.disabled || disabled" ng-click="openPopup($event)" value="..."/>
+    </div>
+    <div ng-if="!options.multiSelect">
+        <input pn-textbox-number maxlength="9" ng-if="options.lookup.codeField" ng-keypress="setCodeKeypress($event)" type="text" ng-model="options.valueCode"  class="form-control lookup-code" tabindex="-1"  />
+        <input type="text" ng-model="options.text" disabled class="form-control" ng-class="{'lookup-value' : options.lookup.codeField}" tabindex="-1" readonly />
+        <input type="button" class="button" ng-disabled="options.disabled || disabled" ng-click="openPopup($event)" value="..."/>
+    </div>
+    <script type="text/ng-template" id="pnlook.html">
+        <div>
+            <div class="modal-header" style="padding:10px!important">
+                <button class="close" aria-label="Close" data-dismiss="modal" type="button" ng-click="cancelPopup()">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h3 id="title-modal-work-flow" class="modal-title"><span translate>{{options.title}}</span></h3>
+            </div>
+            <div class="modal-body k-rtl" style="padding:2px 5px 0px 3px">
+                    <div class="row lookup-search">
+                        <div class="col-md-4  col-sm-4 col-xs-4" style="padding-left:3px">
+                            <fieldset ng-keyup="$event.keyCode == 13 ? search() : null" style="padding-bottom:13px !important">
+                                <div class="col-md-12  col-sm-12 col-xs-12">
+                                    <div ng-attr-id="lookup-search-{{$id}}" class="well">
+                                       
+                                    </div>
+                                </div>
+                                <div class="col-md-12  col-sm-12 col-xs-12">
+                                    <button class="btn btn-primary fa fa-search center-block" ng-click="search()">
+                                        <span>جستجو</span>
+                                    </button>
+                                    <button style="margin-left:3px;" class="btn btn-default fa fa-eraser center-block" ng-click="clearFilter()">
+                                        <span>حذف فیلتر</span>
+                                    </button>
+                                </div>
+
+                            </fieldset>
+
+                        </div>
+
+                        <div class="col-md-8 col-sm-8 col-xs-8" style="padding-right:3px">
+                            <pn-gridview id="lookupGrid" config="gridConfig"
+                                         class="k-gridwithheader responsive-grid"
+                                         columns="gridColumns"
+                                         schema="gridSchema"
+                                         api="gridApi"
+                                         un-select="unSelectGrid"
+                                         on-kendo-data-bound="onKendoDataBound(kendo)"
+                                         on-kendo-ready="onGridReady(kendo)"
+                                         selecteditems="selectedItems"
+                                         on-dbl-click="onDblClick(items)">
+                            </pn-gridview>
+
+                        </div>
+
+                    </div>
+            </div>
+        </div>
+        <div class="modal-footer" >
+            <div class="col-md-12  col-sm-12 col-xs-12" ng-show="options.multiSelect">
+                <ul class="rowgrid">
+                    <li ng-repeat="item in originalItems"> {{item[options.lookup.textField]}}<a ng-click="removeRowsGrid(item)"><img src="/Content/images/closeforgrid.png" /></a></li>
+                </ul>
+            </div>
+
+            <div class="lookup-button">
+                <button class="btn btn-default fa fa-check-circle switch-color" ng-click="performMultiselect()">
+                    <span>انتخاب</span>
+                </button>
+                <button class="btn btn-default fa fa-times switch-color" ng-click="cancelPopup()">
+                    <span>بستن</span>
+                </button>
+            </div>
+
+        </div>
+    </script>
+</fieldset>
+
+

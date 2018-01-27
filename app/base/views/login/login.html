@@ -1,0 +1,35 @@
+﻿<link href="/Content/assets/css/themes/_theme_dark.css" rel="stylesheet" />
+<div class="login_page_wrapper ng-scope" ng-controller="loginController">
+    <div class="md-card" id="login_card">
+        <div class="md-card-content large-padding" id="login_form">
+            <div class="login_heading">
+                <div class="user_avatar"></div>
+            </div>
+            <form class="ng-pristine ng-valid">
+                <div class="uk-form-row">
+                    <div class="md-input-wrapper"><input  placeholder="نام کاربری" class="md-input ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" type="text" id="login_username" ng-model="login_username" md-input=""><span class="md-input-bar "></span></div>
+
+                </div>
+                <div class="uk-form-row">
+                    <div class="md-input-wrapper"><input placeholder="رمز عبور" class="md-input ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" type="password" id="login_password" ng-model="login_password" md-input=""><span class="md-input-bar "></span></div>
+
+                </div>
+                <div class="uk-margin-medium-top">
+                    <a ng-click="checkAuthenticated()" class="md-btn md-btn-primary md-btn-block md-btn-large">ورود</a>
+                </div>
+                <!--<div class="uk-grid uk-grid-width-1-3 uk-grid-small uk-margin-top">
+                    <div><a href="#" class="md-btn md-btn-block md-btn-facebook" data-uk-tooltip="{pos:'bottom'}" title="Sign in with Facebook"><i class="uk-icon-facebook uk-margin-remove"></i></a></div>
+                    <div><a href="#" class="md-btn md-btn-block md-btn-twitter" data-uk-tooltip="{pos:'bottom'}" title="Sign in with Twitter"><i class="uk-icon-twitter uk-margin-remove"></i></a></div>
+                    <div><a href="#" class="md-btn md-btn-block md-btn-gplus" data-uk-tooltip="{pos:'bottom'}" title="Sign in with Google+"><i class="uk-icon-google-plus uk-margin-remove"></i></a></div>
+                </div>-->
+                <div class="uk-margin-top">
+                    <!--<a href="#" id="login_help_show" class="uk-float-right" ng-click="loginHelp($event)">Need help?</a>-->
+                    <span class="icheck-inline">
+                        <div class="icheckbox_md"><input type="checkbox" name="login_page_stay_signed" id="login_page_stay_signed" icheck="" ng-model="login_signed" class="ng-pristine ng-untouched ng-valid ng-empty" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                        <label for="login_page_stay_signed" class="inline-label">مرا بخاطر بسپار</label>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

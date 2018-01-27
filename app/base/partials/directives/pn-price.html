@@ -1,0 +1,46 @@
+﻿<div class="col-md-12 col-sm-12 col-xs-12" >
+    <div class="col-md-4 col-sm-12 col-xs-12" ng-hide="isHiddenCurrentPrice">
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <label>{{option.Title}} </label>
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-9">
+                <pn-textbox-number ng-disabled="disabled" length="{{modelattrs.CurrentLength}}"
+                                   ng-blur="blurCurrentPrice()"
+                                   ng-keyup="pressCurrentPrice(modelCurrency.CurrentPrice)"
+                                   separate ng-model="modelCurrency.CurrentPrice"></pn-textbox-number>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 col-xs-12" ng-show="foreignCurrency">
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <label>نوع ارز </label>
+            </div> 
+            <div class="col-md-9 col-sm-9 col-xs-9">
+                <pn-combo-box disabled="disabled" ng-model="option.Type"
+                              source="sourceCurrency"></pn-combo-box>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 col-xs-12" ng-show="foreignCurrency">
+        <div class="form-group">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <label>مبلغ ارز</label>
+            </div><div class="col-md-9 col-sm-9 col-xs-9">
+                <pn-textbox-number ng-disabled="disabled" id="secondPrice" length="{{modelattrs.SecondLength}}" ng-keyup="pressSecondPrice(modelCurrency.SecondPrice)" separate ng-model="modelCurrency.SecondPrice"></pn-textbox-number>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="form-group">
+            <div class="col-md-1 col-sm-1 col-xs-1">
+                <label>مبلغ به حروف </label>
+            </div>
+            <div class="col-md-11 col-sm-11 col-xs-11" style="padding-right:10px;">
+                <pn-textbox ng-disabled="true" ng-model="modelCurrency.NumberToPersian"></pn-textbox>
+            </div>
+        </div>
+    </div>
+
+</div>
