@@ -40,16 +40,16 @@ define(['angularAMD'], function (angularAMD) {
                 {
                     url: '/teacherSearch',
                     controller: 'teacherSearchController',
-                    controllerUrl: '/app/base/views/teacher/teacherSearchController.js',
-                    templateUrl: '/app/base/views/teacher/teacherSearch.html'
+                    controllerUrl: '/app/base/views/schoolManager/teacher/teacherSearchController.js',
+                    templateUrl: '/app/base/views/schoolManager/teacher/teacherSearch.html'
 
                 }))
             .state('teacherCrud', angularAMD.route(
                 {
                     url: '/teacherCrud',
                     controller: 'teacherCrudController',
-                    controllerUrl: '/app/base/views/teacher/teacherCrudController.js',
-                    templateUrl: '/app/base/views/teacher/teacherCrud.html',
+                    controllerUrl: '/app/base/views/schoolManager/teacher/teacherCrudController.js',
+                    templateUrl: '/app/base/views/schoolManager/teacher/teacherCrud.html',
                     params: {
                         teacher: {},
                         mode: "create"
@@ -97,24 +97,24 @@ define(['angularAMD'], function (angularAMD) {
                 {
                     url: '/schoolClasses',
                     controller: 'schoolClassesController',
-                    controllerUrl: '/app/base/views/SchoolClasses/schoolClassesController.js',
-                    templateUrl: '/app/base/views/SchoolClasses/schoolClasses.html'
+                    controllerUrl: '/app/base/views/schoolManager/SchoolClasses/schoolClassesController.js',
+                    templateUrl: '/app/base/views/schoolManager/SchoolClasses/schoolClasses.html'
 
                 }))
             .state('studentSearch', angularAMD.route(
                 {
                     url: '/studentSearch',
                     controller: 'studentSearchController',
-                    controllerUrl: '/app/base/views/student/studentSearchController.js',
-                    templateUrl: '/app/base/views/student/studentSearch.html'
+                    controllerUrl: '/app/base/views/schoolManager/student/studentSearchController.js',
+                    templateUrl: '/app/base/views/schoolManager/student/studentSearch.html'
 
                 }))
             .state('studentCrud', angularAMD.route(
                 {
                     url: '/studentCrud',
                     controller: 'studentCrudController',
-                    controllerUrl: '/app/base/views/student/studentCrudController.js',
-                    templateUrl: '/app/base/views/student/studentCrud.html',
+                    controllerUrl: '/app/base/views/schoolManager/student/studentCrudController.js',
+                    templateUrl: '/app/base/views/schoolManager/student/studentCrud.html',
                     params: {
                         student: {},
                         mode: "create"
@@ -125,16 +125,16 @@ define(['angularAMD'], function (angularAMD) {
                 {
                     url: '/employeeSearch',
                     controller: 'employeeSearchController',
-                    controllerUrl: '/app/base/views/employee/employeeSearchController.js',
-                    templateUrl: '/app/base/views/employee/employeeSearch.html'
+                    controllerUrl: '/app/base/views/schoolManager/employee/employeeSearchController.js',
+                    templateUrl: '/app/base/views/schoolManager/employee/employeeSearch.html'
 
                 }))
             .state('employeeCrud', angularAMD.route(
                 {
                     url: '/employeeCrud',
                     controller: 'employeeCrudController',
-                    controllerUrl: '/app/base/views/employee/employeeCrudController.js',
-                    templateUrl: '/app/base/views/employee/employeeCrud.html',
+                    controllerUrl: '/app/base/views/schoolManager/employee/employeeCrudController.js',
+                    templateUrl: '/app/base/views/schoolManager/employee/employeeCrud.html',
                     params: {
                         employee: {},
                         mode: "create"
@@ -145,16 +145,16 @@ define(['angularAMD'], function (angularAMD) {
                 {
                     url: '/driverSearch',
                     controller: 'driverSearchController',
-                    controllerUrl: '/app/base/views/driver/driverSearchController.js',
-                    templateUrl: '/app/base/views/driver/driverSearch.html'
+                    controllerUrl: '/app/base/views/schoolManager/driver/driverSearchController.js',
+                    templateUrl: '/app/base/views/schoolManager/driver/driverSearch.html'
 
                 }))
             .state('driverCrud', angularAMD.route(
                 {
                     url: '/driverCrud',
                     controller: 'driverCrudController',
-                    controllerUrl: '/app/base/views/driver/driverCrudController.js',
-                    templateUrl: '/app/base/views/driver/driverCrud.html',
+                    controllerUrl: '/app/base/views/schoolManager/driver/driverCrudController.js',
+                    templateUrl: '/app/base/views/schoolManager/driver/driverCrud.html',
                     params: {
                         driver: {},
                         mode: "create"
@@ -165,8 +165,8 @@ define(['angularAMD'], function (angularAMD) {
                 {
                     url: '/gradeAcademicYear',
                     controller: 'gradeAcademicYearController',
-                    controllerUrl: '/app/base/views/gradeAcademicYear/gradeAcademicYearController.js',
-                    templateUrl: '/app/base/views/gradeAcademicYear/gradeAcademicYear.html'
+                    controllerUrl: '/app/base/views/schoolManager/gradeAcademicYear/gradeAcademicYearController.js',
+                    templateUrl: '/app/base/views/schoolManager/gradeAcademicYear/gradeAcademicYear.html'
 
                 }))
             .state('main', angularAMD.route(
@@ -181,8 +181,16 @@ define(['angularAMD'], function (angularAMD) {
                 {
                     url: '/schoolCourse',
                     controller: 'schoolCourseController',
-                    controllerUrl: '/app/base/views/schoolCourse/schoolCourseController.js',
-                    templateUrl: '/app/base/views/schoolCourse/schoolCourse.html'
+                    controllerUrl: '/app/base/views/schoolManager/schoolCourse/schoolCourseController.js',
+                    templateUrl: '/app/base/views/schoolManager/schoolCourse/schoolCourse.html'
+
+                }))
+            .state('property', angularAMD.route(
+                {
+                    url: '/property',
+                    controller: 'propertyController',
+                    controllerUrl: '/app/base/views/schoolManager/property/propertyController.js',
+                    templateUrl: '/app/base/views/schoolManager/property/property.html'
 
                 }))
     }]);
@@ -211,18 +219,21 @@ define(['angularAMD'], function (angularAMD) {
             var firstLoad = true;
             $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
                 debugger;
-                if (!fromState.name && firstLoad) {
-                    firstLoad = false;
-                    var lt = localStorage.getItem('lt');
-                    event.preventDefault();
-                    if (lt) {
+                var lt = localStorage.getItem('lt');
+                if (lt) {
+                    if (!fromState.name && firstLoad) {
+                        firstLoad = false;
+                        //var lt = localStorage.getItem('lt');
+                        event.preventDefault();
                         $rootScope.statusforlayout = true;
                         $rootScope.statusforlogin = false;
                         $state.go("main");
                     }
-                    else {
-                        $rootScope.statusforlayout = false;
-                        $rootScope.statusforlogin = true;
+                }
+                else {
+                    $rootScope.statusforlayout = false;
+                    $rootScope.statusforlogin = true;
+                    if (toState.name !== "login") {
                         $state.go("login");
                     }
                 }
@@ -250,7 +261,7 @@ define(['angularAMD'], function (angularAMD) {
 
         $scope.logout = function () {
             debugger
-            localStorage.setItem('lt', null);
+            localStorage.removeItem('lt');
             $rootScope.statusforlayout = false;
             $rootScope.statusforlogin = true;
             $state.go("login");
@@ -258,7 +269,7 @@ define(['angularAMD'], function (angularAMD) {
 
         $scope.clickAction = function (data) {
             debugger
-            $scope.featureTab = { Title: data.Title, Show : true }
+            $scope.featureTab = { Title: data.Title, Show: true }
         }
 
         $scope.initializeController = function () {
@@ -270,6 +281,31 @@ define(['angularAMD'], function (angularAMD) {
         //Enable cross domain calls
         $httpProvider.defaults.useXDomain = true;
     });
+
+    //app.config(["$httpProvider",
+    //function ($httpProvider) {
+    //    $httpProvider.responseInterceptors.push(function ($q) {
+    //        return {
+    //            'requestError': function (rejection) {
+    //                // handle same as below
+    //            },
+
+    //            'responseError': function (rejection) {
+    //                if (canRecover(rejection)) {
+    //                    // if you can recover then don't call q.reject()
+    //                    // will go to success handlers
+    //                    return responseOrNewPromise;
+    //                }
+
+    //                // !!Important Must use promise api's q.reject()
+    //                // to properly implement this interceptor
+    //                // or the response will go the success handler of the caller
+    //                return $q.reject(rejection);
+    //            }
+    //        };
+    //    });
+    //}
+    //]);
 
     indexController.$inject = ['$scope', '$rootScope', '$http', '$state'];
     app.controller("mainController", indexController);

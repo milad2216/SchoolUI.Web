@@ -262,112 +262,115 @@ var PersianToolbar =
 
 
 /* SCHEDULER MESSAGES */
-kendo.ui.JalaliScheduler.prototype.options.messages =
-	$.extend(kendo.ui.Scheduler.prototype.options.messages, {
+if (kendo.ui.JalaliScheduler) {
 
-	    allDay: "کل روز",
-	    date: "تاریخ",
-	    event: "رویداد",
-	    time: "زمان",
-	    showFullDay: "نمایش روز کامل",
-	    showWorkDay: "نمایش ساعت های کاری",
-	    today: "امروز",
-	    save: ".ذخیره تغییرات",
-	    destroy: "حذف",
-	    cancel: "انصراف",
-        views: {
-            day: "روز",
-            week: "هفته",
-            workWeek: "هفته کاری",
-            agenda: "Agenda",
-            month: "ماه"
-        },
-        recurrenceMessages: {
-            deleteWindowTitle: "حذف رویداد تکرار شونده",
-            deleteWindowOccurrence: "حذف رویداد",
-            deleteWindowSeries: "حذف سلسله رویدادها",
-            editWindowTitle: "ویرایش رویداد تکرار شونده",
-            editWindowOccurrence: "ویرایش رویداد",
-            editWindowSeries: "ویرایش سلسله رویدادها",
-            deleteRecurring: "آیا میخواهید تنها این رویداد حذف شود یا تمام رویدادهای تکرار شونده حذف شوند ؟",
-            editRecurring: "آیا میخواهید تنها این رویداد ویرایش شود یا تمام رویدادهای تکرار شونده ویرایش شوند ؟"
-        },
-        editor: {
-            title: "عنوان",
-            start: "تاریخ",
-            end: "تاریخ پایان",
-            allDayEvent: "یک روز کامل",
-            description: "توضیحات",
-            repeat: "شیوه تکرار",
-            timezone: " ",
-            startTimezone: "Start timezone",
-            endTimezone: "End timezone",
-            separateTimezones: "استفاده از منطقه زمانی متفاوت برای شروع و پایان",
-            timezoneEditorTitle: "منطقه زمانی",
-            timezoneEditorButton: "منطقه زمانی",
-            timezoneTitle: "منطقه های زمانی",
-            noTimezone: "بدون منطقه زمانی",
-            editorTitle: "اطلاعات رویداد",
-            ownerId: "نوع مناسبت",
-            owner: "نوع مناسبت"
-        }
-	});
+    kendo.ui.JalaliScheduler.prototype.options.messages =
+        $.extend(kendo.ui.Scheduler.prototype.options.messages, {
+
+            allDay: "کل روز",
+            date: "تاریخ",
+            event: "رویداد",
+            time: "زمان",
+            showFullDay: "نمایش روز کامل",
+            showWorkDay: "نمایش ساعت های کاری",
+            today: "امروز",
+            save: ".ذخیره تغییرات",
+            destroy: "حذف",
+            cancel: "انصراف",
+            views: {
+                day: "روز",
+                week: "هفته",
+                workWeek: "هفته کاری",
+                agenda: "Agenda",
+                month: "ماه"
+            },
+            recurrenceMessages: {
+                deleteWindowTitle: "حذف رویداد تکرار شونده",
+                deleteWindowOccurrence: "حذف رویداد",
+                deleteWindowSeries: "حذف سلسله رویدادها",
+                editWindowTitle: "ویرایش رویداد تکرار شونده",
+                editWindowOccurrence: "ویرایش رویداد",
+                editWindowSeries: "ویرایش سلسله رویدادها",
+                deleteRecurring: "آیا میخواهید تنها این رویداد حذف شود یا تمام رویدادهای تکرار شونده حذف شوند ؟",
+                editRecurring: "آیا میخواهید تنها این رویداد ویرایش شود یا تمام رویدادهای تکرار شونده ویرایش شوند ؟"
+            },
+            editor: {
+                title: "عنوان",
+                start: "تاریخ",
+                end: "تاریخ پایان",
+                allDayEvent: "یک روز کامل",
+                description: "توضیحات",
+                repeat: "شیوه تکرار",
+                timezone: " ",
+                startTimezone: "Start timezone",
+                endTimezone: "End timezone",
+                separateTimezones: "استفاده از منطقه زمانی متفاوت برای شروع و پایان",
+                timezoneEditorTitle: "منطقه زمانی",
+                timezoneEditorButton: "منطقه زمانی",
+                timezoneTitle: "منطقه های زمانی",
+                noTimezone: "بدون منطقه زمانی",
+                editorTitle: "اطلاعات رویداد",
+                ownerId: "نوع مناسبت",
+                owner: "نوع مناسبت"
+            }
+        });
+}
 
 kendo.ui.RecurrenceEditor.prototype.options.messages =
 	$.extend(kendo.ui.RecurrenceEditor.prototype.options.messages, {
-        frequencies: {
-                never: 'هیچکدام',
-                hourly: 'ساعتی',
-                daily: 'روزانه',
-                weekly: 'هفتگی',
-                monthly: 'ماهانه',
-                yearly: 'سالانه'
-            },
-            hourly: {
-                repeatEvery: 'مرتبه تکرار : ',
-                interval: ' ساعت'
-            },
-            daily: {
-                repeatEvery: 'مرتبه تکرار : ',
-                interval: ' روز'
-            },
-            weekly: {
-                interval: ' هفته',
-                repeatEvery: 'مرتبه تکرار : ',
-                repeatOn: 'روز هفته : '
-            },
-            monthly: {
-                repeatEvery: 'مرتبه تکرار : ',
-                repeatOn: 'تکرار شود در : ',
-                interval: ' ماه',
-                day: 'روز '
-            },
-            yearly: {
-                repeatEvery: 'مرتبه تکرار : ',
-                repeatOn: 'تکرار شود در : ',
-                interval: ' سال',
-                of: ' از '
-            },
-            end: {
-                label: ' پایان رویداد:',
-                mobileLabel: 'Ends',
-                never: 'بدون پایان',
-                after: 'بعد از ',
-                occurrence: ' مرتبه رخ دادن',
-                on: 'در تاریخ '
-            },
-            offsetPositions: {
-                first: 'اولین',
-                second: 'دومین',
-                third: 'سومین',
-                fourth: 'چهارمین',
-                last: 'آخرین'
-            },
-            weekdays: {
-                day: 'day',
-                weekday: 'weekday',
-                weekend: 'weekend day'
-            }
-	    
+	    frequencies: {
+	        never: 'هیچکدام',
+	        hourly: 'ساعتی',
+	        daily: 'روزانه',
+	        weekly: 'هفتگی',
+	        monthly: 'ماهانه',
+	        yearly: 'سالانه'
+	    },
+	    hourly: {
+	        repeatEvery: 'مرتبه تکرار : ',
+	        interval: ' ساعت'
+	    },
+	    daily: {
+	        repeatEvery: 'مرتبه تکرار : ',
+	        interval: ' روز'
+	    },
+	    weekly: {
+	        interval: ' هفته',
+	        repeatEvery: 'مرتبه تکرار : ',
+	        repeatOn: 'روز هفته : '
+	    },
+	    monthly: {
+	        repeatEvery: 'مرتبه تکرار : ',
+	        repeatOn: 'تکرار شود در : ',
+	        interval: ' ماه',
+	        day: 'روز '
+	    },
+	    yearly: {
+	        repeatEvery: 'مرتبه تکرار : ',
+	        repeatOn: 'تکرار شود در : ',
+	        interval: ' سال',
+	        of: ' از '
+	    },
+	    end: {
+	        label: ' پایان رویداد:',
+	        mobileLabel: 'Ends',
+	        never: 'بدون پایان',
+	        after: 'بعد از ',
+	        occurrence: ' مرتبه رخ دادن',
+	        on: 'در تاریخ '
+	    },
+	    offsetPositions: {
+	        first: 'اولین',
+	        second: 'دومین',
+	        third: 'سومین',
+	        fourth: 'چهارمین',
+	        last: 'آخرین'
+	    },
+	    weekdays: {
+	        day: 'day',
+	        weekday: 'weekday',
+	        weekend: 'weekend day'
+	    }
+
 	});
 

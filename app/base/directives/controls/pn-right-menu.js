@@ -18,9 +18,12 @@ define(['angularAMD'], function (control) {
                         Childs: [{ Title: "کلاس", Action: "schoolClasses" }, { Title: "دانش آموز", Action: "studentSearch" },
                             { Title: "کارمند", Action: "employeeSearch" }, { Title: "معلم", Action: "teacherSearch" },
                             { Title: "راننده", Action: "driverSearch" }, { Title: "شهریه", Action: "gradeAcademicYear" },
-                        { Title: "معلم کلاس", Action: "schoolCourse" }]
+                        { Title: "معلم کلاس", Action: "schoolCourse" }, { Title: "بایگانی", Action: "property" }]
                     });
-                    $rootScope.sections.push({ SystemTitle: "عملیات سیستم", SystemKey: '30f8678d-dffb-e611-ac4f-38d54778b1eb', Childs: [{ Title: "تست", Action: "admin" }] });
+                    $rootScope.sections.push({
+                        SystemTitle: "مالی", SystemKey: '30f8678d-dffb-e611-ac4f-38d54778b1eb',
+                        Childs: [{ Title: "ثبت چک", Action: "admin" }, { Title: "ثبت چک", Action: "admin" }, { Title: "پرداخت های غیر شهریه", Action: "admin" }]
+                    });
                     $rootScope.sections.push({ SystemTitle: "مدیریت سیستم", SystemKey: '1f65a61c-ce79-e711-966b-000c29eedd59', Childs: [{ Title: "تست" }] });
                     $rootScope.sections.push({ SystemTitle: "گزارشات سیستم", SystemKey: '1a58337f-ea03-e711-ac51-38d54778b1eb', Childs: [{ Title: "تست" }] });
                 },
