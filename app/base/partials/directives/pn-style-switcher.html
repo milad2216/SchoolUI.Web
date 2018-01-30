@@ -4,7 +4,7 @@
 	<div class="uk-margin-medium-bottom">
 		<h4 class="heading_c uk-margin-bottom">قالب سایت</h4>
 		<ul class="switcher_app_themes" id="theme_switcher">
-			<li class="{{theme.name}}" ng-repeat="theme in themes" ng-click="changeTheme($event,theme)" ng-class="{'app_style_default': theme.class == '', 'active_theme': theme.class == main_theme }">
+			<li class="{{theme.name}}" ng-repeat="theme in themes" ng-click="changeTheme($event,theme)" ng-class="{'switcher_theme_dark': theme.class == '', 'active_theme': theme.class == main_theme }">
 				<span class="app_color_main"></span>
 				<span class="app_color_accent"></span>
 			</li>

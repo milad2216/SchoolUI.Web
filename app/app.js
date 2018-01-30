@@ -61,31 +61,23 @@ define(['angularAMD'], function (angularAMD) {
                     url: '/adminSearch',
                     controller: 'adminSearchController',
                     controllerUrl: '/app/base/views/admin/main/adminSearchController.js',
-                    templateUrl: '/app/base/views/admin/main/adminSearch.html'
+                    templateUrl: '/app/base/views/admin/main/adminSearch.html',
+                    params: {
 
+                    }
                 }))
-            .state('adminSearch.milad', {
-                //url: '/parentsDetails/{parentId:[0-9]{1,4} = null}',
-                views: {
-                    'majid': angularAMD.route({
-                        controllerUrl: '/app/base/views/admin/child/adminChild1SearchController.js',
-                        templateUrl: '/app/base/views/admin/child/adminChild1Search.html',
-                        params: {
-                            parentId : null
-                        }
-                    }),
-                    //'majid2': angularAMD.route({
-                    //    controllerUrl: '/app/base/views/admin/child/adminChild2SearchController.js',
-                    //    templateUrl: '/app/base/views/admin/child/adminChild2Search.html'
-                    //}),
-                    //'majid3': angularAMD.route({
-                    //    controllerUrl: '/app/base/views/admin/child/adminChild3SearchController.js',
-                    //    templateUrl: '/app/base/views/admin/child/adminChild3Search.html'
-                    //})
-
-
-                },
-            }).state('login', angularAMD.route(
+             //.state('adminSearch.milad', angularAMD.route(
+             //   {
+             //      url : '',
+             //       controllerUrl: '/app/base/views/admin/child/adminChild1SearchController.js',
+             //       views: {
+             //           'majid': {
+             //                controller: 'adminChild1SearchController',
+             //               templateUrl: '/app/base/views/admin/child/adminChild1Search.html',
+             //           }
+             //       }
+             //   }))
+          .state('login', angularAMD.route(
                 {
                     title: 'ورود به سیستم',
                     url: '/login',

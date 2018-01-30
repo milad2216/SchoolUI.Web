@@ -225,7 +225,7 @@ define(['angularAMD'], function (control) {
                     changeStyle(main_theme);
                 }
                 else {
-                    changeStyle("default_theme");
+                    changeStyle("switcher_theme_dark");
                 }
 
             }
