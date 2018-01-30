@@ -2632,6 +2632,8 @@
     <Content Include="Scripts\core\fixed_table.js" />
     <Content Include="Scripts\core\jquery-1.9.1.min.js" />
     <Content Include="Scripts\core\jquery.signalR-2.2.2.min.js" />
+    <Content Include="Scripts\core\LINQ_JS.js" />
+    <Content Include="Scripts\core\LINQ_JS_MIN.js" />
     <Content Include="Scripts\core\modernizr.js" />
     <Content Include="Scripts\core\require.js" />
     <Content Include="Scripts\core\respond.js" />

@@ -15,9 +15,11 @@ define(['app'], function (app) {
                         $scope.selectedParent = data.Items[0];
                         $scope.selectedParent.FullName = $scope.selectedParent.FirstName + ' ' + $scope.selectedParent.LastName;
                     })
-                    dataService.getData(RESOURCES.USERS_DOMAIN + '/api/PayItems?$filter=ParentPayments/any() eq false').then(function (data) {
+                    dataService.getData(RESOURCES.USERS_DOMAIN + '/api/PayItems?$filter=ParentPayments/any( pp: pp/Student/ParentIdFather eq ' + parentId + ' or pp/Student/ParentIdMother eq ' + parentId + ')').then(function (data) {
                         $scope.payItems = data.Items;
-                        $scope.payItems.push({ DscPay: "شهریه", DateInsert: "1396-11-10", Price: "25.000.000" })
+                        $scope.payItems.push({ DscPay: "شهریه", DateInsert: "1396-11-10", Price: 25000000 });
+                        $scope.payItems.push({ DscPay: "شهریه", DateInsert: "1396-11-10", Price: 25000000 });
+                        $scope.totalOfNotPay = $scope.payItems.sum(function (t) { return t.Price });
                     })
                 }
             }

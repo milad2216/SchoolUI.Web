@@ -1,7 +1,7 @@
 ﻿<div ng-init="init()">
     <div class="col-xs-12" style="min-height:300px;">
         <div class="col-xs-3">
-            <div class="scroll-wrapper scrollbar-inner" style="position: relative;">
+            <div class="scroll-wrapper scrollbar-inner z-depth-5" style="position: relative; overflow-x:hidden;">
                 <div class="scrollbar-inner scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 249px;">
 
                     <ul class="list-group">
@@ -20,36 +20,20 @@
                     <h3 class="md-card-toolbar-heading-text large ng-binding" ng-bind="selectedParent.FullName" id="invoice_name"></h3>
                 </div>
                 <div class="md-card-content invoice_content print_bg" ng-class="invoice_footer_active" style="height: 300px;overflow-x: hidden;overflow-y: auto;">
-                    <!-- ngIf: invoice.header -->
-                    <div class="uk-margin-medium-bottom ng-binding">
-                        <!-- ngIf: invoice.header -->
-                        <span >تاریخ ایجاد:</span> 10.06.2016
-                        <br>
-                        <span >تاریخ سررسید اولین پرداخت:</span> 10.27.2016
-                    </div>
                     <div class="uk-grid" data-uk-grid-margin="">
                         <div class="uk-width-small-3-5">
                             <div class="uk-margin-bottom">
                                 <span>مجموع بدهی:</span>
-                                <address>
-                                    <p><strong>Bailey-Lynch</strong></p>
-                                    <p>2808 Robson St</p>
-                                    <p>Vancouver, BC V6B 3K9</p>
-                                </address>
+                                    <p><strong>29,000,000 ریال</strong></p>
                             </div>
                             <div class="uk-margin-medium-bottom">
                                 <span>مجموع پرداختی ها:</span>
-                                <address>
-                                    <p><strong class="ng-binding">Ferry PLC</strong></p>
-                                    <p class="ng-binding">2220 Vena Spurs Apt. 871</p>
-                                    <p class="ng-binding">Lake Reymundoside, 65470</p>
-                                </address>
+                                <p><strong>10,000,000 ریال</strong></p>
                             </div>
                         </div>
                         <div class="uk-width-small-2-5 uk-row-first">
                             <span>جمع کل:</span>
-                            <p class="heading_b uk-text-success ng-binding">$3,152.40</p>
-                            <p>Incl. VAT - $372.40</p>
+                            <p class="heading_b uk-text-success ng-binding" ng-bind="total">39,000,000 ریال</p>
                         </div>
                     </div>
                     <div class="uk-grid uk-margin-large-bottom">
@@ -60,6 +44,7 @@
                                         <th>عنوان پرداخت</th>
                                         <th class="uk-text-center">تاریخ ثبت</th>
                                         <th class="uk-text-center">مبلغ</th>
+                                        <th class="uk-text-center">عملیات</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,20 +58,13 @@
                                         </td>
                                         <td class="uk-text-center ng-binding" ng-bind="payItem.Price">
                                         </td>
+                                        <td class="uk-text-center ng-binding">
+                                            <a><span class="fa fa-credit-card" title="پرداخت"></span></a>
+                                        </td>
                                     </tr>
                                     
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                    <div class="uk-grid">
-                        <div class="uk-width-1-1">
-                            <span class="uk-text-muted uk-text-small uk-text-italic">Payment to:</span>
-                            <p class="uk-margin-top-remove ng-binding">
-                                Bank XYZ<br>
-                                IBAN 123 456 789
-                            </p>
-                            <p class="uk-text-small ng-binding">Please pay within 21 days</p>
                         </div>
                     </div>
                     <!-- ngIf: invoice.footer -->
@@ -98,9 +76,10 @@
 <style>
     .box {
         background-color: #424242;
-        color:#fefefe;
+        color: #fefefe;
         font-family: 'Yekan' !important;
-        cursor:pointer;
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     }
 
         .box:hover,
