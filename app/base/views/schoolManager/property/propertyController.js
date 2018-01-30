@@ -77,8 +77,7 @@ define(['app'], function (app) {
                             Id: { type: "number", editable: false, nullable: false },
                             Code: { type: "string", nullable: false, validation: { required: { message: "وارد نمودن کد الزامی است." } } },
                             Name: { type: "string", nullable: false, validation: { required: { message: "وارد نمودن نام الزامی است." } } },
-                            Count: { type: "number", nullable: false, validation: { required: { message: "وارد نمودن تعداد الزامی است." } } },
-                            SchoolId: { type: "number", nullable: false }
+                            Count: { type: "number", nullable: false, validation: { required: { message: "وارد نمودن تعداد الزامی است." } } }
                         }
                     }
                 },

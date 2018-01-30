@@ -1395,6 +1395,7 @@
     <Content Include="Content\stimulsoft\images\StimulsoftReports.png" />
     <Content Include="Content\stimulsoft\images\UsersAppleIpad.png" />
     <Content Include="Content\toolbar-menu.css" />
+    <Content Include="Content\uikit.rtl.css" />
     <Content Include="fonts\font-awesome.min.css" />
     <Content Include="Content\hotkeys\hotkeys.css" />
     <Content Include="Content\hotkeys\hotkeys.js" />

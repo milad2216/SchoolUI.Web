@@ -56,28 +56,32 @@ define(['angularAMD'], function (angularAMD) {
                     }
 
                 }))
-            .state('admin', angularAMD.route(
+            .state('adminSearch', angularAMD.route(
                 {
-                    url: '/admin',
+                    url: '/adminSearch',
                     controller: 'adminSearchController',
                     controllerUrl: '/app/base/views/admin/main/adminSearchController.js',
                     templateUrl: '/app/base/views/admin/main/adminSearch.html'
 
                 }))
-            .state('admin.milad', {
+            .state('adminSearch.milad', {
+                //url: '/parentsDetails/{parentId:[0-9]{1,4} = null}',
                 views: {
                     'majid': angularAMD.route({
                         controllerUrl: '/app/base/views/admin/child/adminChild1SearchController.js',
-                        templateUrl: '/app/base/views/admin/child/adminChild1Search.html'
+                        templateUrl: '/app/base/views/admin/child/adminChild1Search.html',
+                        params: {
+                            parentId : null
+                        }
                     }),
-                    'majid2': angularAMD.route({
-                        controllerUrl: '/app/base/views/admin/child/adminChild2SearchController.js',
-                        templateUrl: '/app/base/views/admin/child/adminChild2Search.html'
-                    }),
-                    'majid3': angularAMD.route({
-                        controllerUrl: '/app/base/views/admin/child/adminChild3SearchController.js',
-                        templateUrl: '/app/base/views/admin/child/adminChild3Search.html'
-                    })
+                    //'majid2': angularAMD.route({
+                    //    controllerUrl: '/app/base/views/admin/child/adminChild2SearchController.js',
+                    //    templateUrl: '/app/base/views/admin/child/adminChild2Search.html'
+                    //}),
+                    //'majid3': angularAMD.route({
+                    //    controllerUrl: '/app/base/views/admin/child/adminChild3SearchController.js',
+                    //    templateUrl: '/app/base/views/admin/child/adminChild3Search.html'
+                    //})
 
 
                 },
@@ -220,20 +224,18 @@ define(['angularAMD'], function (angularAMD) {
             $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
                 debugger;
                 var lt = localStorage.getItem('lt');
-                if (lt) {
-                    if (!fromState.name && firstLoad) {
-                        firstLoad = false;
-                        //var lt = localStorage.getItem('lt');
-                        event.preventDefault();
+                if (!fromState.name && firstLoad) {
+                    firstLoad = false;
+                    var lt = localStorage.getItem('lt');
+                    event.preventDefault();
+                    if (lt) {
                         $rootScope.statusforlayout = true;
                         $rootScope.statusforlogin = false;
                         $state.go("main");
                     }
-                }
-                else {
-                    $rootScope.statusforlayout = false;
-                    $rootScope.statusforlogin = true;
-                    if (toState.name !== "login") {
+                    else {
+                        $rootScope.statusforlayout = false;
+                        $rootScope.statusforlogin = true;
                         $state.go("login");
                     }
                 }

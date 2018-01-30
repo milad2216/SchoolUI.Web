@@ -22,7 +22,7 @@ define(['angularAMD'], function (control) {
                     });
                     $rootScope.sections.push({
                         SystemTitle: "مالی", SystemKey: '30f8678d-dffb-e611-ac4f-38d54778b1eb',
-                        Childs: [{ Title: "ثبت چک", Action: "admin" }, { Title: "ثبت چک", Action: "admin" }, { Title: "پرداخت های غیر شهریه", Action: "admin" }]
+                        Childs: [{ Title: "ثبت چک", Action: "adminSearch" }, { Title: "پرداخت های غیر شهریه", Action: "admin" }]
                     });
                     $rootScope.sections.push({ SystemTitle: "مدیریت سیستم", SystemKey: '1f65a61c-ce79-e711-966b-000c29eedd59', Childs: [{ Title: "تست" }] });
                     $rootScope.sections.push({ SystemTitle: "گزارشات سیستم", SystemKey: '1a58337f-ea03-e711-ac51-38d54778b1eb', Childs: [{ Title: "تست" }] });
