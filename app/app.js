@@ -189,6 +189,73 @@ define(['angularAMD'], function (angularAMD) {
                     templateUrl: '/app/base/views/schoolManager/property/property.html'
 
                 }))
+            .state('studentRequestSearch', angularAMD.route(
+                {
+                    url: '/studentRequestSearch',
+                    controller: 'studentRequestSearchController',
+                    controllerUrl: '/app/base/views/student/request/studentRequestSearchController.js',
+                    templateUrl: '/app/base/views/student/request/studentRequestSearch.html'
+
+                }))
+            .state('studentRequestCrud', angularAMD.route(
+                {
+                    url: '/studentRequestCrud',
+                    controller: 'studentRequestCrudController',
+                    controllerUrl: '/app/base/views/student/request/studentRequestCrudController.js',
+                    templateUrl: '/app/base/views/student/request/studentRequestCrud.html',
+                    params: {
+                        studentRequest: {},
+                        mode: "create"
+                    }
+
+                }))
+            .state('payItemSearch', angularAMD.route(
+                {
+                    url: '/payItemSearch',
+                    controller: 'payItemSearchController',
+                    controllerUrl: '/app/base/views/schoolManager/payItem/payItemSearchController.js',
+                    templateUrl: '/app/base/views/schoolManager/payItem/payItemSearch.html'
+
+                }))
+            .state('payItemCrud', angularAMD.route(
+                {
+                    url: '/payItemCrud',
+                    controller: 'payItemCrudController',
+                    controllerUrl: '/app/base/views/schoolManager/payItem/payItemCrudController.js',
+                    templateUrl: '/app/base/views/schoolManager/payItem/payItemCrud.html',
+                    params: {
+                        payItem: {},
+                        mode: "create"
+                    }
+
+                }))
+            .state('disciplineItemSearch', angularAMD.route(
+                {
+                    url: '/disciplineItemSearch',
+                    controller: 'disciplineItemSearchController',
+                    controllerUrl: '/app/base/views/schoolManager/disciplineItem/disciplineItemSearchController.js',
+                    templateUrl: '/app/base/views/schoolManager/disciplineItem/disciplineItemSearch.html'
+
+                }))
+            .state('disciplineItemCrud', angularAMD.route(
+                {
+                    url: '/disciplineItemCrud',
+                    controller: 'disciplineItemCrudController',
+                    controllerUrl: '/app/base/views/schoolManager/disciplineItem/disciplineItemCrudController.js',
+                    templateUrl: '/app/base/views/schoolManager/disciplineItem/disciplineItemCrud.html',
+                    params: {
+                        disciplineItem: {},
+                        mode: "create"
+                    }
+
+                }))
+            .state('message', angularAMD.route(
+                {
+                    url: '/message',
+                    controller: 'messageController',
+                    controllerUrl: '/app/base/views/message/messageController.js',
+                    templateUrl: '/app/base/views/message/message.html'
+                }))
     }]);
 
     app.constant('variables', {
@@ -198,8 +265,8 @@ define(['angularAMD'], function (angularAMD) {
     });
     app.constant('RESOURCES', (function () {
         // Define your variable
-        var resource = 'http://localhost:8080';
-        //var resource = 'http://rubikplus.somee.com';
+        //var resource = 'http://localhost:8080';
+        var resource = 'http://rubikplus.somee.com';
         // Use the variable in your constants
         return {
             USERS_DOMAIN: resource,
@@ -207,8 +274,8 @@ define(['angularAMD'], function (angularAMD) {
             BASIC_INFO: resource + '/api/info'
         }
     })());
-    app.run(['$rootScope', '$state', '$stateParams', '$http', '$window', '$timeout',
-        function ($rootScope, $state, $stateParams, $http, $window, $timeout) {
+    app.run(['$rootScope', '$state', '$stateParams', '$http', '$window', '$timeout', 'dataService', 'RESOURCES',
+        function ($rootScope, $state, $stateParams, $http, $window, $timeout, dataService, RESOURCES) {
 
             $rootScope.statusforlayout = false;
             $rootScope.statusforlogin = false;
@@ -218,18 +285,18 @@ define(['angularAMD'], function (angularAMD) {
                 var lt = localStorage.getItem('lt');
                 if (!fromState.name && firstLoad) {
                     firstLoad = false;
-                    var lt = localStorage.getItem('lt');
                     event.preventDefault();
-                    if (lt) {
+                    dataService.getData(RESOURCES.USERS_DOMAIN + "/api/CheckLogin").then(function (data) {
+                        debugger;
                         $rootScope.statusforlayout = true;
                         $rootScope.statusforlogin = false;
                         $state.go("main");
-                    }
-                    else {
+                    }, function (err) {
+                        debugger;
                         $rootScope.statusforlayout = false;
                         $rootScope.statusforlogin = true;
                         $state.go("login");
-                    }
+                    })
                 }
 
             })

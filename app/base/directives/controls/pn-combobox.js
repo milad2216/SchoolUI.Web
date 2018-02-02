@@ -49,6 +49,7 @@
                     dataValueField: angular.isArray($scope.dataSource) ? attr.valuefield : $scope.dataSource.value,
                     cascadeFrom: $scope.dataSource.cascade,
                     autoBind: $scope.dataSource.autoBind != false ? true : false,
+                    template: $scope.dataSource.template,
                     dataSource: angular.isArray($scope.dataSource) ? [] : getDataSource(),
                     filter: "contains",
                     suggest: true,

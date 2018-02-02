@@ -1,0 +1,24 @@
+﻿<form id="disciplineItemForm" name="disciplineItemForm" style="color:black;">
+    <div class="col-xs-6">
+        <div class="form-group col-xs-8">
+            <span class="col-md-2  label">دانش‌آموز</span>
+            <pn-combo-box ng-model="disciplineItem.StudentId" class="col-md-10" api="api" source="studentOptions"></pn-combo-box>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="form-group col-xs-8">
+            <span class="col-md-2 label">عنوان مورد انظباطی:</span>
+            <input type="text" class="col-md-10 " maxlength="100" required ng-model="disciplineItem.Title" id="title">
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="form-group mar-top-23">
+            <span class="label"> توضیحات مورد انظباطی:</span>
+            <textarea rows="5" class="mousetrap" maxlength="500" required ng-model="disciplineItem.Description" id="Description" lang="fa"></textarea>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <button type="submit" class="btn btn-default center-block" ng-click="saveEntity()">ذخیره</button>
+    </div>
+</form>
+<pn-alert alerts="messages"></pn-alert>

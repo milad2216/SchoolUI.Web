@@ -1,0 +1,33 @@
+﻿<form id="payItemForm" name="payItemForm" style="color:black;">
+    <div class="row margin-top-10">
+        <div class="col-md-3">
+
+            <span class="col-md-4 label">عنوان پرداخت</span>
+            <input type="text" class="col-md-8 " required ng-model="payItem.DscPay" placeholder="عنوان پرداخت">
+
+        </div>
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">میزان پرداخت</span>
+            <input type="number" class="col-md-8 " required ng-model="payItem.Price" placeholder="میزان پرداخت">
+
+        </div>
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">کلاس</span>
+            <pn-combo-box ng-model="schoolClassId" class="col-md-8 "  api="api"  source="schoolClassOptions"></pn-combo-box>
+
+        </div>
+        <div class="col-md-3">
+
+            <span class="col-md-4  label">دانش‌آموز</span>
+            <pn-combo-box ng-model="StudentId" class="col-md-8 "  api="api"  source="studentOptions"></pn-combo-box>
+
+        </div>
+
+
+    </div>
+    <div>
+        <button type="submit" ng-click="saveEntity()">ذخیره</button>
+    </div>
+</form>

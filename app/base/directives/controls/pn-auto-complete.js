@@ -1,6 +1,6 @@
 ﻿define(['angularAMD'], function (control) {
-    control.directive('pnAutoComplete', ['$rootScope', '$timeout', 'localStorageService', 'AuthToken',
-        function factory($rootScope, $timeout, localStorageService, tokenKey) {
+    control.directive('pnAutoComplete', ['$rootScope', '$timeout',
+        function factory($rootScope, $timeout) {
             return {
                 restrict: 'E',
                 scope: {
@@ -26,28 +26,16 @@
                                 read: {
                                     url: $scope.dataSource.transport.read.url,
                                     data: $scope.dataSource.transport.read.data,
-                                    type: "POST",
+                                    beforeSend : $scope.dataSource.transport.read.beforeSend,
+                                    type: $scope.dataSource.transport.read.type,
                                     contentType: "application/json",
                                     //beforeSend: function (req) {
                                     //    req.setRequestHeader('Auth-Token', localStorageService.get(tokenKey));
                                     //},
                                 },
-                                parameterMap: function (data, operation) {
-                                   
-                                    //diablo
-                                    if (operation === "read") {
-                                        data.filter.filters.push(
-                                            {
-                                                field: "SystemFeatureKey",
-                                                ignoreCase: true,
-                                                operator: "eq",
-                                                value: $rootScope.currentTab.FormId// "c8853876-6789-e611-80fa-000c29c9d3ad"
-                                            });
-                                        return angular.toJson(data);
-                                    }
-                                }
+                                
                             },
-                            schema: { data: "Entities" }
+                            schema: { data: "Items" }
                         }
                     }).data("kendoAutoComplete");
 
@@ -56,7 +44,7 @@
                     });
                     $scope.$watch('disabled', function () {
                         if (angular.isDefined($scope.disabled)) {
-                            if ($scope.disabled == true)
+                            if ($scope.disabled === true)
                                 ac.enable(false);
                             else
                                 ac.enable(true);

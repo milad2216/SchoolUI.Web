@@ -1,7 +1,7 @@
 ﻿<div ng-init="init()">
-    <div class="col-xs-12" style="min-height:300px;">
+    <div class="col-xs-12" style="min-height:400px; overflow-x:hidden;overflow-y: auto;">
         <div class="col-xs-3">
-            <div class="scroll-wrapper scrollbar-inner z-depth-5" style="position: relative; overflow-x:hidden;">
+            <div class="scroll-wrapper scrollbar-inner z-depth-5" style="position: relative;">
                 <div class="scrollbar-inner scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 249px;">
 
                     <ul class="list-group">
@@ -19,25 +19,27 @@
                 <div class="md-card-toolbar">
                     <h3 class="md-card-toolbar-heading-text large ng-binding" ng-bind="selectedParent.FullName" id="invoice_name"></h3>
                 </div>
-                <div class="md-card-content invoice_content print_bg" ng-class="invoice_footer_active" style="height: 300px;overflow-x: hidden;overflow-y: auto;">
+                <div class="md-card-content invoice_content print_bg" ng-class="invoice_footer_active" style="height: 400px;overflow-x: hidden;overflow-y: auto;">
                     <div class="uk-grid" data-uk-grid-margin="">
                         <div class="uk-width-small-3-5">
                             <div class="uk-margin-bottom">
                                 <span>مجموع بدهی:</span>
-                                    <p><strong>29,000,000 ریال</strong></p>
+                                <p><strong ng-bind="totalOfNotPay"></strong> ریال</p>
                             </div>
                             <div class="uk-margin-medium-bottom">
                                 <span>مجموع پرداختی ها:</span>
-                                <p><strong>10,000,000 ریال</strong></p>
+                                <p><strong ng-bind="totalOfPaid"></strong> ریال</p>
                             </div>
                         </div>
                         <div class="uk-width-small-2-5 uk-row-first">
                             <span>جمع کل:</span>
-                            <p class="heading_b uk-text-success ng-binding" ng-bind="total">39,000,000 ریال</p>
+                            <p class="heading_b uk-text-success ng-binding"><strong ng-bind="totalOfNotPay + totalOfPaid"></strong> ریال</p>
+                            <!--<p class="heading_b uk-text-success ng-binding" ng-bind=""></p>-->
                         </div>
                     </div>
                     <div class="uk-grid uk-margin-large-bottom">
                         <div class="uk-width-1-1">
+                            <span>پرداخت نشده ها:</span>
                             <table class="uk-table">
                                 <thead>
                                     <tr class="uk-text-upper">
@@ -54,15 +56,44 @@
                                             <span class="uk-text-large ng-binding" ng-bind="payItem.DscPay">شهریه</span><br>
                                             <!--<span class="uk-text-muted uk-text-small ng-binding">شهریه سال تحصیلی 96-97</span>-->
                                         </td>
-                                        <td class="uk-text-center ng-binding" ng-bind="payItem.DateInsert">
-                                        </td>
-                                        <td class="uk-text-center ng-binding" ng-bind="payItem.Price">
-                                        </td>
+                                        <td class="uk-text-center ng-binding" ng-bind="payItem.DateInsert"></td>
+                                        <td class="uk-text-center ng-binding" ng-bind="payItem.Price"></td>
                                         <td class="uk-text-center ng-binding">
-                                            <a><span class="fa fa-credit-card" title="پرداخت"></span></a>
+                                            <a><span class="fa fa-sticky-note" title="پرداخت با چک"></span></a>
+                                            <a style="margin-right:10px;"><span class="fa fa-credit-card" title="پرداخت نقدی"></span></a>
                                         </td>
                                     </tr>
-                                    
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-margin-large-bottom">
+                        <div class="uk-width-1-1">
+                            <span>پرداختی ها:</span>
+                            <table class="uk-table">
+                                <thead>
+                                    <tr class="uk-text-upper">
+                                        <th>عنوان پرداخت</th>
+                                        <th class="uk-text-center">تاریخ ثبت</th>
+                                        <th class="uk-text-center">مبلغ</th>
+                                        <th class="uk-text-center">عملیات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- ngRepeat: service in invoice.services -->
+                                    <tr class="uk-table-middle ng-scope" ng-repeat="payItem in paidItems" on-last-repeat="">
+                                        <td>
+                                            <span class="uk-text-large ng-binding" ng-bind="payItem.DscPay">شهریه</span><br>
+                                            <!--<span class="uk-text-muted uk-text-small ng-binding">شهریه سال تحصیلی 96-97</span>-->
+                                        </td>
+                                        <td class="uk-text-center ng-binding" ng-bind="payItem.DateInsert"></td>
+                                        <td class="uk-text-center ng-binding" ng-bind="payItem.Price"></td>
+                                        <td class="uk-text-center ng-binding">
+                                            <a><span class="fa fa-credit-card" title="عدم پرداخت"></span></a>
+                                        </td>
+                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -84,7 +115,7 @@
 
         .box:hover,
         .box:focus {
-            background-color : rgba(178,219,251,0.15);
+            background-color: rgba(178,219,251,0.15);
             box-shadow: 0 0.5em 0.5em 0.4em var(--hover);
             transform: translateY(-0.25em);
         }

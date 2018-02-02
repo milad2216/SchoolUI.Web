@@ -25,7 +25,7 @@
                     $scope.student.ParentMother = data;
                 });
             }
-            if ($stateParams.mode == "edit") {
+            if ($stateParams.mode === "edit") {
                 reloadData($stateParams.student);
                 //academicYearApi.setValue(AcademicYearId)
             }
@@ -64,9 +64,9 @@
 
             $scope.saveEntity = function () {
                 if ($scope.studentForm.$valid) {
-                    if ($stateParams.mode == "create") {
+                    if ($stateParams.mode === "create") {
                         dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Students', { Student: $scope.student, Base64Image: $scope.base64Image });
-                    } else if ($stateParams.mode == "edit") {
+                    } else if ($stateParams.mode === "edit") {
                         dataService.updateEntity(RESOURCES.USERS_DOMAIN + '/api/Students/' + $scope.student.Id, { Student: $scope.student, Base64Image: $scope.base64Image });
                         $state.go("studentSearch")
                     }

@@ -254,6 +254,7 @@
     <Content Include="app\base\directives\controls\pn-treeview.js" />
     <Content Include="app\base\i18n\en.js" />
     <Content Include="app\base\i18n\fa.js" />
+    <Content Include="app\base\services\UserMenuAccessService.js" />
     <Content Include="app\base\views\admin\child\adminChild1Search.html" />
     <Content Include="app\base\views\admin\child\adminChild2Search.html" />
     <Content Include="app\base\views\admin\child\adminChild3Search.html" />
@@ -262,6 +263,14 @@
     <Content Include="app\base\views\admin\child\adminChild1SearchController.js" />
     <Content Include="app\base\views\admin\main\adminSearch.html" />
     <Content Include="app\base\views\admin\main\adminSearchController.js" />
+    <Content Include="app\base\views\message\message.html" />
+    <Content Include="app\base\views\message\messageController.js" />
+    <Content Include="app\base\views\message\messageDetails.html" />
+    <Content Include="app\base\views\message\messageDetailsController.js" />
+    <Content Include="app\base\views\schoolManager\disciplineItem\disciplineItemCrud.html" />
+    <Content Include="app\base\views\schoolManager\disciplineItem\disciplineItemCrudController.js" />
+    <Content Include="app\base\views\schoolManager\disciplineItem\disciplineItemSearch.html" />
+    <Content Include="app\base\views\schoolManager\disciplineItem\disciplineItemSearchController.js" />
     <Content Include="app\base\views\schoolManager\driver\driverCrud.html" />
     <Content Include="app\base\views\schoolManager\driver\driverCrudController.js" />
     <Content Include="app\base\views\schoolManager\driver\driverSearch.html" />
@@ -276,6 +285,10 @@
     <Content Include="app\base\views\login\loginController.js" />
     <Content Include="app\base\views\main\mainController.js" />
     <Content Include="app\base\views\main\main.html" />
+    <Content Include="app\base\views\schoolManager\payItem\payItemCrud.html" />
+    <Content Include="app\base\views\schoolManager\payItem\payItemCrudController.js" />
+    <Content Include="app\base\views\schoolManager\payItem\payItemSearch.html" />
+    <Content Include="app\base\views\schoolManager\payItem\payItemSearchController.js" />
     <Content Include="app\base\views\schoolManager\property\property.html" />
     <Content Include="app\base\views\schoolManager\property\propertyController.js" />
     <Content Include="app\base\views\schoolManager\SchoolClasses\schoolClasses.html" />
@@ -289,6 +302,10 @@
     <Content Include="app\base\views\schoolManager\teacher\teacherCrud.html" />
     <Content Include="app\base\views\schoolManager\teacher\teacherCrudController.js" />
     <Content Include="app\base\views\schoolManager\teacher\teacherSearchController.js" />
+    <Content Include="app\base\views\student\request\studentRequestCrud.html" />
+    <Content Include="app\base\views\student\request\studentRequestCrudController.js" />
+    <Content Include="app\base\views\student\request\studentRequestSearch.html" />
+    <Content Include="app\base\views\student\request\studentRequestSearchController.js" />
     <Content Include="app\main.js" />
     <Content Include="app\base\partials\directives\accordion.html" />
     <Content Include="app\base\partials\directives\numeric.html" />
@@ -2468,6 +2485,7 @@
     <Content Include="Scripts\bower_components\angular-translate-loader-partial\angular-translate-loader-partial.min.js" />
     <Content Include="Scripts\bower_components\angular-translate.min.js" />
     <Content Include="Scripts\bower_components\angular-ui-notification.min.js" />
+    <Content Include="Scripts\bower_components\common.min.js" />
     <Content Include="Scripts\bower_components\date\JalaliDate.js" />
     <Content Include="Scripts\bower_components\date\moment-jalaali.js" />
     <Content Include="Scripts\bower_components\date\moment.min.js" />

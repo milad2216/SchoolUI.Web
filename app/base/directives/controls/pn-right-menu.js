@@ -1,7 +1,7 @@
 ﻿debugger
 define(['angularAMD'], function (control) {
-    control.directive('pnRightMenu', ['$rootScope', '$state', 'variables', "Notification",
-        function ($rootScope, $state, variables, notify) {
+    control.directive('pnRightMenu', ['$rootScope', '$state', 'variables', "Notification", 'userMenuAccessService',
+        function ($rootScope, $state, variables, notify, userMenuAccessService) {
             return {
                 restrict: 'E',
                 replace: false,
@@ -13,19 +13,26 @@ define(['angularAMD'], function (control) {
                 templateUrl: '/app/base/partials/directives/pn-right-menu.html',
                 controller: function ($scope) {
                     $rootScope.sections = [];
-                    $rootScope.sections.push({
-                        SystemTitle: "اطلاعات پایه", SystemKey: '05e77746-d179-e711-966b-000c29eedd59',
-                        Childs: [{ Title: "کلاس", Action: "schoolClasses" }, { Title: "دانش آموز", Action: "studentSearch" },
-                            { Title: "کارمند", Action: "employeeSearch" }, { Title: "معلم", Action: "teacherSearch" },
-                            { Title: "راننده", Action: "driverSearch" }, { Title: "شهریه", Action: "gradeAcademicYear" },
-                        { Title: "معلم کلاس", Action: "schoolCourse" }, { Title: "بایگانی", Action: "property" }]
-                    });
-                    $rootScope.sections.push({
-                        SystemTitle: "مالی", SystemKey: '30f8678d-dffb-e611-ac4f-38d54778b1eb',
-                        Childs: [{ Title: "ثبت چک", Action: "adminSearch" }, { Title: "پرداخت های غیر شهریه", Action: "admin" }]
-                    });
-                    $rootScope.sections.push({ SystemTitle: "مدیریت سیستم", SystemKey: '1f65a61c-ce79-e711-966b-000c29eedd59', Childs: [{ Title: "تست" }] });
-                    $rootScope.sections.push({ SystemTitle: "گزارشات سیستم", SystemKey: '1a58337f-ea03-e711-ac51-38d54778b1eb', Childs: [{ Title: "تست" }] });
+                    
+                    var aut = JSON.parse(localStorage.getItem("lt"));
+
+                    switch (aut.user_type) {
+                        case "Manager":
+                            $rootScope.sections = userMenuAccessService.ManagerMenus();
+                            break;
+                        case "Student":
+                            $rootScope.sections = userMenuAccessService.StudentMenus();
+                            break;
+                        case "Teacher":
+                            $rootScope.sections = userMenuAccessService.TeacherMenus();
+                            break;
+                        case "Parent":
+                            $rootScope.sections = userMenuAccessService.ParentMenus();
+                            break;
+                        case "Employee":
+                            $rootScope.sections = userMenuAccessService.EmployeeMenus();
+                            break;
+                    }
                 },
                 link: function ($scope, $elem, $attrs) {
 

@@ -8,13 +8,21 @@
                 var then = this;
                 var deferred = $q.defer();
                 var aut = JSON.parse(localStorage.getItem("lt"));
+                if (!aut) {
+                    aut = {
+                        token_type: "",
+                        access_token:""
+                    }
+                }
                 $http({
                     Method: 'GET', url: url, params: filterInfo, headers: {
                         'Authorization': aut.token_type + ' ' + aut.access_token,
                         'Content-Type': 'application/json'
                     }
-                }).success(function (response) {
-                    deferred.resolve(response);
+                }).then(function (response) {
+                    deferred.resolve(response.data);
+                }, function (er) {
+                    deferred.reject(er);
                 });
                 return deferred.promise;
             },
