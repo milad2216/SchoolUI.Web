@@ -1,7 +1,7 @@
 ﻿debugger
 define(['app'], function (app) {
-    app.register.controller('messageController', ['$scope', '$rootScope', '$stateParams', '$state', 'dataService', 'RESOURCES', '$timeout', 'variables',
-        function ($scope, $rootScope, $stateParams, $state, dataService, RESOURCES, $timeout, variables) {
+    app.register.controller('messageController', ['$scope', '$rootScope', '$stateParams', '$state', 'dataService', 'RESOURCES', '$timeout', 'variables', 'enumService',
+        function ($scope, $rootScope, $stateParams, $state, dataService, RESOURCES, $timeout, variables, enumService) {
             debugger
             $scope.messages = [];
             dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Messages?$expand=UserSender').then(function (data) {
@@ -14,7 +14,6 @@ define(['app'], function (app) {
                 $rootScope.toBarActive = false;
             });
 
-            var $mailbox = $('#mailbox');
             $scope.persionDate = function(georg){
                 return moment(georg).format('YYYY-MM-DD');
             }
@@ -30,25 +29,46 @@ define(['app'], function (app) {
             $scope.autoCompleteOptions = {
                 source: RESOURCES.USERS_DOMAIN + '/api/Users'
             }
-            $scope.userOptions = {
-                autoBind: false,
-                text: "Username",
-                value: "Id",
-                transport: {
-                    read: {
-                        url: RESOURCES.USERS_DOMAIN + "/api/Users?inlinecount=allpages",
-                        beforeSend: function (request) {
-                            debugger;
-                            var aut = JSON.parse(localStorage.getItem("lt"));
-                            request.setRequestHeader('Authorization', aut.token_type + ' ' + aut.access_token);
-                        },
-                        type: "GET"
-                    }
+            
+
+            $scope.userTypeOptions = [];
+            var userTypeItems = [];
+            debugger;
+            angular.forEach(enumService.RoleEnum(), function (value, key) {
+                userTypeItems.push({ text: value.Text, value: value.Value });
+            });
+            $scope.userTypeOptions = userTypeItems;
+            $scope.userTypeOnClose = function (combo) {
+                var userType = combo.dataSource._data[combo.selectedIndex].value;
+                debugger;
+                switch (userType) {
+                    case "Student":
+                        $("#divStudent").show();
+                        $scope.userOptions = {
+                            autoBind: false,
+                            text: "LastName",
+                            value: "UserId",
+                            template: '<span style="color:black;background-color: rgba(121, 120, 120, 0.99) !important;" class="k-state-default"><h3>#: data.FirstName #</h3><p>#: data.LastName #</p></span>',
+                            transport: {
+                                read: {
+                                    url: RESOURCES.USERS_DOMAIN + "/api/Students?inlinecount=allpages",
+                                    beforeSend: function (request) {
+                                        debugger;
+                                        var aut = JSON.parse(localStorage.getItem("lt"));
+                                        request.setRequestHeader('Authorization', aut.token_type + ' ' + aut.access_token);
+                                    },
+                                    type: "GET"
+                                }
+                            }
+                        };
                 }
-            };
+                $scope.userTypeSelected = userType;
+            }
+
+
+            var $mailbox = $('#mailbox');
             // select message
-            $mailbox
-                .on('ifChanged', '.select_message', function() {
+            $mailbox.on('click', '.select_message', function () {
                     $(this).is(':checked') ? $(this).closest('li').addClass('md-card-list-item-selected') : $(this).closest('li').removeClass('md-card-list-item-selected');
                 });
 

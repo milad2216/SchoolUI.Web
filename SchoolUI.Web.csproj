@@ -289,8 +289,12 @@
     <Content Include="app\base\views\schoolManager\payItem\payItemCrudController.js" />
     <Content Include="app\base\views\schoolManager\payItem\payItemSearch.html" />
     <Content Include="app\base\views\schoolManager\payItem\payItemSearchController.js" />
+    <Content Include="app\base\views\schoolManager\photoAlbum\photoAlbum.html" />
+    <Content Include="app\base\views\schoolManager\photoAlbum\photoAlbumController.js" />
     <Content Include="app\base\views\schoolManager\property\property.html" />
     <Content Include="app\base\views\schoolManager\property\propertyController.js" />
+    <Content Include="app\base\views\schoolManager\requestManagment\requestManagmentSearchController.js" />
+    <Content Include="app\base\views\schoolManager\requestManagment\requestManagmentSearch.html" />
     <Content Include="app\base\views\schoolManager\SchoolClasses\schoolClasses.html" />
     <Content Include="app\base\views\schoolManager\SchoolClasses\schoolClassesController.js" />
     <Content Include="app\base\views\schoolManager\schoolCourse\schoolCourse.html" />

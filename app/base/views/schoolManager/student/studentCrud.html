@@ -74,18 +74,12 @@
         </div>
         <div class="col-md-3">
 
-            <span class="col-md-4  label">رشته تحصیلی</span>
-            <input type="text" class="col-md-8 " ng-model="student.Major" placeholder="رشته تحصیلی">
-
-        </div>
-    </div>
-    <div class="row margin-top-10">
-        <div class="col-md-3">
-
             <span class="col-md-4  label">آدرس</span>
             <input type="text" class="col-md-8 " ng-model="student.Address" placeholder="آدرس">
 
         </div>
+    </div>
+    <div class="row margin-top-10">
         <div class="col-md-3">
 
             <span class="col-md-4  label">مدرسه</span>
@@ -104,8 +98,6 @@
             <pn-combo-box ng-model="student.GradeAcademicYearId" class="col-md-8 " api="api" source="gradeAcademicYearOptions" textfield="text" valuefield="value"></pn-combo-box>
 
         </div>
-    </div>
-    <div class="row margin-top-10">
         <div class="col-md-3">
 
             <span class="col-md-4  label">راننده</span>
@@ -113,6 +105,7 @@
 
         </div>
     </div>
+
     <div class="row margin-top-10">
         <div class="col-md-3">
 
@@ -173,7 +166,7 @@
             </div>
         </div>
     </div>
-    <div>
-        <button type="submit" ng-click="saveEntity()">ذخیره</button>
+    <div class="col-xs-12">
+        <button type="submit" class="btn btn-default center-block" ng-click="saveEntity()">ذخیره</button>
     </div>
 </form>

@@ -299,7 +299,7 @@
 
     .app_theme_dark .uk-modal-dialog,
     .app_theme_dark .uk-modal-dialog .uk-modal-footer {
-        background: #424242;
+        background: rgb(85, 85, 85);
     }
 
     .app_theme_dark .uk-pagination > li > a:hover {

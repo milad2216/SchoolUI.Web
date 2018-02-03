@@ -126,7 +126,7 @@ define(['app'], function (app) {
                 columns: [
                     {
                         field: "Name",
-                        title: "نام مدرسه"
+                        title: "نام کلاس"
 
                     },
                     {
@@ -140,16 +140,6 @@ define(['app'], function (app) {
                             }
                         }
                     },
-                    //{
-                    //    field: "SchoolName", title: "نام مدرسه",
-                    //    filterable:
-                    //    {
-                    //        cell:
-                    //        {
-                    //            dataSource: {},
-                    //        }
-                    //    }
-                    //},
                     {
                         command: ["edit", "delete"],
                         title: "&nbsp;",

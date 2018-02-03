@@ -22,7 +22,7 @@
                     Childs: [{ Title: " ثبت موارد انظباطی", Action: "disciplineItemSearch" }]
                 }, {
                     SystemTitle: "ارتباطات", SystemKey: '1f65a61c-ce79-e711-966b-000c29eedd59',
-                    Childs: [{ Title: "پیام ها", Action: "message" }]
+                    Childs: [{ Title: "پیام ها", Action: "message" }, { Title: "مدیریت درخواست", Action: "requestManagmentSearch" }]
                 }
                 ];
                 return menus;
@@ -32,23 +32,32 @@
                 var menus = [
                     {
                         SystemTitle: "ارتباطات", SystemKey: '1f65a61c-ce79-e711-966b-000c29eedd59',
-                        Childs: [{ Title: "ثبت درخواست", Action: "studentRequestSearch" }]
+                        Childs: [{ Title: "پیام ها", Action: "message" }, { Title: "ثبت درخواست", Action: "studentRequestSearch" }]
                     }
                 ];
                 return menus;
             },
             TeacherMenus: function () {
-                var menus = [
+                var menus = [{
+                    SystemTitle: "ارتباطات", SystemKey: '1f65a61c-ce79-e711-966b-000c29eedd59',
+                    Childs: [{ Title: "پیام ها", Action: "message" }]
+                }
                 ];
                 return menus;
             },
             ParentMenus: function () {
-                var menus = [
+                var menus = [{
+                    SystemTitle: "ارتباطات", SystemKey: '1f65a61c-ce79-e711-966b-000c29eedd59',
+                    Childs: [{ Title: "پیام ها", Action: "message" }]
+                }
                 ];
                 return menus;
             },
             EmployeeMenus: function () {
-                var menus = [
+                var menus = [{
+                    SystemTitle: "ارتباطات", SystemKey: '1f65a61c-ce79-e711-966b-000c29eedd59',
+                    Childs: [{ Title: "پیام ها", Action: "message" }]
+                }
                 ];
                 return menus;
             }

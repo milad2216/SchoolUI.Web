@@ -7,12 +7,35 @@ define(['angularAMD'], function (angularAMD) {
         'ui-notification',
         'ui.bootstrap',
         'blockUI',
-        'kendo.directives',
+        'kendo.directives'
     ])
 
     app.config(function ($logProvider) {
         $logProvider.debugEnabled(false);
     });
+
+    app.config(function (blockUIConfigProvider) {
+        blockUIConfigProvider.message("");
+        blockUIConfigProvider.delay(1);
+        blockUIConfigProvider.autoBlock(false);
+    });
+
+    app.config(["NotificationProvider", function (notificationProvider) {
+        notificationProvider.options.positionX = "right";
+        notificationProvider.options.positionY = "top";
+        //    = {
+        //    delay: 5e3,
+        //    startTop: 10,
+        //    startRight: 10,
+        //    verticalSpacing: 10,
+        //    horizontalSpacing: 10,
+        //    positionX: "right",
+        //    positionY: "top",
+        //    replaceMessage: !1,
+        //    templateUrl: "angular-ui-notification.html"
+        //}
+        notificationProvider.setOptions(notificationProvider.options);
+    }]);
 
     app.config(function ($controllerProvider, $provide, $compileProvider, $filterProvider, $httpProvider) {
         app.register = {
@@ -255,6 +278,25 @@ define(['angularAMD'], function (angularAMD) {
                     controller: 'messageController',
                     controllerUrl: '/app/base/views/message/messageController.js',
                     templateUrl: '/app/base/views/message/message.html'
+                }))
+            .state('requestManagmentSearch', angularAMD.route(
+                {
+                    url: '/requestManagmentSearch',
+                    controller: 'requestManagmentSearchController',
+                    controllerUrl: '/app/base/views/schoolManager/requestManagment/requestManagmentSearchController.js',
+                    templateUrl: '/app/base/views/schoolManager/requestManagment/requestManagmentSearch.html'
+
+                }))
+            .state('requestManagment', angularAMD.route(
+                {
+                    url: '/requestManagment',
+                    controller: 'requestManagmentController',
+                    controllerUrl: '/app/base/views/schoolManager/requestManagment/requestManagmentController.js',
+                    templateUrl: '/app/base/views/schoolManager/requestManagment/requestManagment.html',
+                    params: {
+                        studentRequest: {},
+                        mode: "view"
+                    }
                 }))
     }]);
 

@@ -19,6 +19,7 @@
                         placeholder: $scope.dataSource.placeholder,
                         filter: "contains",
                         minLength: 3,
+                        template: $scope.dataSource.template,
                         dataSource: {
                             type: "json",
                             serverFiltering: true,

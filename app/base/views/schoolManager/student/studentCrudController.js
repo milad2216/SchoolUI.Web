@@ -1,6 +1,6 @@
 ﻿define(['app'], function (app) {
-    app.register.controller('studentCrudController', ['$scope', '$rootScope', 'dataService', '$stateParams', 'enumService', '$state', 'RESOURCES',
-        function ($scope, $rootScope, dataService, $stateParams, enumService, $state, RESOURCES) {
+    app.register.controller('studentCrudController', ['$scope', '$rootScope', 'dataService', '$stateParams', 'enumService', '$state', 'RESOURCES', 'Notification',
+        function ($scope, $rootScope, dataService, $stateParams, enumService, $state, RESOURCES, Notification) {
 
             var reloadData = function (student) {
                 $scope.student = student;
@@ -17,11 +17,9 @@
                     });
                 });
                 dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Parents/' + student.ParentIdFather).then(function (data) {
-                    debugger;
                     $scope.student.ParentFather = data;
                 });
                 dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Parents/' + student.ParentIdMother).then(function (data) {
-                    debugger;
                     $scope.student.ParentMother = data;
                 });
             }
@@ -37,7 +35,6 @@
 
             }
             $scope.base64ImageFileOnSelect = function (fileStream, fileInfo) {
-                debugger;
                 $scope.base64Image = fileStream.split(',')[1];
             }
             $scope.base64ImageFileOnRemove = function (e) {
@@ -45,14 +42,12 @@
             }
 
             $scope.gradeAcademicYearOptions = [];
-           
+
 
             $scope.academicYearOptions = [{ text: "سال تحصیلی 96-97", value: '8' }, { text: "سال تحصیلی 97-98", value: '4' }, { text: "سال تحصیلی 98-99", value: '5' }];
             $scope.academicYearOnSelect = function (combo) {
-                debugger;
                 var academicYearId = combo.dataSource._data[combo.selectedIndex].value;
                 dataService.getData(RESOURCES.USERS_DOMAIN + "/api/GradeAcademicYears?inlinecount=allpages&$filter=AcademicYearId eq " + academicYearId).then(function (data) {
-                    debugger;
                     var items = [];
                     angular.forEach(data.Items, function (value, key) {
                         var majorText = enumService.MajorEnum(value.Major);
@@ -65,10 +60,21 @@
             $scope.saveEntity = function () {
                 if ($scope.studentForm.$valid) {
                     if ($stateParams.mode === "create") {
-                        dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Students', { Student: $scope.student, Base64Image: $scope.base64Image });
+                        dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Students', { Student: $scope.student, Base64Image: $scope.base64Image }).then(function (id) {
+                            if (id) {
+                                Notification.success("با موفقیت ثبت شد.");
+                                $state.go("studentSearch");
+                            }
+                        }, function (err) {
+                            Notification.error("اشکال در ثبت.");
+                        });
                     } else if ($stateParams.mode === "edit") {
-                        dataService.updateEntity(RESOURCES.USERS_DOMAIN + '/api/Students/' + $scope.student.Id, { Student: $scope.student, Base64Image: $scope.base64Image });
-                        $state.go("studentSearch")
+                        dataService.updateEntity(RESOURCES.USERS_DOMAIN + '/api/Students/' + $scope.student.Id, { Student: $scope.student, Base64Image: $scope.base64Image }).then(function () {
+                            Notification.success("با موفقیت ذخیره شد.");
+                            $state.go("studentSearch");
+                        }, function (err) {
+                            Notification.error("اشکال در ذخیره.");
+                        });
                     }
                 }
             }
@@ -82,37 +88,21 @@
                 }
             }
             $scope.schoolClassOptions = {
-                autoBind:false,
+                autoBind: false,
                 text: "Name",
-                value:"Id",
+                value: "Id",
                 transport: {
                     read: {
                         url: RESOURCES.USERS_DOMAIN + "/api/SchoolClasses?inlinecount=allpages",
                         beforeSend: function (request) {
-                            debugger;
                             var aut = JSON.parse(localStorage.getItem("lt"));
                             request.setRequestHeader('Authorization', aut.token_type + ' ' + aut.access_token);
                         },
-                        type:"GET"
+                        type: "GET"
                     }
                 }
             };
-            //$scope.gradeAcademicYearOptions = {
-            //    autoBind: false,
-            //    text: "AcademicYear.Name",
-            //    value: "Id",
-            //    transport: {
-            //        read: {
-            //            url: RESOURCES.USERS_DOMAIN + "/api/GradeAcademicYears?$expand=AcademicYear&inlinecount=allpages",
-            //            beforeSend: function (request) {
-            //                debugger;
-            //                var aut = JSON.parse(localStorage.getItem("lt"));
-            //                request.setRequestHeader('Authorization', aut.token_type + ' ' + aut.access_token);
-            //            },
-            //            type: "GET"
-            //        }
-            //    }
-            //};
+
             $scope.driverOptions = {
                 autoBind: false,
                 text: "LastName",
@@ -121,7 +111,6 @@
                     read: {
                         url: RESOURCES.USERS_DOMAIN + "/api/Drivers?inlinecount=allpages",
                         beforeSend: function (request) {
-                            debugger;
                             var aut = JSON.parse(localStorage.getItem("lt"));
                             request.setRequestHeader('Authorization', aut.token_type + ' ' + aut.access_token);
                         },

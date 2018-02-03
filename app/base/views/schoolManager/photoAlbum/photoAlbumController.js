@@ -1,17 +1,12 @@
 ﻿debugger
 define(['app'], function (app) {
-    app.register.controller('gradeAcademicYearController', ['$scope', '$rootScope', 'dataService', 'enumService', 'RESOURCES',
+    app.register.controller('photoAlbumController', ['$scope', '$rootScope', 'dataService', 'enumService', 'RESOURCES',
         function ($scope, $rootScope, dataService, enumService, RESOURCES) {
             debugger;
-            //var destroy = function (e) {
-            //    debugger;
-            //    dataService.deleteEntity()
-            //}
-          //  $scope.mainGridOptions = {};
 
             dataService.getData(RESOURCES.USERS_DOMAIN + '/api/AcademicYears').then(function (data) {
                 var items = [];
-                angular.forEach(data.Items, function (value, key) {
+                angular.forEach(data, function (value, key) {
                     items.push({ text: value.Name, value: value.Id });
                 });
                 //var items = [{ text: "سال تحصیلی 96-97", value: '8' }, { text: "سال تحصیلی 97-98", value: '4' }, { text: "سال تحصیلی 98-99", value: '5' }];
@@ -102,9 +97,9 @@ define(['app'], function (app) {
                             Id: { type: "number", editable: false, nullable: false },
                             Grade: { type: "number", nullable: false, validation: { required: { message: "انتخاب پایه الزامی است." } } },
                             AcademicYearId: { type: "number", nullable: false, validation: { required: { message: "انتخاب سال تحصیلی الزامی است." } } },
-                            //Tuition: { type: "number", nullable: false, validation: { required: { message: "وارد نمودن شهریه الزامی است." } } },
+                            Tuition: { type: "number", nullable: false, validation: { required: { message: "وارد نمودن شهریه الزامی است." } } },
                             SchoolId: { type: "number", nullable: false },
-                            Major : {type:"string"}
+                            Major: { type: "string" }
                         }
                     }
                 },
@@ -155,22 +150,21 @@ define(['app'], function (app) {
                             title: 'سال تحصیلی',
                             width: '300px',
                             values: academicYearItems
-                        },{
+                        }, {
                             field: "Major",
                             title: "رشته",
                             values: majorItems
+                        }, {
+                            field: "Tuition",
+                            title: "شهریه",
+                            filterable:
+                            {
+                                cell:
+                                {
+                                    dataSource: {},
+                                }
+                            }
                         },
-                        //{
-                        //    field: "Tuition",
-                        //    title: "شهریه",
-                        //    filterable:
-                        //    {
-                        //        cell:
-                        //        {
-                        //            dataSource: {},
-                        //        }
-                        //    }
-                        //},
                         //{
                         //    field: "SchoolName", title: "نام مدرسه",
                         //    filterable:

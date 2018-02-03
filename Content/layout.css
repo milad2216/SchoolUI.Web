@@ -2948,6 +2948,7 @@ body {
     -webkit-tap-highlight-color: transparent !important;
     border-color: #dddada !important;
     box-shadow: none !important;
+    padding:0px !important;
 }
 
 
@@ -2964,11 +2965,13 @@ body {
 
 
 
-.k-list-container {
-    background-color: #fff !important;
+.k-list > li {
+    background-color: rgba(121, 120, 120, 0.99) !important;
 }
 
+div > .k-list-container{
 
+}
 
 
 .pn-combo-box input:focus {
@@ -3279,9 +3282,9 @@ table.table-condensed td input {
     font-size: 13px;
 }
 
-.ng-binding {
+/*.ng-binding {
     font-size: 13px;
-}
+}*/
 
 .fieldgroup-grid-creat .k-grid-content {
     /*  height:calc(100% - 10px) !important;*/

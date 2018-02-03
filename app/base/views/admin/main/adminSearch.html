@@ -24,27 +24,26 @@
                         <div class="uk-width-small-3-5">
                             <div class="uk-margin-bottom">
                                 <span>مجموع بدهی:</span>
-                                <p><strong ng-bind="totalOfNotPay"></strong> ریال</p>
+                                <p class="uk-text-danger"><strong ng-bind="totalOfNotPay"></strong> ریال</p>
                             </div>
                             <div class="uk-margin-medium-bottom">
                                 <span>مجموع پرداختی ها:</span>
-                                <p><strong ng-bind="totalOfPaid"></strong> ریال</p>
+                                <p class="uk-text-success"><strong ng-bind="totalOfPaid"></strong> ریال</p>
                             </div>
                         </div>
                         <div class="uk-width-small-2-5 uk-row-first">
                             <span>جمع کل:</span>
-                            <p class="heading_b uk-text-success ng-binding"><strong ng-bind="totalOfNotPay + totalOfPaid"></strong> ریال</p>
+                            <p class="heading_b ng-binding"><strong ng-bind="totalOfNotPay + totalOfPaid"></strong> ریال</p>
                             <!--<p class="heading_b uk-text-success ng-binding" ng-bind=""></p>-->
                         </div>
                     </div>
                     <div class="uk-grid uk-margin-large-bottom">
                         <div class="uk-width-1-1">
                             <span>پرداخت نشده ها:</span>
-                            <table class="uk-table">
+                            <table class="uk-table" ng-show="payItems.length>0">
                                 <thead>
                                     <tr class="uk-text-upper">
                                         <th>عنوان پرداخت</th>
-                                        <th class="uk-text-center">تاریخ ثبت</th>
                                         <th class="uk-text-center">مبلغ</th>
                                         <th class="uk-text-center">عملیات</th>
                                     </tr>
@@ -56,26 +55,25 @@
                                             <span class="uk-text-large ng-binding" ng-bind="payItem.DscPay">شهریه</span><br>
                                             <!--<span class="uk-text-muted uk-text-small ng-binding">شهریه سال تحصیلی 96-97</span>-->
                                         </td>
-                                        <td class="uk-text-center ng-binding" ng-bind="payItem.DateInsert"></td>
                                         <td class="uk-text-center ng-binding" ng-bind="payItem.Price"></td>
                                         <td class="uk-text-center ng-binding">
-                                            <a><span class="fa fa-sticky-note" title="پرداخت با چک"></span></a>
-                                            <a style="margin-right:10px;"><span class="fa fa-credit-card" title="پرداخت نقدی"></span></a>
+                                            <a><span class="fa fa-sticky-note" ng-click="showNewCkeckPupop(payItem.Id)" title="پرداخت با چک"></span></a>
+                                            <a style="margin-right:10px;" ng-click="showNewParentPaymentPupop(payItem.Id)"><span class="fa fa-credit-card" title="پرداخت نقدی"></span></a>
                                         </td>
                                     </tr>
 
                                 </tbody>
                             </table>
+                            <p  ng-show="payItems.length==0">موردی برای نمایش یافت نشد.</p>
                         </div>
                     </div>
                     <div class="uk-grid uk-margin-large-bottom">
                         <div class="uk-width-1-1">
                             <span>پرداختی ها:</span>
-                            <table class="uk-table">
+                            <table class="uk-table" ng-show="paidItems.length>0">
                                 <thead>
                                     <tr class="uk-text-upper">
                                         <th>عنوان پرداخت</th>
-                                        <th class="uk-text-center">تاریخ ثبت</th>
                                         <th class="uk-text-center">مبلغ</th>
                                         <th class="uk-text-center">عملیات</th>
                                     </tr>
@@ -87,20 +85,100 @@
                                             <span class="uk-text-large ng-binding" ng-bind="payItem.DscPay">شهریه</span><br>
                                             <!--<span class="uk-text-muted uk-text-small ng-binding">شهریه سال تحصیلی 96-97</span>-->
                                         </td>
-                                        <td class="uk-text-center ng-binding" ng-bind="payItem.DateInsert"></td>
                                         <td class="uk-text-center ng-binding" ng-bind="payItem.Price"></td>
                                         <td class="uk-text-center ng-binding">
-                                            <a><span class="fa fa-credit-card" title="عدم پرداخت"></span></a>
+                                            <a><span class="fa fa-remove" title="حذف پرداخت"></span></a>
                                         </td>
                                     </tr>
 
                                 </tbody>
                             </table>
+                            <p ng-show="paidItems.length==0">موردی برای نمایش یافت نشد.</p>
                         </div>
                     </div>
                     <!-- ngIf: invoice.footer -->
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="uk-modal ng-scope uk-open" id="payByCash" aria-hidden="true" style="display: none; overflow-y: scroll; color:white;">
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close uk-close" type="button" ng-click="closePupop('payByCash')"></button>
+            <form name="newParentPaymentForm" class="ng-pristine ng-valid">
+                <div class="uk-modal-header">
+                    <h3 class="uk-modal-title">پرداخت نقدی</h3>
+                </div>
+                <div class="uk-margin-medium-bottom">
+                    <div class="md-input-wrapper">
+                        <label for="mail_new_to" style="position:unset; color:white !important;">تاریخ پرداخت</label>
+                        <input type="date" text-required='انتخاب تاریخ پرداخت اجباریست' kendo-date-picker options="dateOptionsPayDate" class="col-md-8 form-control k-rtl" name="PayDate" k-ng-model="newParentPayment.DateInsert" />
+                    </div>
+
+
+                </div>
+                <div class="uk-margin-medium-bottom col-md-12" style="margin-top:100px !important;">
+                    <div class="col-md-12">
+                        <label for="gradeAcademicYearId" class="col-md-4" style="position:unset; color:white !important;">انتخاب مقطع</label>
+                        <pn-combo-box ng-model="newParentPayment.GradeAcademicYearId" required class="col-md-8 " api="api" source="gradeAcademicYearOptions" textfield="text" valuefield="value" id="gradeAcademicYearId"></pn-combo-box>
+                    </div>
+
+                </div>
+                <div class="uk-modal-footer" style="margin-top:100px;margin-right:30%;">
+                    <button type="button" class="btn btn-default btn-primary" ng-click="saveParentPaymentEntity()">ثبت</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="uk-modal ng-scope uk-open" id="payByCheck" aria-hidden="true" style="display: none; overflow-y: scroll; color:white;">
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close uk-close" type="button" ng-click="closePupop('payByCheck')"></button>
+            <form name="newCheckForm" class="ng-pristine ng-valid">
+                <div class="uk-modal-header">
+                    <h3 class="uk-modal-title">پرداخت با چک</h3>
+                </div>
+                <div class="uk-margin-medium-bottom">
+                    <div class="md-input-wrapper">
+                        <label for="newBankName" style="position:unset; color:white !important;">نام بانک</label>
+                        <input type="text" class="md-input ng-pristine ng-valid ng-isolate-scope ng-empty md-input-processed ng-touched" id="newBankName" md-input="" maxlength="200" ng-model="newCheck.BankName"><span class="md-input-bar "></span>
+                    </div>
+
+                </div>
+                <div class="uk-margin-medium-bottom">
+                    <div class="md-input-wrapper">
+                        <label for="newBranchName" style="position:unset; color:white !important;">شعبه</label>
+                        <input type="text" class="md-input ng-pristine ng-valid ng-isolate-scope ng-empty md-input-processed ng-touched" id="newBranchName" md-input="" maxlength="200" ng-model="newCheck.BranchName"><span class="md-input-bar "></span>
+                    </div>
+
+                </div>
+                <div class="uk-margin-medium-bottom">
+                    <div class="md-input-wrapper">
+                        <label for="newSerialNo" style="position:unset; color:white !important;">شماره سریال</label>
+                        <input type="text" class="md-input ng-pristine ng-valid ng-isolate-scope ng-empty md-input-processed ng-touched" id="newSerialNo" md-input="" maxlength="50" ng-model="newCheck.SerialNo"><span class="md-input-bar "></span>
+                    </div>
+
+                </div>
+                <div class="uk-margin-medium-bottom">
+                    <div class="md-input-wrapper">
+                        <label for="mail_new_to" style="position:unset; color:white !important;">تاریخ پرداخت</label>
+                        <input type="date" text-required='انتخاب تاریخ پرداخت اجباریست' kendo-date-picker options="dateOptionsCheckPayDate" class="col-md-8 form-control k-rtl" name="PayDate" k-ng-model="newCheck.DatePay" />
+                    </div>
+
+
+                </div>
+
+                <div class="uk-margin-medium-bottom col-md-12" style="margin-top:100px !important;">
+                    <div class="col-md-12">
+                        <label for="gradeAcademicYearId" class="col-md-4" style="position:unset; color:white !important;">انتخاب مقطع</label>
+                        <pn-combo-box ng-model="newCheck.PayState" required class="col-md-8 " api="api" source="payStateOptions" textfield="text" valuefield="value" id="payState"></pn-combo-box>
+                    </div>
+
+                </div>
+                <div class="uk-modal-footer" style="margin-top:100px;margin-right:30%;">
+                    <button type="button" class="btn btn-default btn-primary" ng-click="saveCheckEntity()">ثبت</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
