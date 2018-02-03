@@ -50,6 +50,28 @@
                 });
                 return deferred.promise;
             },
+
+            patchEntity: function (url, entity) {
+
+
+                blockUI.start();
+                var then = this;
+                var deferred = $q.defer();
+                var aut = JSON.parse(localStorage.getItem("lt"));
+                $http.patch(url, entity, {
+                    headers: {
+                        'Authorization': aut.token_type + ' ' + aut.access_token,
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function (response) {
+                    deferred.resolve(response.data);
+                    blockUI.stop();
+                }, function (er) {
+                    deferred.reject(er);
+                    blockUI.stop();
+                });
+                return deferred.promise;
+            },
             addEntity: function (url, entity) {
 
                 blockUI.start();

@@ -62,21 +62,21 @@
     <div class="uk-modal ng-scope uk-open" id="mailbox_new_message" aria-hidden="true" style="display: none; overflow-y: scroll; color:white;">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close uk-close" type="button" ng-click="closePupop()"></button>
-            <form class="ng-pristine ng-valid">
+            <form name="sendMessageForm" class="ng-pristine ng-valid">
                 <div class="uk-modal-header">
                     <h3 class="uk-modal-title">پیام جدید</h3>
                 </div>
-                <div class="uk-margin-medium-bottom col-md-12" style="margin-top:100px !important;">
+                <div class="uk-margin-medium-bottom col-md-12" style="margin-top:20px !important;">
                     <div class="col-md-12">
                         <label for="userType" class="col-md-4" style="position:unset; color:white !important;">نوع کاربر</label>
                         <pn-combo-box ng-model="userType" required class="col-md-8 " api="api" source="userTypeOptions" on-close='userTypeOnClose(combo)' textfield="text" valuefield="value" id="userType"></pn-combo-box>
                     </div>
 
                 </div>
-                <div class="uk-margin-medium-bottom col-md-12" id="divStudent" ng-if="userTypeSelected=='Student'">
-                    <div class="md-input-wrapper">
-                        <label for="mail_new_to" style="position:unset; color:white !important;">انتخاب کاربر</label>
-                        <pn-auto-complete ng-model="newMessage.ReceiverId" source="userOptions"></pn-auto-complete>
+                <div class="uk-margin-medium-bottom col-md-12"  style="margin-top:20px !important;" ng-if="selectReceiverShow">
+                    <div class="col-md-12">
+                        <label for="UserIdReceiver" class="col-md-4" style="position:unset; color:white !important;">انتخاب کاربر</label>
+                        <pn-combo-box ng-model="newMessage.UserIdReceiver" required="گیرنده را انتخاب کنید" class="col-md-8 " api="api" source="userOptions" on-close='userIdReceiverOnClose(combo)' textfield="text" valuefield="value" id="UserIdReceiver"></pn-combo-box>
                     </div>
 
 
@@ -91,7 +91,7 @@
                 <div class="uk-margin-large-bottom col-md-12">
                     <div class="md-input-wrapper">
                         <label for="mail_new_message" style="position:unset; color:white !important;">متن پیام</label>
-                        <textarea name="mail_new_message" id="mail_new_message" cols="30" rows="6" class="md-input ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" md-input="" ng-model="newMessage.MessageText"></textarea><span class="md-input-bar "></span>
+                        <textarea name="mail_new_message" id="mail_new_message" cols="30" rows="6" maxlength="150" class="md-input ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" md-input="" ng-model="newMessage.MessageText"></textarea><span class="md-input-bar "></span>
                     </div>
 
                 </div>
@@ -105,7 +105,7 @@
                 </div>
                 <div class="uk-modal-footer">
                     <!--<a href="#" class="md-icon-btn"><i class="md-icon material-icons"></i></a>-->
-                    <button type="button" class="uk-float-right md-btn md-btn-flat md-btn-flat-primary">ارسال</button>
+                    <button type="button" ng-click="sendMessage()" class="uk-float-right md-btn md-btn-flat md-btn-flat-primary">ارسال</button>
                 </div>
             </form>
         </div>

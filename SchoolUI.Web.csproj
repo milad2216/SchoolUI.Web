@@ -295,6 +295,8 @@
     <Content Include="app\base\views\schoolManager\property\propertyController.js" />
     <Content Include="app\base\views\schoolManager\requestManagment\requestManagmentSearchController.js" />
     <Content Include="app\base\views\schoolManager\requestManagment\requestManagmentSearch.html" />
+    <Content Include="app\base\views\schoolManager\requestManagment\requestView.html" />
+    <Content Include="app\base\views\schoolManager\requestManagment\requestViewController.js" />
     <Content Include="app\base\views\schoolManager\SchoolClasses\schoolClasses.html" />
     <Content Include="app\base\views\schoolManager\SchoolClasses\schoolClassesController.js" />
     <Content Include="app\base\views\schoolManager\schoolCourse\schoolCourse.html" />

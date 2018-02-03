@@ -22,19 +22,20 @@
                         template: $scope.dataSource.template,
                         dataSource: {
                             type: "json",
-                            serverFiltering: true,
+                            serverFiltering: false,
                             transport: {
+                                type: "odata",
                                 read: {
                                     url: $scope.dataSource.transport.read.url,
                                     data: $scope.dataSource.transport.read.data,
-                                    beforeSend : $scope.dataSource.transport.read.beforeSend,
+                                    beforeSend: $scope.dataSource.transport.read.beforeSend,
                                     type: $scope.dataSource.transport.read.type,
                                     contentType: "application/json",
                                     //beforeSend: function (req) {
                                     //    req.setRequestHeader('Auth-Token', localStorageService.get(tokenKey));
                                     //},
                                 },
-                                
+
                             },
                             schema: { data: "Items" }
                         }

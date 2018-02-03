@@ -6,7 +6,7 @@ define(['app'], function (app) {
 
         $scope.viewRequest = function (e) {
             var myItem = $scope.kendoGrid.dataItem($(e.target).closest("tr"));
-            $state.go("requestManagment", { studentRequest: myItem, mode: "view" });
+            $state.go("requestView", { studentRequest: myItem, mode: "view" });
         }
         var RequestState = enumService.RequestState();
         var RequestStateItems = [];
@@ -26,39 +26,6 @@ define(['app'], function (app) {
                     withCredentials: true,
                     dataType: "json",
                 },
-                update: {
-                    dataType: "json",
-                    type: "PUT",
-                    url: function (options) {
-                        debugger;
-                        return RESOURCES.USERS_DOMAIN + "/api/Requests/" + options.Id;
-                    },
-
-                    beforeSend: function (request) {
-                        var aut = JSON.parse(localStorage.getItem("lt"));
-                        request.setRequestHeader('Authorization', aut.token_type + ' ' + aut.access_token);
-                    },
-                    complete: function (jqXhr, textStatus) {
-                        $scope.mainGridOptions.dataSource.read();
-                    }
-
-                },
-                destroy: {
-                    type: "DELETE",
-                    url: function (options) {
-                        return RESOURCES.USERS_DOMAIN + "/api/Requests/" + options.Id;
-                    },
-                    beforeSend: function (request) {
-                        var aut = JSON.parse(localStorage.getItem("lt"));
-                        request.setRequestHeader('Authorization', aut.token_type + ' ' + aut.access_token);
-                    },
-                    dataType: "json",
-                    withCredentials: true,
-                    complete: function (jqXhr, textStatus) {
-                        $scope.mainGridOptions.dataSource.read();
-
-                    }
-                }
             },
             schema: {
                 data: function (result) {
@@ -133,9 +100,9 @@ define(['app'], function (app) {
                 {
                     command: [{
                         text: "نمایش", click: $scope.viewRequest
-                    }, "edit", "delete"],
+                    }],
                     title: "&nbsp;",
-                    width: 300
+                    width: 100
                 },
             ]
         };

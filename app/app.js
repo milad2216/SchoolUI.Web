@@ -287,12 +287,12 @@ define(['angularAMD'], function (angularAMD) {
                     templateUrl: '/app/base/views/schoolManager/requestManagment/requestManagmentSearch.html'
 
                 }))
-            .state('requestManagment', angularAMD.route(
+            .state('requestView', angularAMD.route(
                 {
-                    url: '/requestManagment',
-                    controller: 'requestManagmentController',
-                    controllerUrl: '/app/base/views/schoolManager/requestManagment/requestManagmentController.js',
-                    templateUrl: '/app/base/views/schoolManager/requestManagment/requestManagment.html',
+                    url: '/requestView',
+                    controller: 'requestViewController',
+                    controllerUrl: '/app/base/views/schoolManager/requestManagment/requestViewController.js',
+                    templateUrl: '/app/base/views/schoolManager/requestManagment/requestView.html',
                     params: {
                         studentRequest: {},
                         mode: "view"
