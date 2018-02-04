@@ -3,14 +3,19 @@ define(['app'], function (app) {
     app.register.controller('messageController', ['$scope', '$rootScope', '$stateParams', '$state', 'dataService', 'RESOURCES', '$timeout', 'variables', 'enumService', 'Notification',
         function ($scope, $rootScope, $stateParams, $state, dataService, RESOURCES, $timeout, variables, enumService, Notification) {
             debugger
+            $scope.newMessage = { UserIdSender: JSON.parse(localStorage.getItem("lt")).user_id, Seen: false };
+            $scope.reloadInbox = function () {
+                dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Messages?$filter=UserIdReceiver eq ' + $scope.newMessage.UserIdSender + '&$expand=UserSender').then(function (data) {
+                    debugger;
+                    $scope.messages = data.Items;
+                })
+            }
+            $scope.reloadInbox();
             $scope.selectReceiverShow = false;
             $scope.messages = [];
-            $scope.newMessage = { UserIdSender: JSON.parse(localStorage.getItem("lt")).user_id, Seen:false };
-            dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Messages?$expand=UserSender').then(function (data) {
-                debugger;
-                $scope.messages = data.Items;
-            })
+            
             $rootScope.toBarActive = true;
+
 
             $scope.$on('$destroy', function () {
                 $rootScope.toBarActive = false;
@@ -27,16 +32,13 @@ define(['app'], function (app) {
             $scope.closePupop = function () {
                 $("#mailbox_new_message").hide();
             }
-
-            $scope.autoCompleteOptions = {
-                source: RESOURCES.USERS_DOMAIN + '/api/Users'
-            }
             $scope.sendMessage = function () {
                 if ($scope.sendMessageForm.$valid) {
                     debugger;
-                    dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Messages', { Message: $scope.newMessage, File: "", FileName: "" }).then(function (id) {
+                    dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Messages', { Message: $scope.newMessage, File: "", FileName: "", UserId: $scope.newMessage.UserIdReceiver }).then(function (id) {
                         if (id) {
                             Notification.success("با موفقیت ارسال شد.");
+                            $scope.reloadInbox();
                             $scope.closePupop();
                         }
                     }, function (err) {
@@ -48,7 +50,7 @@ define(['app'], function (app) {
             $scope.userTypeOptions = [];
             var userTypeItems = [];
             debugger;
-            angular.forEach(enumService.RoleEnum(), function (value, key) {
+            angular.forEach(enumService.RoleEnum().where(function (x) { return x.Id > 1 }), function (value, key) {
                 userTypeItems.push({ text: value.Text, value: value.Value });
             });
             $scope.userTypeOptions = userTypeItems;
@@ -64,13 +66,19 @@ define(['app'], function (app) {
                     case "Teacher":
                         url = RESOURCES.USERS_DOMAIN + "/api/Teachers?inlinecount=allpages"
                         break;
+                    case "Employee":
+                        url = RESOURCES.USERS_DOMAIN + "/api/Employees?inlinecount=allpages"
+                        break;
+                    case "Parent":
+                        url = RESOURCES.USERS_DOMAIN + "/api/Parents?inlinecount=allpages"
+                        break;
 
                 }
                 dataService.getData(url).then(function (data) {
                     debugger;
                     var items = [];
                     angular.forEach(data.Items, function (value, key) {
-                        items.push({ text: value.FirstName + ' - ' + value.LastName, value: value.UserId });
+                        items.push({ text: value.FirstName + ' ' + value.LastName, value: String(value.UserId) });
                     });
                     $scope.userOptions = items;
                     $scope.selectReceiverShow = true;

@@ -141,7 +141,7 @@ div.k-grid-header {
 
 .k-list .k-item {
     border: 1px solid transparent;
-    font-family: "BYekan";
+    font-family: 'Yekan';
     font-size: 13px;
     line-height: 22px !important;
     min-height: 24px !important;
@@ -160,9 +160,9 @@ div.k-grid-header {
     color: #fff !important;
 }
 
-    .k-state-selected td a {
+    /*.k-state-selected td a {
         color: #fff !important;
-    }
+    }*/
 
 .color-subject {
     color: #2b81ba;
@@ -393,6 +393,10 @@ div.k-grid-header {
 }
 
 .k-grid td {
+    padding-top: 0px !important; 
+    padding-bottom: 0px !important;
+    cursor: pointer;
+    border-style: solid;
 }
 
     .k-grid td span {

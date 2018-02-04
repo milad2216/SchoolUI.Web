@@ -26,14 +26,20 @@
             $scope.saveEntity = function () {
                 if ($scope.teacherForm.$valid) {
                     if ($stateParams.mode === "create") {
-                        dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Teachers', { Teacher: $scope.teacher, Base64Image: $scope.base64Image }).then(id=> {
+                        dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Teachers', { Teacher: $scope.teacher, Base64Image: $scope.base64Image }).then(function (id) {
                             if (id) {
+                                Notification.success("با موفقیت ثبت شد.");
                                 $state.go("teacherSearch");
                             }
+                        }, function (err) {
+                            Notification.error("اشکال در ثبت.");
                         });
                     } else if ($stateParams.mode === "edit") {
                         dataService.updateEntity(RESOURCES.USERS_DOMAIN + '/api/Teachers/' + $scope.teacher.Id, { Teacher: $scope.teacher, Base64Image: $scope.base64Image }).then(function () {
-                            $state.go("teacherSearch");
+                            Notification.success("با موفقیت ذخیره شد.");
+                            $state.go("teacherSearch")
+                        }, function (err) {
+                            Notification.error("اشکال در ذخیره.");
                         });
                     }
                 }

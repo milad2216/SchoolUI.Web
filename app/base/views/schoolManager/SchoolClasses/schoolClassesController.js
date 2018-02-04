@@ -141,7 +141,11 @@ define(['app'], function (app) {
                         }
                     },
                     {
-                        command: ["edit", "delete"],
+                        command: [{
+                            text: "ویرایش", name: "edit"
+                        }, {
+                            text: "حذف", name: "delete"
+                        }],
                         title: "&nbsp;",
                         width: 200
                     },

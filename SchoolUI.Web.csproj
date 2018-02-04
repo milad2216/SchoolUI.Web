@@ -1399,6 +1399,7 @@
     <Content Include="Content\kendo\kendo.scheduler.js" />
     <Content Include="Content\kendo\kendo.scheduler.monthview.js" />
     <Content Include="Content\kendo\kendo.scheduler.recurrence.js" />
+    <Content Include="Content\mainStyle.css" />
     <Content Include="Content\orgChart\jquery.orgchart.css" />
     <Content Include="Content\stimulsoft\css\stimulsoft.designer.office2013.whiteblue.css" />
     <Content Include="Content\stimulsoft\css\stimulsoft.viewer.office2013.whiteblue.css" />

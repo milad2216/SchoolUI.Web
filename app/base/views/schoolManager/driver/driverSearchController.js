@@ -174,7 +174,9 @@
                     {
                         command: [{
                             text: "ویرایش", click: $scope.editDriver
-                        }, "delete"],
+                        }, {
+                            text: "حذف", name: "delete"
+                        }],
                         title: "&nbsp;",
                         width: 200
                     },

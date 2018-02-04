@@ -119,10 +119,12 @@
                     values: RequestStateItems
                 },
                 {
-                    command: ["delete"],
+                    command: [{
+                        text: "حذف", name: "delete"
+                    }],
                     title: "&nbsp;",
                     width: 200
-                },
+                }
             ]
         };
     }

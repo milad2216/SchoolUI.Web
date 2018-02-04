@@ -28,14 +28,20 @@ define(['app'], function (app) {
             $scope.saveEntity = function () {
                 if ($scope.driverForm.$valid) {
                     if ($stateParams.mode === "create") {
-                        dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Drivers', { Driver: $scope.driver, Base64Image: $scope.base64Image }).then(id=> {
+                        dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Drivers', { Driver: $scope.driver, Base64Image: $scope.base64Image }).then(function (id) {
                             if (id) {
+                                Notification.success("با موفقیت ثبت شد.");
                                 $state.go("driverSearch");
                             }
+                        }, function (err) {
+                            Notification.error("اشکال در ثبت.");
                         });
                     } else if ($stateParams.mode === "edit") {
                         dataService.updateEntity(RESOURCES.USERS_DOMAIN + '/api/Drivers/' + $scope.driver.Id, { Driver: $scope.driver, Base64Image: $scope.base64Image }).then(function () {
-                            $state.go("driverSearch");
+                            Notification.success("با موفقیت ذخیره شد.");
+                            $state.go("driverSearch")
+                        }, function (err) {
+                            Notification.error("اشکال در ذخیره.");
                         });
                     }
                 }

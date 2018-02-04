@@ -6,46 +6,46 @@ define(['angularAMD'], function (control) {
             templateUrl: '/app/base/partials/directives/pn-style-switcher.html',
             controller: function ($scope) {
                 $scope.themes = [
-                    {
-                        name: "app_style_default",
-                        class: "default_theme"
-                    },
-                    {
-                        name: "switcher_theme_a",
-                        class: "app_theme_a"
-                    },
-                    {
-                        name: "switcher_theme_b",
-                        class: "app_theme_b"
-                    },
-                    {
-                        name: "switcher_theme_c",
-                        class: "app_theme_c"
-                    },
-                    {
-                        name: "switcher_theme_d",
-                        class: "app_theme_d"
-                    },
-                    {
-                        name: "switcher_theme_e",
-                        class: "app_theme_e"
-                    },
-                    {
-                        name: "switcher_theme_f",
-                        class: "app_theme_f"
-                    },
-                    {
-                        name: "switcher_theme_g",
-                        class: "app_theme_g"
-                    },
-                    {
-                        name: "switcher_theme_h",
-                        class: "app_theme_h"
-                    },
-                    {
-                        name: "switcher_theme_i",
-                        class: "app_theme_i"
-                    },
+                    //{
+                    //    name: "app_style_default",
+                    //    class: "default_theme"
+                    //},
+                    //{
+                    //    name: "switcher_theme_a",
+                    //    class: "app_theme_a"
+                    //},
+                    //{
+                    //    name: "switcher_theme_b",
+                    //    class: "app_theme_b"
+                    //},
+                    //{
+                    //    name: "switcher_theme_c",
+                    //    class: "app_theme_c"
+                    //},
+                    //{
+                    //    name: "switcher_theme_d",
+                    //    class: "app_theme_d"
+                    //},
+                    //{
+                    //    name: "switcher_theme_e",
+                    //    class: "app_theme_e"
+                    //},
+                    //{
+                    //    name: "switcher_theme_f",
+                    //    class: "app_theme_f"
+                    //},
+                    //{
+                    //    name: "switcher_theme_g",
+                    //    class: "app_theme_g"
+                    //},
+                    //{
+                    //    name: "switcher_theme_h",
+                    //    class: "app_theme_h"
+                    //},
+                    //{
+                    //    name: "switcher_theme_i",
+                    //    class: "app_theme_i"
+                    //},
                     {
                         name: "switcher_theme_dark",
                         class: "app_theme_dark"

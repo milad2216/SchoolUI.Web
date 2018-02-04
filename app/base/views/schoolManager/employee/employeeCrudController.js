@@ -28,10 +28,21 @@
             $scope.saveEntity = function () {
                 if ($scope.employeeForm.$valid) {
                     if ($stateParams.mode === "create") {
-                        dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Employees', { Employee: $scope.employee, Base64Image: $scope.base64Image });
+                        dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Employees', { Employee: $scope.employee, Base64Image: $scope.base64Image }).then(function (id) {
+                            if (id) {
+                                Notification.success("با موفقیت ثبت شد.");
+                                $state.go("employeeSearch");
+                            }
+                        }, function (err) {
+                            Notification.error("اشکال در ثبت.");
+                        });
                     } else if ($stateParams.mode === "edit") {
-                        dataService.updateEntity(RESOURCES.USERS_DOMAIN + '/api/Employees/' + $scope.employee.Id, { Employee: $scope.employee, Base64Image: $scope.base64Image });
-                        $state.go("employeeSearch")
+                        dataService.updateEntity(RESOURCES.USERS_DOMAIN + '/api/Employees/' + $scope.employee.Id, { Employee: $scope.employee, Base64Image: $scope.base64Image }).then(function () {
+                            Notification.success("با موفقیت ذخیره شد.");
+                            $state.go("employeeSearch")
+                        }, function (err) {
+                            Notification.error("اشکال در ذخیره.");
+                        });
                     }
                 }
             }

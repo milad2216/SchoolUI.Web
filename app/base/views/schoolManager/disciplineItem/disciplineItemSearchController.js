@@ -133,7 +133,9 @@
                 {
                     command: [{
                         text: "ویرایش", click: $scope.editDisciplineItemt
-                    }, "delete"],
+                    }, {
+                        text: "حذف", name: "delete"
+                    }],
                     title: "&nbsp;",
                     width: 200
                 },

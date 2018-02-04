@@ -30,12 +30,20 @@ define(['app'], function (app) {
                 if ($scope.disciplineItemForm.$valid) {
                     if ($stateParams.mode == "create") {
                         dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/disciplineItems', $scope.disciplineItem).then(function (id) {
-                            Notification.success('با موفقیت ذخیره شد.');
-                            $state.go("disciplineItemSearch");
+                            if (id) {
+                                Notification.success("با موفقیت ثبت شد.");
+                                $state.go("disciplineItemSearch");
+                            }
+                        }, function (err) {
+                            Notification.error("اشکال در ثبت.");
                         });
                     } else if ($stateParams.mode == "edit") {
-                        dataService.updateEntity(RESOURCES.USERS_DOMAIN + '/api/disciplineItems/' + $scope.disciplineItem.Id, $scope.disciplineItem);
-                        $state.go("disciplineItemSearch");
+                        dataService.updateEntity(RESOURCES.USERS_DOMAIN + '/api/disciplineItems/' + $scope.disciplineItem.Id, $scope.disciplineItem).then(function () {
+                            Notification.success("با موفقیت ذخیره شد.");
+                            $state.go("disciplineItemSearch");
+                        }, function (err) {
+                            Notification.error("اشکال در ذخیره.");
+                        });
                     }
                 }
             }

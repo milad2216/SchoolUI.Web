@@ -15,6 +15,7 @@
                     }
                     dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/PayItems', sendItem).then(function (id) {
                         Notification.success('با موفقیت ذخیره شد.');
+                        $state.go("payItemSearch")
                     }, function (err) {
                         Notification.error('ذخیره با اشکال روبرو شد دوباره تلاش کنید.');
                     });
