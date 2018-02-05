@@ -708,3 +708,8 @@
     background: transparent;
     color: #fff;
 }
+
+
+.form-group > label {
+    color: #fff;
+}

@@ -9,7 +9,7 @@
 }
 
 .form-control {
-    font-family: BYekan;
+    font-family: Yekan;
     font-size: 13px;
 }
 
@@ -105,7 +105,7 @@
 }
 
     .k-datepicker .k-input, .new-rbcombo .k-dropdown-wrap {
-        font-family: BYekan !important;
+        font-family: Yekan !important;
         font-size: 13px;
         height: 31px;
     }
@@ -131,7 +131,7 @@ div.k-grid-header {
 }
 
     .k-calendar .k-link {
-        font-family: 'BYekan' !important;
+        font-family: 'Yekan' !important;
         font-size: 13px !important;
     }
 
@@ -202,7 +202,7 @@ div.k-grid-header {
 .content-box .content-box-des {
     color: #666;
     display: block;
-    font-family: BYekan;
+    font-family: Yekan;
     font-size: 13px;
     margin: 5px;
 }
@@ -273,7 +273,7 @@ div.k-grid-header {
 
 .window-menu .content-box-title {
     color: #000;
-    font-family: BYekan;
+    font-family: Yekan;
     font-size: 20px;
 }
 
@@ -316,7 +316,7 @@ div.k-grid-header {
     .panelRedirect span {
         color: #5a5a5a;
         float: right;
-        font-family: BYekan;
+        font-family: Yekan;
         font-size: 13px;
         line-height: 10px;
         margin-left: 5px;
@@ -334,7 +334,7 @@ div.k-grid-header {
 
     .modal-dialog .modal-title {
         font-size: 12px !important;
-        font-family: Byekan;
+        font-family: Yekan;
         padding: 0 4px;
         color: #388ec7;
     }
@@ -379,7 +379,7 @@ div.k-grid-header {
 }
 
 .k-widget.k-tooltip-validation {
-    font-family: BYekan !important;
+    font-family: Yekan !important;
     padding: 4px 13px !important;
     border-color: #287eb7;
 }
@@ -427,7 +427,7 @@ div.k-grid-header {
     }
 
 .tooltip {
-    font-family: byekan;
+    font-family: Yekan;
     font-size: 13px;
     padding: 4px !important;
     line-height: 22px;

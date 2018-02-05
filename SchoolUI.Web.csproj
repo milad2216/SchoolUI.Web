@@ -255,14 +255,8 @@
     <Content Include="app\base\i18n\en.js" />
     <Content Include="app\base\i18n\fa.js" />
     <Content Include="app\base\services\UserMenuAccessService.js" />
-    <Content Include="app\base\views\admin\child\adminChild1Search.html" />
-    <Content Include="app\base\views\admin\child\adminChild2Search.html" />
-    <Content Include="app\base\views\admin\child\adminChild3Search.html" />
-    <Content Include="app\base\views\admin\child\adminChild2SearchController.js" />
-    <Content Include="app\base\views\admin\child\adminChild3SearchController.js" />
-    <Content Include="app\base\views\admin\child\adminChild1SearchController.js" />
-    <Content Include="app\base\views\admin\main\adminSearch.html" />
-    <Content Include="app\base\views\admin\main\adminSearchController.js" />
+    <Content Include="app\base\views\schoolManager\payment\payment.html" />
+    <Content Include="app\base\views\schoolManager\payment\paymentController.js" />
     <Content Include="app\base\views\message\message.html" />
     <Content Include="app\base\views\message\messageController.js" />
     <Content Include="app\base\views\message\messageDetails.html" />
@@ -297,6 +291,8 @@
     <Content Include="app\base\views\schoolManager\requestManagment\requestManagmentSearch.html" />
     <Content Include="app\base\views\schoolManager\requestManagment\requestView.html" />
     <Content Include="app\base\views\schoolManager\requestManagment\requestViewController.js" />
+    <Content Include="app\base\views\schoolManager\rollCall\rollCall.html" />
+    <Content Include="app\base\views\schoolManager\rollCall\rollCallController.js" />
     <Content Include="app\base\views\schoolManager\SchoolClasses\schoolClasses.html" />
     <Content Include="app\base\views\schoolManager\SchoolClasses\schoolClassesController.js" />
     <Content Include="app\base\views\schoolManager\schoolCourse\schoolCourse.html" />

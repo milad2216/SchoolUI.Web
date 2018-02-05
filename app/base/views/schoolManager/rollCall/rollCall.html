@@ -1,0 +1,28 @@
+﻿<div class="container">
+    <form>
+        <div class="scroll-wrapper scrollbar-inner z-depth-5" style="position: relative;">
+            <div class="scrollbar-inner scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 249px;">
+
+                <ul class="list-group">
+
+                    <li ng-repeat="student in students" class="list-group-item box box-shadow col-md-12">
+                        <div class="col-md-3">
+                            <span ng-bind="student.FirstName + student.LastName"></span>
+                        </div>
+                        <div class="col-md-3">
+                            <pn-combo-box ng-model="student.RollCall.RollCallType" required on-combo-ready="onComboReady()" api="api" source="rollCallStateOptions" textfield="text" valuefield="value" id="payState"></pn-combo-box>
+                        </div>
+                        <div class="col-md-3">
+
+                        </div>
+                        <div class="col-md-3">
+
+                        </div>
+
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>

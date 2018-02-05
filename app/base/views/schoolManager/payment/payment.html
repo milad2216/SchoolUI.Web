@@ -5,7 +5,7 @@
                 <div class="scrollbar-inner scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 249px;">
 
                     <ul class="list-group">
-                        <li ng-repeat="parent in parents" class="list-group-item box" ng-click="showDetails(parent.Id)">
+                        <li ng-repeat="parent in parents" class="list-group-item box box-shadow box-hover" ng-click="showDetails(parent.Id)">
                             <span ng-bind="parent.FirstName"></span>
                             <span style="margin-right:30px;" ng-bind="parent.LastName"></span>
                             <!--<span class="badge">12</span>-->
@@ -182,24 +182,3 @@
         </div>
     </div>
 </div>
-<style>
-    .box {
-        background-color: #454545;
-        font-family: 'Yekan' !important;
-        cursor: pointer;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-        border: 1px solid #6f6666;
-    }
-
-        .box:hover,
-        .box:focus {
-            background-color: rgba(178,219,251,0.15);
-            box-shadow: 0 0.5em 0.5em 0.4em var(--hover);
-            transform: translateY(-0.25em);
-        }
-
-    .pay-review-card {
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-        font-family: 'Yekan' !important;
-    }
-</style>

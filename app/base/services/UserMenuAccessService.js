@@ -14,12 +14,13 @@
                     },
                 {
                     SystemTitle: "مالی", SystemKey: '30f8678d-dffb-e611-ac4f-38d54778b1eb',
-                    Childs: [{ Title: "ثبت چک", Action: "adminSearch" }, { Title: "پرداخت های غیر شهریه", Action: "admin" },
+                    Childs: [{ Title: "ثبت چک", Action: "payment" }, { Title: "پرداخت های غیر شهریه", Action: "admin" },
                     { Title: "ثبت پرداخت", Action: "payItemSearch" }]
                 },
                 {
                     SystemTitle: "موارد انظباطی", SystemKey: '30f8678d-dffb-e611-ac4f-38d54778b1eb',
-                    Childs: [{ Title: " ثبت موارد انظباطی", Action: "disciplineItemSearch" }]
+                    Childs: [{ Title: " ثبت موارد انظباطی", Action: "disciplineItemSearch" },
+                    { Title: " حضور و غیاب", Action: "rollCall" }]
                 }, {
                     SystemTitle: "ارتباطات", SystemKey: '1f65a61c-ce79-e711-966b-000c29eedd59',
                     Childs: [{ Title: "پیام ها", Action: "message" }, { Title: "مدیریت درخواست", Action: "requestManagmentSearch" }]

@@ -778,3 +778,41 @@ li.user .dropdown-menu > li > a:hover {
 .li-pn-tab:hover {
     background-color: rgba(255,255,255, 0.07);
 }
+.box {
+    background-color: #454545;
+    font-family: 'Yekan' !important;
+    cursor: pointer;
+    border: 1px solid #6f6666;
+}
+
+    .box.box-shadow {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+
+    .box.box-hover:hover,
+    .box.box-hover:focus {
+        background-color: rgba(178,219,251,0.15);
+        box-shadow: 0 0.5em 0.5em 0.4em var(--hover);
+        transform: translateY(-0.25em);
+    }
+
+    .box input[type="radio"] {
+        margin-right: 40px;
+    }
+
+.pay-review-card {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    font-family: 'Yekan' !important;
+}
+
+.form-group > label {
+    width:200px;
+}
+
+
+.form-group > textarea {
+    width: 90%;
+}
+.mar-right-5per{
+    margin-right:5% !important;
+}

@@ -1,109 +1,109 @@
 ﻿<form id="employeeForm" name="employeeForm" style="color:black;">
-    <div class="row margin-top-10">
-        <div class="col-md-3">
+    <div class="row margin-top-10 mar-right-5per">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4 label">نام</span>
+            <label>نام</label>
             <input type="text" class="col-md-8 " required ng-model="employee.FirstName" placeholder="نام به فارسی">
 
         </div>
-        <div class="col-md-3">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">نام خانوادگی</span>
+            <label>نام خانوادگی</label>
             <input type="text" class="col-md-8 " required ng-model="employee.LastName" placeholder="نام خانوادگی به فارسی">
 
         </div>
-        <div class="col-md-3">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">نام پدر</span>
+            <label>نام پدر</label>
             <input type="text" class="col-md-8 " ng-model="employee.FaderName" placeholder="نام پدر به فارسی">
 
         </div>
-        <div class="col-md-3">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">محل تولد</span>
+            <label>محل تولد</label>
             <input type="text" class="col-md-8 " required ng-model="employee.BirthPlace" placeholder="محل تولد به فارسی">
 
         </div>
 
     </div>
-    <div class="row margin-top-10">
-        <div class="col-md-3">
+    <div class="row margin-top-10 mar-right-5per">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">محل صدور</span>
+            <label>محل صدور</label>
             <input type="text" class="col-md-8 " required ng-model="employee.BirthCertificateIssuancePlace" placeholder="محل صدور به فارسی">
 
         </div>
-        <div class="col-md-3">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">تاریخ تولد</span>
+            <label>تاریخ تولد</label>
             <input type="date" text-required='انتخاب تاریخ تولد اجباریست' kendo-date-picker options="dateOptionsBirthDate" class="col-md-8 form-control k-rtl" name="BirthDate" k-ng-model="employee.BirthDate" />
 
         </div>
-        <div class="col-md-3">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">کد ملی</span>
+            <label>کد ملی</label>
             <input type="text" class="col-md-8 " required ng-model="employee.NationalCode" placeholder="کد ملی">
 
         </div>
-        <div class="col-md-3">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">تلفن ثابت</span>
+            <label>تلفن ثابت</label>
             <input type="text" class="col-md-8 " required ng-model="employee.LandLinePhoneNumber" placeholder="تلفن ثابت">
 
         </div>
     </div>
-    <div class="row margin-top-10">
-        <div class="col-md-3">
+    <div class="row margin-top-10 mar-right-5per">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">تلفن همراه</span>
+            <label>تلفن همراه</label>
             <input type="text" class="col-md-8 " ng-model="employee.MobilePhoneNumber" placeholder="تلفن همراه">
 
         </div>
-        <div class="col-md-3">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">تلفن اضطراری</span>
+            <label>تلفن اضطراری</label>
             <input type="text" class="col-md-8 " required ng-model="employee.EmergencyPhoneNumber" placeholder="تلفن اضطراری">
 
         </div>
-        <div class="col-md-3">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">پست الکترونیکی</span>
+            <label>پست الکترونیکی</label>
             <input type="text" class="col-md-8 " required ng-model="employee.Email" placeholder="پست الکترونیکی">
 
         </div>
-        <div class="col-md-3">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">پست سازمانی</span>
+            <label>پست سازمانی</label>
             <input type="text" class="col-md-8 " ng-model="employee.Post" placeholder="پست سازمانی">
 
         </div>
     </div>
-    <div class="row margin-top-10">
-        <div class="col-md-3">
+    <div class="row margin-top-10 mar-right-5per">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">مدرک</span>
+            <label>مدرک</label>
             <pn-combo-box ng-model="employee.AcademicDegree" class="col-md-8 " required source="academicDegreeOptions" textfield="Text" valuefield="Id"></pn-combo-box>
 
         </div>
 
-        <div class="col-md-3">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">گرایش مدرک</span>
+            <label>گرایش مدرک</label>
             <input type="text" class="col-md-8 " ng-model="employee.Major" placeholder="گرایش مدرک">
 
         </div>
-        <div class="col-md-3">
+        <div class="form-group col-md-3">
 
-            <span class="col-md-4  label">آدرس</span>
+            <label>آدرس</label>
             <input type="text" class="col-md-8 " ng-model="employee.Address" placeholder="آدرس">
 
         </div>
     </div>
 
 
-    <div class="row margin-top-10">
-        <div class="col-md-6">
-            <span class="col-md-3  label">عکس کارمند</span>
+    <div class="row margin-top-10 mar-right-5per">
+        <div class="form-group col-md-6">
+            <label>عکس کارمند</label>
             <div class="col-md-9 margin-top15">
                 <pn-file-upload ng-model="Base64ImageFile" config="base64ImageFileOptions" api="api" on-selected="base64ImageFileOnSelect(fileStream, fileInfo)" on-remove="base64ImageFileOnRemove(e)"></pn-file-upload>
             </div>

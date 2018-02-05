@@ -1,5 +1,5 @@
 ﻿define(['app'], function (app) {
-    app.register.controller('adminSearchController', ['$scope', '$rootScope', '$stateParams', '$state', 'dataService', 'RESOURCES', 'enumService', 'Notification',
+    app.register.controller('paymentController', ['$scope', '$rootScope', '$stateParams', '$state', 'dataService', 'RESOURCES', 'enumService', 'Notification',
         function ($scope, $rootScope, $stateParams, $state, dataService, RESOURCES, enumService, Notification) {
             $scope.init = function () {
                 //$scope.parents = [{ Name: "asdass" }, { Name: "asdass" }];
@@ -7,6 +7,7 @@
                 $scope.paidItems = [];
                 $scope.newParentPayment = {};
                 $scope.newCheck = {};
+                $scope.parents = [];
                 dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Parents').then(function (data) {
                     $scope.parents = data.Items;
                 })

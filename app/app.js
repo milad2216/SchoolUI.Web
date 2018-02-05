@@ -79,27 +79,16 @@ define(['angularAMD'], function (angularAMD) {
                     }
 
                 }))
-            .state('adminSearch', angularAMD.route(
+            .state('payment', angularAMD.route(
                 {
-                    url: '/adminSearch',
-                    controller: 'adminSearchController',
-                    controllerUrl: '/app/base/views/admin/main/adminSearchController.js',
-                    templateUrl: '/app/base/views/admin/main/adminSearch.html',
+                    url: '/payment',
+                    controller: 'paymentController',
+                    controllerUrl: '/app/base/views/schoolManager/payment/paymentController.js',
+                    templateUrl: '/app/base/views/schoolManager/payment/payment.html',
                     params: {
 
                     }
                 }))
-             //.state('adminSearch.milad', angularAMD.route(
-             //   {
-             //      url : '',
-             //       controllerUrl: '/app/base/views/admin/child/adminChild1SearchController.js',
-             //       views: {
-             //           'majid': {
-             //                controller: 'adminChild1SearchController',
-             //               templateUrl: '/app/base/views/admin/child/adminChild1Search.html',
-             //           }
-             //       }
-             //   }))
           .state('login', angularAMD.route(
                 {
                     title: 'ورود به سیستم',
@@ -297,6 +286,13 @@ define(['angularAMD'], function (angularAMD) {
                         studentRequest: {},
                         mode: "view"
                     }
+                }))
+            .state('rollCall', angularAMD.route(
+                {
+                    url: '/rollCall',
+                    controller: 'rollCallController',
+                    controllerUrl: '/app/base/views/schoolManager/rollCall/rollCallController.js',
+                    templateUrl: '/app/base/views/schoolManager/rollCall/rollCall.html'
                 }))
     }]);
 
