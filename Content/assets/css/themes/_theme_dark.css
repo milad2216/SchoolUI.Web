@@ -713,3 +713,7 @@
 .form-group > label {
     color: #fff;
 }
+
+form .form-group >input{
+    color: black;
+}

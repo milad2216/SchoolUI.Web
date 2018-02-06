@@ -14,7 +14,7 @@
                     },
                 {
                     SystemTitle: "مالی", SystemKey: '30f8678d-dffb-e611-ac4f-38d54778b1eb',
-                    Childs: [{ Title: "ثبت چک", Action: "payment" }, { Title: "پرداخت های غیر شهریه", Action: "admin" },
+                    Childs: [{ Title: "ثبت چک", Action: "payment" },
                     { Title: "ثبت پرداخت", Action: "payItemSearch" }]
                 },
                 {

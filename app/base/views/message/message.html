@@ -29,7 +29,7 @@
                             <img class="md-card-list-item-avatar" alt="" src="/Content/assets/img/avatars/avatar_11_tn@4x.png">
                         </div>
                         <div class="md-card-list-item-sender">
-                            <span ng-bind="message.UserSender.Username"></span>
+                            <span ng-bind="GetSenderData(message).FirstName + '  ' + GetSenderData(message).LastName"></span>
                         </div>
                         <div class="md-card-list-item-subject">
                             <span ng-bind="message.Title"></span>
@@ -37,16 +37,19 @@
                         <div class="md-card-list-item-content-wrapper" style="display: none; opacity: 0;">
                             <div ng-bind="message.MessageText" class="md-card-list-item-content">
                             </div>
+                            <div ng-if="message.MessageFileAddress">
+                                <div><a href="{{userDomain}}/{{message.MessageFileAddress}}">دانلود پیوست</a></div>
+                            </div>
                             <form class="md-card-list-item-reply ng-pristine ng-valid">
                                 <div class="md-input-wrapper">
                                     <label for="mailbox_reply_3" style="position:unset; color:white !important;">
-                                        پاسخ به <span ng-bind="message.UserSender.Username"></span>
+                                        پاسخ به <span ng-bind="GetSenderData(message).FirstName + '  ' + GetSenderData(message).LastName"></span>
                                     </label>
-                                    <textarea class="md-input md-input-full ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" id="mailbox_reply_3" cols="30" rows="4" md-input="" ng-model="message_reply"></textarea>
+                                    <textarea class="md-input md-input-full ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" id="ReplyText" cols="30" rows="4" maxlength="150" required md-input="" ng-model="message.ReplyText"></textarea>
                                     <span class="md-input-bar "></span>
                                 </div>
 
-                                <button class="md-btn md-btn-flat md-btn-flat-primary">ارسال</button>
+                                <button ng-click="reply(message)" class="md-btn md-btn-flat md-btn-flat-primary">ارسال</button>
                             </form>
                         </div>
                     </li>
@@ -73,7 +76,7 @@
                     </div>
 
                 </div>
-                <div class="uk-margin-medium-bottom col-md-12"  style="margin-top:20px !important;" ng-if="selectReceiverShow">
+                <div class="uk-margin-medium-bottom col-md-12" style="margin-top:20px !important;" ng-if="selectReceiverShow">
                     <div class="col-md-12">
                         <label for="UserIdReceiver" class="col-md-4" style="position:unset; color:white !important;">انتخاب کاربر</label>
                         <pn-combo-box ng-model="newMessage.UserIdReceiver" required="گیرنده را انتخاب کنید" class="col-md-8 " api="api" source="userOptions" on-close='userIdReceiverOnClose(combo)' textfield="text" valuefield="value" id="UserIdReceiver"></pn-combo-box>
@@ -84,25 +87,25 @@
                 <div class="uk-margin-medium-bottom col-md-12">
                     <div class="md-input-wrapper">
                         <label for="mail_new_to" style="position:unset; color:white !important;">عنوان</label>
-                        <input type="text" class="md-input ng-pristine ng-valid ng-isolate-scope ng-empty md-input-processed ng-touched" id="mail_new_to" md-input="" ng-model="newMessage.Title"><span class="md-input-bar "></span>
+                        <input type="text" required class="md-input ng-pristine ng-valid ng-isolate-scope ng-empty md-input-processed ng-touched" id="mail_new_to" md-input="" ng-model="newMessage.Title"><span class="md-input-bar "></span>
                     </div>
 
                 </div>
                 <div class="uk-margin-large-bottom col-md-12">
                     <div class="md-input-wrapper">
                         <label for="mail_new_message" style="position:unset; color:white !important;">متن پیام</label>
-                        <textarea name="mail_new_message" id="mail_new_message" cols="30" rows="6" maxlength="150" class="md-input ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" md-input="" ng-model="newMessage.MessageText"></textarea><span class="md-input-bar "></span>
+                        <textarea name="mail_new_message" required id="mail_new_message" cols="30" rows="6" maxlength="150" class="md-input ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty md-input-processed" md-input="" ng-model="newMessage.MessageText"></textarea><span class="md-input-bar "></span>
                     </div>
 
                 </div>
                 <div id="mail_upload-drop" class="uk-file-upload">
                     <p class="uk-text">فایل را برای آپلود بیاندازید</p>
                     <p class="uk-text-muted uk-text-small uk-margin-small-bottom">یا</p>
-                    <span class="uk-form-file md-btn">انتخاب فایل<input id="mail_upload-select" type="file" ng-model="message_compose.attachments" class="ng-pristine ng-untouched ng-valid ng-empty"></span>
+                    <pn-file-upload ng-model="Base64File" config="base64FileOptions" api="api" on-selected="base64FileOnSelect(fileStream, fileInfo)" on-remove="base64FileOnRemove(e)"></pn-file-upload>
                 </div>
-                <div id="mail_progressbar" class="uk-progress uk-hidden">
+                <!--<div id="mail_progressbar" class="uk-progress uk-hidden">
                     <div class="uk-progress-bar" style="width:0">0%</div>
-                </div>
+                </div>-->
                 <div class="uk-modal-footer">
                     <!--<a href="#" class="md-icon-btn"><i class="md-icon material-icons"></i></a>-->
                     <button type="button" ng-click="sendMessage()" class="uk-float-right md-btn md-btn-flat md-btn-flat-primary">ارسال</button>

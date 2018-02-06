@@ -1,7 +1,8 @@
 ﻿define(['app'], function (app) {
     app.register.controller('studentCrudController', ['$scope', '$rootScope', 'dataService', '$stateParams', 'enumService', '$state', 'RESOURCES', 'Notification',
         function ($scope, $rootScope, dataService, $stateParams, enumService, $state, RESOURCES, Notification) {
-
+            $scope.ParentFather = {};
+            $scope.ParentMother = {};
             var reloadData = function (student) {
                 $scope.student = student;
                 dataService.getData(RESOURCES.USERS_DOMAIN + '/api/GradeAcademicYears/' + student.GradeAcademicYearId).then(function (data) {
@@ -17,10 +18,10 @@
                     });
                 });
                 dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Parents/' + student.ParentIdFather).then(function (data) {
-                    $scope.student.ParentFather = data;
+                    $scope.ParentFather = data;
                 });
                 dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Parents/' + student.ParentIdMother).then(function (data) {
-                    $scope.student.ParentMother = data;
+                    $scope.ParentMother = data;
                 });
             }
             if ($stateParams.mode === "edit") {
@@ -59,6 +60,12 @@
 
             $scope.saveEntity = function () {
                 if ($scope.studentForm.$valid) {
+                    if ($scope.ParentFather.FirstName && $scope.ParentFather.LastName && $scope.ParentFather.Email) {
+                        $scope.student.ParentFather = $scope.ParentFather;
+                    }
+                    if ($scope.ParentMother.FirstName && $scope.ParentMother.LastName && $scope.ParentMother.Email) {
+                        $scope.student.ParentMother = $scope.ParentMother;
+                    }
                     if ($stateParams.mode === "create") {
                         dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Students', { Student: $scope.student, Base64Image: $scope.base64Image }).then(function (id) {
                             if (id) {
@@ -66,14 +73,20 @@
                                 $state.go("studentSearch");
                             }
                         }, function (err) {
-                            Notification.error("اشکال در ثبت.");
+
+                            angular.forEach(err.errormessages, function (value, key) {
+                                Notification.error(value);
+                            });
                         });
                     } else if ($stateParams.mode === "edit") {
                         dataService.updateEntity(RESOURCES.USERS_DOMAIN + '/api/Students/' + $scope.student.Id, { Student: $scope.student, Base64Image: $scope.base64Image }).then(function () {
                             Notification.success("با موفقیت ذخیره شد.");
                             $state.go("studentSearch");
                         }, function (err) {
-                            Notification.error("اشکال در ذخیره.");
+
+                            angular.forEach(err.errormessages, function (value, key) {
+                                Notification.error(value);
+                            });
                         });
                     }
                 }

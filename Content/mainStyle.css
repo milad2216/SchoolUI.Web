@@ -5,17 +5,21 @@
     font-weight: normal;
     font-style: normal;
 }
+
 * {
     margin: 0;
     padding: 0;
     font-family: 'Yekan';
 }
+
 body {
     background-color: transparent;
 }
+
 ul, ol {
-     padding-right: 0px; 
+    padding-right: 0px;
 }
+
 #top_bar2 {
     /*position: fixed;*/
     /*top: 48px;*/
@@ -29,7 +33,7 @@ ul, ol {
 }
 
 #page_content_inner {
-    padding:2px 245px 2px 3px !important;
+    padding: 2px 245px 2px 3px !important;
 }
 
 .cartable_open #top_bar2, .sidebar_main_open #top_bar2, .sidebar_main_active #top_bar2,
@@ -387,9 +391,9 @@ hr {
     left: 10px;
 }
 
-.close-image:hover {
-    color: #f39e9e;
-}
+    .close-image:hover {
+        color: #f39e9e;
+    }
 
 
 #page_content_inner .pn-tab-container li.uiTabs {
@@ -399,6 +403,7 @@ hr {
 .sidebar_main_active .pn-tab-container {
     margin-right: 250px;
 }
+
 @media only screen and (max-width: 1219px) {
     .sidebar_main_hiding #page_content:before,
     .sidebar_main_active #page_content:before {
@@ -496,13 +501,16 @@ hr {
 .sidebar_main_active .pn-tab-container {
     margin-right: 250px;
 }
+
 .md-fab-wrapper {
     position: fixed !important;
 }
+
 .md-fab-sheet-actions > a {
     text-align: right !important;
     font-family: 'Yekan';
 }
+
 .header_full #header_main {
     z-index: 125 !important;
 }
@@ -513,10 +521,11 @@ hr {
     font-size: 15px;
     float: right;
 }
-    #sidebar_main .menu_section > ul > li > a > .menu_icon .material-icons {
-        font-size: 17px !important;
-    }
-    
+
+#sidebar_main .menu_section > ul > li > a > .menu_icon .material-icons {
+    font-size: 17px !important;
+}
+
 
 li.user ul.dropdown-menu {
     box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23) !important;
@@ -525,13 +534,14 @@ li.user ul.dropdown-menu {
 }
 
     li.user ul.dropdown-menu li {
-        text-align: right !important
+        text-align: right !important;
     }
 
 li.user .dropdown-menu > li > a:hover {
     background-color: rgba(0,0,0,.085) !important;
     color: #212121 !important;
 }
+
 .profile-usermenu ul li.active {
     border-top: none !important;
 }
@@ -539,26 +549,28 @@ li.user .dropdown-menu > li > a:hover {
 .profile-usermenu ul li {
     padding: 0px;
 }
-.profile-usermenu ul li:last-child {
-    border-bottom-right-radius: 0px !important;
-    border-bottom-left-radius: 0px !important;
-}
-.profile-usermenu ul li.active {
-    border-top: none !important;
-    border-bottom: none;
-}
 
-    .profile-usermenu ul li.active a {
-        color: #5b9bd1;
-        background-color: #e1e1e1;
-        border-right: 2px solid #5b9bd1;
-        margin-right: -2px;
+    .profile-usermenu ul li:last-child {
+        border-bottom-right-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
     }
 
-.profile-usermenu ul li a i {
-    margin-right: 8px;
-    font-size: 14px;
-}
+    .profile-usermenu ul li.active {
+        border-top: none !important;
+        border-bottom: none;
+    }
+
+        .profile-usermenu ul li.active a {
+            color: #5b9bd1;
+            background-color: #e1e1e1;
+            border-right: 2px solid #5b9bd1;
+            margin-right: -2px;
+        }
+
+    .profile-usermenu ul li a i {
+        margin-right: 8px;
+        font-size: 14px;
+    }
 
 
 
@@ -574,6 +586,7 @@ li.user .dropdown-menu > li > a:hover {
 #sidebar_main .menu_section > ul > li ul {
     /*background-color: rgba(233,232,232,0.5) !important;*/
 }
+
 #sidebar_main .menu_section > ul > li > a > .menu_icon {
     width: 20px !important;
 }
@@ -610,6 +623,7 @@ li.user .dropdown-menu > li > a:hover {
     /*background-color: #f3f3f3;*/
     background-color: rgba(178,219,251,0.15);
 }
+
 #sidebar_main .menu_section ul > li {
     position: relative;
 }
@@ -625,6 +639,7 @@ li.user .dropdown-menu > li > a:hover {
 .app_theme_a #sidebar_main .menu_section > ul > li > ul {
     background-color: rgba(171,180,226,0.15);
 }
+
 .app_theme_b #sidebar_main .menu_section > ul > li > ul {
     background-color: rgba(189,167,227,0.1) !important;
 }
@@ -697,6 +712,7 @@ li.user .dropdown-menu > li > a:hover {
     background-color: #a6b9c1;
     color: #fff;
 }
+
 .app_theme_dark table.k-grid.table-hover > tbody > tr:hover {
     background-color: #546e7a !important;
 }
@@ -761,7 +777,7 @@ li.user .dropdown-menu > li > a:hover {
         font-size: 14px;
         font-weight: normal;
     }
-    
+
 
 .li-pn-tab {
     padding-bottom: 0px;
@@ -770,14 +786,15 @@ li.user .dropdown-menu > li > a:hover {
 }
 
 
-.li-pn-tab.active, .li-pn-tab:focus {
-    border-bottom: none !important;
-    background-color: rgba(255,255,255, 0.2);
-}
+    .li-pn-tab.active, .li-pn-tab:focus {
+        border-bottom: none !important;
+        background-color: rgba(255,255,255, 0.2);
+    }
 
-.li-pn-tab:hover {
-    background-color: rgba(255,255,255, 0.07);
-}
+    .li-pn-tab:hover {
+        background-color: rgba(255,255,255, 0.07);
+    }
+
 .box {
     background-color: #454545;
     font-family: 'Yekan' !important;
@@ -806,13 +823,19 @@ li.user .dropdown-menu > li > a:hover {
 }
 
 .form-group > label {
-    width:200px;
+    width: 200px;
 }
 
 
 .form-group > textarea {
     width: 90%;
 }
-.mar-right-5per{
-    margin-right:5% !important;
+
+.mar-right-5per {
+    margin-right: 5% !important;
+}
+
+div > .md-card-list-item-content {
+    overflow-x: unset !important;
+    max-height: unset !important;
 }

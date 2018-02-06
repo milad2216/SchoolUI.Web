@@ -1,6 +1,15 @@
 ﻿define(['angularAMD'], function (app) {
     app.service('dataService', ['$state', '$http', '$q', '$rootScope', '$httpParamSerializerJQLike', 'blockUI', function ($state, $http, $q, $rootScope, $httpParamSerializerJQLike, blockUI) {
-
+        var DispatchErrReponse = function (er) {
+            er.errormessages = [];
+            if (er.data.ErrorMessage) {
+                er.errormessages.push(er.data.ErrorMessage)
+            }
+            angular.forEach(er.data.ModelState, function (value, key) {
+                er.errormessages.push(value[0]);
+            });
+            return er;
+        }
         return {
 
             getData: function (url, filterInfo) {
@@ -11,7 +20,7 @@
                 if (!aut) {
                     aut = {
                         token_type: "",
-                        access_token:""
+                        access_token: ""
                     }
                 }
                 $http({
@@ -23,7 +32,7 @@
                     deferred.resolve(response.data);
                     blockUI.stop();
                 }, function (er) {
-                    deferred.reject(er);
+                    deferred.reject(DispatchErrReponse(er));
                     blockUI.stop();
                 });
                 return deferred.promise;
@@ -45,7 +54,8 @@
                     deferred.resolve(response.data);
                     blockUI.stop();
                 }, function (er) {
-                    deferred.reject(er);
+
+                    deferred.reject(DispatchErrReponse(er));
                     blockUI.stop();
                 });
                 return deferred.promise;
@@ -67,7 +77,7 @@
                     deferred.resolve(response.data);
                     blockUI.stop();
                 }, function (er) {
-                    deferred.reject(er);
+                    deferred.reject(DispatchErrReponse(er));
                     blockUI.stop();
                 });
                 return deferred.promise;
@@ -88,7 +98,7 @@
                     deferred.resolve(response.data);
                     blockUI.stop();
                 }, function (er) {
-                    deferred.reject(er);
+                    deferred.reject(DispatchErrReponse(er));
                     blockUI.stop();
                 });
                 return deferred.promise;
@@ -108,7 +118,7 @@
                     deferred.resolve(response.data);
                     blockUI.stop();
                 }, function (er) {
-                    deferred.reject(er);
+                    deferred.reject(DispatchErrReponse(er));
                     blockUI.stop();
                 });
                 return deferred.promise;
@@ -128,7 +138,7 @@
                     deferred.resolve(response.data);
                     blockUI.stop();
                 }, function (er) {
-                    deferred.reject(er);
+                    deferred.reject(DispatchErrReponse(er));
                     blockUI.stop();
                 });
                 return deferred.promise;
@@ -152,7 +162,7 @@
                         deferred.resolve(response.data);
                         blockUI.stop();
                     }, function (er) {
-                        deferred.reject(er);
+                        deferred.reject(DispatchErrReponse(er));
                         blockUI.stop();
                     });
                 return deferred.promise;
