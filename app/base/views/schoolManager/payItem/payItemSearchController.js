@@ -73,6 +73,9 @@
                     }
                 }
             },
+            error: function (e) {
+                dataService.DispatchErrReponseForKendo(e);
+            },
             autoSync: false,
             pageSize: 9,
             serverPaging: true,

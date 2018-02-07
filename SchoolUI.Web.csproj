@@ -190,6 +190,7 @@
     <Content Include="app\base\partials\directives\pn-right-menu.html" />
     <Content Include="app\base\services\DataService.js" />
     <Content Include="app\base\services\EnumService.js" />
+    <Content Include="app\base\services\NotificationService.js" />
     <Content Include="app\base\services\pn.cssLoader.js" />
     <Content Include="app\base\services\pn.menu.service.js" />
     <Content Include="app\base\services\pn.regexValidator.js" />
@@ -308,6 +309,8 @@
     <Content Include="app\base\views\student\request\studentRequestCrudController.js" />
     <Content Include="app\base\views\student\request\studentRequestSearch.html" />
     <Content Include="app\base\views\student\request\studentRequestSearchController.js" />
+    <Content Include="app\base\views\teacher\teacherSchoolClass\teacherSchoolClass.html" />
+    <Content Include="app\base\views\teacher\teacherSchoolClass\teacherSchoolClassController.js" />
     <Content Include="app\main.js" />
     <Content Include="app\base\partials\directives\accordion.html" />
     <Content Include="app\base\partials\directives\numeric.html" />
@@ -2669,6 +2672,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\base\views\teacher\classDisciplineItem\" />
+    <Folder Include="app\base\views\teacher\classRollCall\" />
+    <Folder Include="app\base\views\teacher\questionOption\" />
+    <Folder Include="app\base\views\teacher\question\" />
     <Folder Include="Content\images\icons\workflow\cartable\" />
     <Folder Include="Content\kendo\2016.1\styles\images\" />
     <Folder Include="Scripts\Hub\" />

@@ -294,6 +294,13 @@ define(['angularAMD'], function (angularAMD) {
                     controllerUrl: '/app/base/views/schoolManager/rollCall/rollCallController.js',
                     templateUrl: '/app/base/views/schoolManager/rollCall/rollCall.html'
                 }))
+            .state('teacherSchoolClass', angularAMD.route(
+                {
+                    url: '/teacherSchoolClass',
+                    controller: 'teacherSchoolClassController',
+                    controllerUrl: '/app/base/views/teacher/teacherSchoolClass/teacherSchoolClassController.js',
+                    templateUrl: '/app/base/views/teacher/teacherSchoolClass/teacherSchoolClass.html'
+                }))
     }]);
 
     app.constant('variables', {
