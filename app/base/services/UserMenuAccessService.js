@@ -44,6 +44,9 @@
                         SystemTitle: "عملیات روزانه", SystemKey: '05e77746-d179-e711-966b-000c29eedd59',
                         Childs: [{ Title: "کلاس", Action: "teacherSchoolClass" }]
                     }, {
+                        SystemTitle: "امتحانات", SystemKey: '30f8678d-dffb-e611-ac4f-38d54778b1eb',
+                        Childs: [{ Title: " سوالات", Action: "questionSearch" }]
+                    }, {
                         SystemTitle: "موارد انظباطی", SystemKey: '30f8678d-dffb-e611-ac4f-38d54778b1eb',
                         Childs: [{ Title: " ثبت موارد انظباطی", Action: "disciplineItemSearch" }]
                     }, {

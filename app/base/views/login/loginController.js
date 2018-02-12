@@ -32,7 +32,7 @@ define(['app'], function (app) {
                     RESOURCES.USERS_DOMAIN + '/token', sendData
                 ).then(data => {
                     debugger;
-                    if (data.Invalid_grant2) {
+                    if (data.error === "invalid_grant2") {
                         $("#select_school_model").show();
                         return;
                     }

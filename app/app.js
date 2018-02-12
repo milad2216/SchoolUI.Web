@@ -57,7 +57,7 @@ define(['angularAMD'], function (angularAMD) {
 
     }]);
     app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("main"),
+        $urlRouterProvider.otherwise("/main"),
         $stateProvider
             .state('teacherSearch', angularAMD.route(
                 {
@@ -301,6 +301,25 @@ define(['angularAMD'], function (angularAMD) {
                     controllerUrl: '/app/base/views/teacher/teacherSchoolClass/teacherSchoolClassController.js',
                     templateUrl: '/app/base/views/teacher/teacherSchoolClass/teacherSchoolClass.html'
                 }))
+            .state('questionSearch', angularAMD.route(
+                {
+                    url: '/questionSearch',
+                    controller: 'questionSearchController',
+                    controllerUrl: '/app/base/views/teacher/question/questionSearchController.js',
+                    templateUrl: '/app/base/views/teacher/question/questionSearch.html'
+                }))
+            .state('questionCrud', angularAMD.route(
+                {
+                    url: '/questionCrud',
+                    controller: 'questionCrudController',
+                    controllerUrl: '/app/base/views/teacher/question/questionCrudController.js',
+                    templateUrl: '/app/base/views/teacher/question/questionCrud.html',
+                    params: {
+                        disciplineItem: {},
+                        mode: "create"
+                    }
+
+                }))
     }]);
 
     app.constant('variables', {
@@ -310,8 +329,8 @@ define(['angularAMD'], function (angularAMD) {
     });
     app.constant('RESOURCES', (function () {
         // Define your variable
-        //var resource = 'http://localhost:8080';
-        var resource = 'http://rubikplus.somee.com';
+        var resource = 'http://localhost:8080';
+        //var resource = 'http://rubikplus.somee.com';
         // Use the variable in your constants
         return {
             USERS_DOMAIN: resource,

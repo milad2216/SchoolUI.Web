@@ -8,6 +8,9 @@
                 angular.forEach(er.data.ModelState, function (value, key) {
                     Notification.error(value[0]);
                 });
+                if (er.data.error_description) {
+                    Notification.error(er.data.error_description);
+                }
             } else
                 if (er.status === 401) {
                     $state.go("main");

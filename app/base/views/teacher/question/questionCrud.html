@@ -1,0 +1,62 @@
+﻿<form id="questionForm" name="questionForm" style="color:black; overflow-x:hidden;height:600px; ">
+    <div class="row margin-top-10 mar-right-5per">
+        <div class="form-group col-md-4">
+            <label>مبحث</label>
+            <input type="text" class="col-md-10 " maxlength="100" required ng-model="question.Subject" id="title">
+        </div>
+    </div>
+    <div class="row margin-top-10 mar-right-5per">
+        <div class="form-group mar-top-23">
+            <label>متن سوال</label>
+            <textarea rows="5" class="mousetrap" maxlength="500" required ng-model="question.QuestionText" id="Description" lang="fa"></textarea>
+        </div>
+    </div>
+    <div class="row margin-top-10 mar-right-5per">
+        <div class="form-group col-md-4">
+            <label>درجه سختی</label>
+            <pn-combo-box ng-model="question.DifficultyLevel" class="col-md-8" api="api" source="difficultyLevelOptions" textfield="text" valuefield="value"></pn-combo-box>
+        </div>
+        <div class="form-group col-md-4">
+            <label>مقطع تحصیلی</label>
+            <pn-combo-box ng-model="question.Grade" class="col-md-8 " api="api" source="gradeOptions" textfield="text" valuefield="value"></pn-combo-box>
+
+        </div>
+        <div class="form-group col-md-4">
+            <label>درس</label>
+            <pn-combo-box ng-model="question.CourseId" class="col-md-8 " api="api" source="courseOptions" textfield="text" valuefield="value"></pn-combo-box>
+
+        </div>
+    </div>
+    <div class="row margin-top-10 mar-right-5per">
+        <div class="form-group col-md-6">
+            <label>فایل سوال</label>
+            <div class="col-md-9 margin-top15">
+                <pn-file-upload ng-model="QoestionBase64ImageFile" config="qoestionBase64ImageFile" api="api" on-selected="qoestionBase64ImageOnSelect(fileStream, fileInfo)" on-remove="qoestionBase64ImageOnRemove(e)"></pn-file-upload>
+            </div>
+        </div>
+    </div>
+    <div class="row margin-top-10">
+        <ul>
+            <li ng-repeat="option in QuestionOptions">
+                <div>
+                    <div class="row margin-top-10 mar-right-5per">
+                        <div class="form-group mar-top-23 col-md-8">
+                            <label>متن گزینه <span ng-bind="QuestionOptions.indexOf(option)+1"></span> <span ng-show="QuestionOptions.indexOf(option)===0">(گزینه صحیح)</span></label>
+                            <textarea rows="5" class="mousetrap" maxlength="200" required ng-model="option.Option" id="Option" lang="fa"></textarea>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>فایل گزینه</label>
+                            <div class="col-md-9 margin-top15">
+                                <pn-file-upload ng-model="QuestionOptions.optionsBase64ImageFile" config="optionsBase64ImageFile" api="api" on-selected="optionsBase64ImageOnSelect(fileStream, fileInfo)" on-remove="optionsBase64ImageOnRemove(e)"></pn-file-upload>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <button type="submit" class="btn btn-default" ng-click="addOption()">افزودن گزینه</button>
+    </div>
+    <div class="col-xs-12">
+        <button type="submit" class="btn btn-default center-block" ng-click="saveEntity()">ذخیره</button>
+    </div>
+</form>
