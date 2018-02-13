@@ -11,6 +11,7 @@ define(['app'], function (app) {
             }
             $scope.question = {};
             $scope.QuestionOptions = [];
+            $scope.QuestionOptionsBase64Image = [];
             $scope.difficultyLevelOptions = [];
             var DifficultyLevel = enumService.DifficultyLevel();
             var DifficultyLevelItems = [];
@@ -21,6 +22,7 @@ define(['app'], function (app) {
             $scope.addOption = function () {
                 if ($scope.questionForm.$valid) {
                     $scope.QuestionOptions.push({});
+                    $scope.QuestionOptionsBase64Image.push("");
                 }
             }
             $scope.difficultyLevelOptions = DifficultyLevelItems;
@@ -58,11 +60,11 @@ define(['app'], function (app) {
                 allowedExtensions: [".img", ".png", ".jpeg", ".jpg"],
                 preview: true,
             }
-            $scope.optionsBase64ImageOnSelect = function (fileStream, fileInfo) {
-
+            $scope.optionsBase64ImageOnSelect = function (fileStream, fileInfo, index) {
+                $scope.QuestionOptionsBase64Image[index] = fileStream.split(',')[1];
             }
-            $scope.optionsBase64ImageOnRemove = function (e) {
-
+            $scope.optionsBase64ImageOnRemove = function (e, index) {
+                $scope.QuestionOptionsBase64Image[index] = "";
             }
             $scope.saveEntity = function () {
                 if ($scope.questionForm.$valid) {
@@ -70,7 +72,7 @@ define(['app'], function (app) {
                     sendData.Question = $scope.question;
                     sendData.QuestionOptions = $scope.QuestionOptions;
                     sendData.QuestionBase64Image = $scope.qoestionBase64Image;
-                    sendData.QuestionOptionsBase64Image = $scope.QuestionOptions.select(function (d) { return ""; });
+                    sendData.QuestionOptionsBase64Image = $scope.QuestionOptionsBase64Image;
                     debugger;
                     if ($stateParams.mode == "create") {
                         dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Questions', sendData).then(function (id) {

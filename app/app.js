@@ -329,8 +329,8 @@ define(['angularAMD'], function (angularAMD) {
     });
     app.constant('RESOURCES', (function () {
         // Define your variable
-        var resource = 'http://localhost:8080';
-        //var resource = 'http://rubikplus.somee.com';
+        //var resource = 'http://localhost:8080';
+        var resource = 'http://rubikplus.somee.com';
         // Use the variable in your constants
         return {
             USERS_DOMAIN: resource,

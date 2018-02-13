@@ -47,7 +47,7 @@
                         <div class="form-group col-md-4">
                             <label>فایل گزینه</label>
                             <div class="col-md-9 margin-top15">
-                                <pn-file-upload ng-model="QuestionOptions.optionsBase64ImageFile" config="optionsBase64ImageFile" api="api" on-selected="optionsBase64ImageOnSelect(fileStream, fileInfo)" on-remove="optionsBase64ImageOnRemove(e)"></pn-file-upload>
+                                <pn-file-upload ng-model="QuestionOptions.optionsBase64ImageFile" config="optionsBase64ImageFile" api="api" on-selected="optionsBase64ImageOnSelect(fileStream, fileInfo,$index)" on-remove="optionsBase64ImageOnRemove(e,$index)"></pn-file-upload>
                             </div>
                         </div>
                     </div>
