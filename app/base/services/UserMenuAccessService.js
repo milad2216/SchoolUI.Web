@@ -45,7 +45,7 @@
                         Childs: [{ Title: "کلاس", Action: "teacherSchoolClass" }]
                     }, {
                         SystemTitle: "امتحانات", SystemKey: '30f8678d-dffb-e611-ac4f-38d54778b1eb',
-                        Childs: [{ Title: " سوالات", Action: "questionSearch" }]
+                        Childs: [{ Title: " سوالات", Action: "questionSearch" }, { Title: " آزمون‌ها", Action: "quizSearch" }]
                     }, {
                         SystemTitle: "موارد انظباطی", SystemKey: '30f8678d-dffb-e611-ac4f-38d54778b1eb',
                         Childs: [{ Title: " ثبت موارد انظباطی", Action: "disciplineItemSearch" }]

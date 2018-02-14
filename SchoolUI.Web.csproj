@@ -171,6 +171,7 @@
     <Content Include="app\base\directives\controls\header\pn-style-switcher.js" />
     <Content Include="app\base\directives\controls\pn-average.js" />
     <Content Include="app\base\directives\controls\pn-city.js" />
+    <Content Include="app\base\directives\controls\pn-gridview-checkbox.js" />
     <Content Include="app\base\directives\controls\pn-multistep.js" />
     <Content Include="app\base\directives\controls\pn-personalid.js" />
     <Content Include="app\base\directives\controls\pn-right-menu.js" />
@@ -313,6 +314,10 @@
     <Content Include="app\base\views\teacher\question\questionCrudController.js" />
     <Content Include="app\base\views\teacher\question\questionSearch.html" />
     <Content Include="app\base\views\teacher\question\questionSearchController.js" />
+    <Content Include="app\base\views\teacher\quiz\quizCrud.html" />
+    <Content Include="app\base\views\teacher\quiz\quizCrudController.js" />
+    <Content Include="app\base\views\teacher\quiz\quizSearch.html" />
+    <Content Include="app\base\views\teacher\quiz\quizSearchController.js" />
     <Content Include="app\base\views\teacher\teacherSchoolClass\teacherSchoolClass.html" />
     <Content Include="app\base\views\teacher\teacherSchoolClass\teacherSchoolClassController.js" />
     <Content Include="app\main.js" />

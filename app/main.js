@@ -29,7 +29,9 @@ require([
     'base/directives/controls/header/pn-style-switcher',
     'base/directives/controls/header/pn-page-aside-toggle',
     'base/directives/controls/header/pn-page-aside',
-    'base/directives/controls/header/pn-md-fab-sheet'
+    'base/directives/controls/header/pn-md-fab-sheet',
+     'base/directives/controls/pn-gridview-checkbox'
+    
 
 ], function (app) {
     app.bootstrap();

@@ -3,13 +3,13 @@ define(['app'], function (app) {
     app.register.controller('questionCrudController', ['$scope', '$rootScope', 'dataService', '$stateParams', 'enumService', '$state', 'RESOURCES', 'Notification',
         function ($scope, $rootScope, dataService, $stateParams, enumService, $state, RESOURCES, Notification) {
             debugger;
+            $scope.question = {};
             var reloadData = function (question) {
                 $scope.question = question;
             }
             if ($stateParams.mode == "edit") {
                 reloadData($stateParams.question);
             }
-            $scope.question = {};
             $scope.QuestionOptions = [];
             $scope.QuestionOptionsBase64Image = [];
             $scope.difficultyLevelOptions = [];
@@ -36,10 +36,10 @@ define(['app'], function (app) {
 
             $scope.gradeOptions = GradeItems;
             $scope.courseOptions = [];
-            dataService.getData(RESOURCES.USERS_DOMAIN + '/api/SchoolCourses?$expand=Course&inlinecount=allpages').then(data=> {
+            dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Courses?inlinecount=allpages').then(data=> {
 
                 angular.forEach(data.Items, function (value, key) {
-                    $scope.courseOptions.push({ text: value.Course.Name, value: value.Course.Id });
+                    $scope.courseOptions.push({ text: value.Name, value: value.Id });
                 });
             })
 

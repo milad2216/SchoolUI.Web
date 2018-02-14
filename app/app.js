@@ -320,6 +320,25 @@ define(['angularAMD'], function (angularAMD) {
                     }
 
                 }))
+            .state('quizSearch', angularAMD.route(
+                {
+                    url: '/quizSearch',
+                    controller: 'quizSearchController',
+                    controllerUrl: '/app/base/views/teacher/quiz/quizSearchController.js',
+                    templateUrl: '/app/base/views/teacher/quiz/quizSearch.html'
+                }))
+            .state('quizCrud', angularAMD.route(
+                {
+                    url: '/quizCrud',
+                    controller: 'quizCrudController',
+                    controllerUrl: '/app/base/views/teacher/quiz/quizCrudController.js',
+                    templateUrl: '/app/base/views/teacher/quiz/quizCrud.html',
+                    params: {
+                        disciplineItem: {},
+                        mode: "create"
+                    }
+
+                }))
     }]);
 
     app.constant('variables', {
