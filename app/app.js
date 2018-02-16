@@ -315,7 +315,7 @@ define(['angularAMD'], function (angularAMD) {
                     controllerUrl: '/app/base/views/teacher/question/questionCrudController.js',
                     templateUrl: '/app/base/views/teacher/question/questionCrud.html',
                     params: {
-                        disciplineItem: {},
+                        question: {},
                         mode: "create"
                     }
 
@@ -334,8 +334,38 @@ define(['angularAMD'], function (angularAMD) {
                     controllerUrl: '/app/base/views/teacher/quiz/quizCrudController.js',
                     templateUrl: '/app/base/views/teacher/quiz/quizCrud.html',
                     params: {
-                        disciplineItem: {},
+                        quiz: {},
                         mode: "create"
+                    }
+
+                }))
+            .state('assignmentSearch', angularAMD.route(
+                {
+                    url: '/assignmentSearch',
+                    controller: 'assignmentSearchController',
+                    controllerUrl: '/app/base/views/teacher/assignment/assignmentSearchController.js',
+                    templateUrl: '/app/base/views/teacher/assignment/assignmentSearch.html'
+                }))
+            .state('assignmentCrud', angularAMD.route(
+                {
+                    url: '/assignmentCrud',
+                    controller: 'assignmentCrudController',
+                    controllerUrl: '/app/base/views/teacher/assignment/assignmentCrudController.js',
+                    templateUrl: '/app/base/views/teacher/assignment/assignmentCrud.html',
+                    params: {
+                        assignment: {},
+                        mode: "create"
+                    }
+
+                }))
+            .state('assignmentAnswer', angularAMD.route(
+                {
+                    url: '/assignmentAnswer',
+                    controller: 'assignmentAnswerController',
+                    controllerUrl: '/app/base/views/teacher/assignment/assignmentAnswerController.js',
+                    templateUrl: '/app/base/views/teacher/assignment/assignmentAnswer.html',
+                    params: {
+                        assignment: {}
                     }
 
                 }))

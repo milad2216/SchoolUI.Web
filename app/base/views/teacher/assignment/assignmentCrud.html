@@ -1,0 +1,31 @@
+﻿<form id="assignmentForm" name="assignmentForm" style="color:black; overflow-x:hidden;height:600px;">
+    <div class="col-xs-12">
+        <div class="form-group col-xs-4">
+            <label>عنوان</label>
+            <input type="text" class="col-md-10 " maxlength="100" required ng-model="assignment.Title" id="title">
+        </div>
+        <div class="form-group col-xs-4">
+            <label>مهلت</label>
+            <input type="date" text-required='انتخاب مهلت اجباریست' kendo-date-picker options="dateOptionsDtDue" class="col-md-8 form-control k-rtl" name="DtDue" k-ng-model="assignment.DtDue" />
+        </div>
+        <!--<div class="col-md-4">
+            <label for="gradeAcademicYearId">انتخاب مقطع</label>
+            <pn-combo-box ng-model="assignment.GradeAcademicYearId" required api="api" source="gradeAcademicYearOptions" textfield="text" valuefield="value" id="gradeAcademicYearId"></pn-combo-box>
+        </div>-->
+    </div>
+    <div class="col-xs-12">
+        <div class="form-group mar-top-23">
+            <label>شرح تمرین</label>
+            <textarea rows="5" class="mousetrap" maxlength="500" required ng-model="assignment.Description" id="Description" lang="fa"></textarea>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="form-group" ng-if="showSchoolCourseGrid">
+            <label>کلاس ها</label>
+            <pn-gridview-checkbox on-select-row="onSelectRow(data)" api="api" options="mainGridOptions"></pn-gridview-checkbox>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <button type="submit" class="btn btn-default center-block mar-top-23" ng-click="saveEntity()">ذخیره</button>
+    </div>
+</form>

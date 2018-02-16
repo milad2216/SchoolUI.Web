@@ -13,6 +13,7 @@
                 })
                 $scope.totalOfNotPay = 0;
                 $scope.totalOfPaid = 0;
+                $scope.gradeAcademicYearOptions = [];
                 dataService.getData(RESOURCES.USERS_DOMAIN + "/api/GradeAcademicYears?inlinecount=allpages&$expand=AcademicYear").then(function (data) {
                     var items = [];
                     angular.forEach(data.Items, function (value, key) {
@@ -42,7 +43,6 @@
                 $scope.closePupop = function (elemId) {
                     $("#" + elemId).hide();
                 }
-                $scope.gradeAcademicYearOptions = [];
                 $scope.showDetails = function (parentId) {
                     dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Parents?$filter=Id eq ' + parentId).then(function (data) {
                         $scope.selectedParent = data.Items[0];

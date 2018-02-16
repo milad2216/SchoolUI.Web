@@ -2,8 +2,6 @@
 define(['app'], function (app) {
     app.register.controller('schoolCourseController', ['$scope', '$rootScope', 'dataService', 'enumService', 'blockUI', 'RESOURCES',
         function ($scope, $rootScope, dataService, enumService, blockUI, RESOURCES) {
-            debugger;
-            blockUI.start("لطفا شکیبا باشید");
             dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Courses').then(function (data) {
 
                 var courseItems = [];
@@ -23,7 +21,6 @@ define(['app'], function (app) {
                             schoolClassItems.push({ text: value.Name, value: value.Id });
                         });
                         loadGrid(courseItems, teacherItems, schoolClassItems);
-                        blockUI.stop();
                     });
                 });
             });

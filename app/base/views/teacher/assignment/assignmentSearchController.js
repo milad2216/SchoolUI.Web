@@ -1,21 +1,26 @@
 ﻿define(['app'], function (app) {
-    app.register.controller('quizSearchController', ['$scope', '$rootScope', 'dataService', '$state', 'RESOURCES', 'enumService',
+    app.register.controller('assignmentSearchController', ['$scope', '$rootScope', 'dataService', '$state', 'RESOURCES', 'enumService',
     function ($scope, $rootScope, dataService, $state, RESOURCES, enumService) {
 
-        $scope.editQuiz = function (e) {
+        $scope.editAssignment = function (e) {
             var myItem = $scope.kendoGrid.dataItem($(e.target).closest("tr"));
-            $state.go("quizCrud", { question: myItem, mode: "edit" });
+            $state.go("assignmentCrud", { assignment: myItem, mode: "edit" });
         }
 
-        $scope.addQuiz = function (e) {
-            $state.go("quizCrud", { question: {} });
+        $scope.showAnswers = function (e) {
+            var myItem = $scope.kendoGrid.dataItem($(e.target).closest("tr"));
+            $state.go("assignmentAnswer", { assignment: myItem, mode: "edit" });
+        }
+
+        $scope.addAssignment = function (e) {
+            $state.go("assignmentCrud", { assignment: {} });
         }
         $scope.dataSource = new kendo.data.DataSource({
             type: 'odata',
             transport: {
                 read: {
                     type: "GET",
-                    url: RESOURCES.USERS_DOMAIN + "/api/Quizes",
+                    url: RESOURCES.USERS_DOMAIN + "/api/Assignments",
                     beforeSend: function (request) {
                         var aut = JSON.parse(localStorage.getItem("lt"));
                         request.setRequestHeader('Authorization', aut.token_type + ' ' + aut.access_token);
@@ -26,7 +31,7 @@
                 destroy: {
                     type: "DELETE",
                     url: function (options) {
-                        return RESOURCES.USERS_DOMAIN + "/api/Quizes/" + options.Id;
+                        return RESOURCES.USERS_DOMAIN + "/api/Assignments/" + options.Id;
                     },
                     beforeSend: function (request) {
                         var aut = JSON.parse(localStorage.getItem("lt"));
@@ -51,7 +56,9 @@
                     id: "Id",
                     fields: {
                         Id: { type: "number", editable: false, nullable: true },
-                        Name: { type: "string", defaultValue: null }
+                        Title: { type: "string", defaultValue: null },
+                        Description: { type: "string", defaultValue: null },
+                        DtDue: { type: "date", editable: false }
                     }
                 }
             },
@@ -88,13 +95,13 @@
             dataBound: function () {
                 $(".k-grid").find('a').removeAttr('href');
             },
-            toolbar: [{ name: "addQuiz", template: '<button data-ng-click=\'addQuiz()\' class=\'k-button\'>جدید</button>' }],
+            toolbar: [{ name: "addAssignment", template: '<button data-ng-click=\'addAssignment()\' class=\'k-button\'>جدید</button>' }],
             editable: "inline",
 
             columns: [
                 {
-                    field: "Name",
-                    title: "نام آزمون",
+                    field: "Title",
+                    title: "عنوان",
                     filterable:
                     {
                         cell:
@@ -105,16 +112,35 @@
 
                 },
                 {
+                    field: "DtDue",
+                    title: "مهلت",
+                    template: "#= moment(DtDue).format('jYYYY/jMM/jDD')#",
+                    filterable:
+                    {
+                        extra: true,
+                        ui: 'datepicker',
+                        operators: {
+                            date: {
+                                gt: "بزرگتر",
+                                lt: "کوچکتر"
+                            }
+                        }
+                    }
+                },
+                {
                     command: [{
                         text: "حذف", name: "delete"
                     }, {
-                        text: "ویرایش", click: $scope.editQuiz
+                        text: "ویرایش", click: $scope.editAssignment
+                    }, {
+                        text: "پاسخ‌ها", click: $scope.showAnswers
                     }],
                     title: "&nbsp;",
-                    width: 200
+                    width: 300
                 }
             ]
         };
+
     }
 
 

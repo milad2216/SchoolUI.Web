@@ -2,27 +2,29 @@
     app.register.controller('questionSearchController', ['$scope', '$rootScope', 'dataService', '$state', 'RESOURCES', 'enumService',
     function ($scope, $rootScope, dataService, $state, RESOURCES, enumService) {
 
-        //$scope.editQuestion = function (e) {
-        //    var myItem = $scope.kendoGrid.dataItem($(e.target).closest("tr"));
-        //    $state.go("questionnCrud", { question: myItem, mode: "edit" });
-        //}
-        //dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Courses').then(function (data) {
+        $scope.editQuestion = function (e) {
+            var myItem = $scope.kendoGrid.dataItem($(e.target).closest("tr"));
+            $state.go("questionCrud", { question: myItem, mode: "edit" });
+        }
+        dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Courses').then(function (data) {
 
-        var courseItems = [];
-        //angular.forEach(data.Items, function (value, key) {
-        //    courseItems.push({ text: value.Name, value: value.Id });
-        //});
-        var DifficultyLevel = enumService.DifficultyLevel();
-        var DifficultyLevelItems = [];
-        angular.forEach(DifficultyLevel, function (value, key) {
-            DifficultyLevelItems.push({ text: value.Text, value: value.Id });
+            var courseItems = [];
+            angular.forEach(data.Items, function (value, key) {
+                courseItems.push({ text: value.Name, value: value.Id });
+            });
+            var DifficultyLevel = enumService.DifficultyLevel();
+            var DifficultyLevelItems = [];
+            angular.forEach(DifficultyLevel, function (value, key) {
+                DifficultyLevelItems.push({ text: value.Text, value: value.Id });
+            });
+            var Grade = enumService.GradeEnum();
+            var GradeItems = [];
+            angular.forEach(Grade, function (value, key) {
+                GradeItems.push({ text: value.Text, value: value.Id });
+            });
+
+            loadGrid(DifficultyLevelItems, GradeItems, courseItems);
         });
-        var Grade = enumService.GradeEnum();
-        var GradeItems = [];
-        angular.forEach(Grade, function (value, key) {
-            GradeItems.push({ text: value.Text, value: value.Id });
-        });
-        //});
         $scope.addQuestion = function (e) {
             $state.go("questionCrud", { question: {} });
         }
@@ -86,7 +88,7 @@
 
 
 
-        //var loadGrid = function (DifficultyLevelItems, GradeItems, CourseItems) {
+        var loadGrid = function (DifficultyLevelItems, GradeItems, CourseItems) {
             $scope.mainGridOptions = {
                 dataSource: $scope.dataSource,
                 filterable: {
@@ -139,26 +141,24 @@
                         width: '300px',
                         values: GradeItems
                     },
-                    //{
-                    //    field: 'CourseId',
-                    //    title: 'درس',
-                    //    width: '300px',
-                    //    values: CourseItems
-                    //},
+                    {
+                        field: 'CourseId',
+                        title: 'درس',
+                        width: '300px',
+                        values: CourseItems
+                    },
                     {
                         command: [{
                             text: "حذف", name: "delete"
                         }, {
-                            text: "ویرایش"//, click: $scope.editQuestion()
+                            text: "ویرایش", click: $scope.editQuestion
                         }],
                         title: "&nbsp;",
                         width: 200
                     }
                 ]
             };
-        //}
-
-        //loadGrid(DifficultyLevelItems, GradeItems, courseItems);
+        }
     }
 
 

@@ -310,6 +310,12 @@
     <Content Include="app\base\views\student\request\studentRequestCrudController.js" />
     <Content Include="app\base\views\student\request\studentRequestSearch.html" />
     <Content Include="app\base\views\student\request\studentRequestSearchController.js" />
+    <Content Include="app\base\views\teacher\assignment\assignmentAnswer.html" />
+    <Content Include="app\base\views\teacher\assignment\assignmentAnswerController.js" />
+    <Content Include="app\base\views\teacher\assignment\assignmentCrud.html" />
+    <Content Include="app\base\views\teacher\assignment\assignmentCrudController.js" />
+    <Content Include="app\base\views\teacher\assignment\assignmentSearch.html" />
+    <Content Include="app\base\views\teacher\assignment\assignmentSearchController.js" />
     <Content Include="app\base\views\teacher\question\questionCrud.html" />
     <Content Include="app\base\views\teacher\question\questionCrudController.js" />
     <Content Include="app\base\views\teacher\question\questionSearch.html" />

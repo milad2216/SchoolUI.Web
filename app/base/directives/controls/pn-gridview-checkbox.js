@@ -10,7 +10,7 @@
                 api: "=?"
             },
             template: function (element, attrs) {
-                return '<div  kendo-grid="kendoGrid" class="k-rtl mousetrap" k-options="options"></div>';
+                return '<div  kendo-grid="kendoGrid" class="k-rtl mousetrap" k-ng-delay="options" k-options="options"></div>';
             },
             controller: function ($scope) {
                 $scope.objChecks = {};
@@ -58,7 +58,13 @@
                     });
                     var selects = scope.kendoGrid.select();
                     var multiselects = selects.map(function (idx, sel) { return scope.kendoGrid.dataItem(sel) });
-                    var item = { items: multiselects };
+                    var itmes = [];
+                    for (var t in scope.objChecks) {
+                        if (scope.objChecks[t]) {
+                            itmes.push(t);
+                        }
+                    }
+                    var item = { items: multiselects, allChecked: itmes };
 
                     scope.onSelectRow({ data: item });
 
@@ -101,7 +107,7 @@
 
 
                 scope.api = {
-                    getSelected: function () {
+                    getChecked: function () {
                         var itmes = [];
                         for (var t in scope.objChecks) {
                             if (scope.objChecks[t]) {
