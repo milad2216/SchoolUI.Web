@@ -306,6 +306,8 @@
     <Content Include="app\base\views\schoolManager\teacher\teacherCrud.html" />
     <Content Include="app\base\views\schoolManager\teacher\teacherCrudController.js" />
     <Content Include="app\base\views\schoolManager\teacher\teacherSearchController.js" />
+    <Content Include="app\base\views\student\quiz\onlineQuizSearch.html" />
+    <Content Include="app\base\views\student\quiz\onlineQuizSearchController.js" />
     <Content Include="app\base\views\student\request\studentRequestCrud.html" />
     <Content Include="app\base\views\student\request\studentRequestCrudController.js" />
     <Content Include="app\base\views\student\request\studentRequestSearch.html" />

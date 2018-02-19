@@ -369,6 +369,13 @@ define(['angularAMD'], function (angularAMD) {
                     }
 
                 }))
+            .state('onlineQuizSearch', angularAMD.route(
+                {
+                    url: '/onlineQuizSearch',
+                    controller: 'onlineQuizSearchController',
+                    controllerUrl: '/app/base/views/student/quiz/onlineQuizSearchController.js',
+                    templateUrl: '/app/base/views/student/quiz/onlineQuizSearch.html'
+                }))
     }]);
 
     app.constant('variables', {
