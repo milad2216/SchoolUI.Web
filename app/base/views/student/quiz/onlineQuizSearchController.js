@@ -20,24 +20,44 @@ define(['app'], function (app) {
                 preview: true,
             }
 
-            $scope.onlineQuizEntity = function () {
-                if ($scope.questionForm.$valid) {
-                    var sendData = {};
-                    sendData.Question = $scope.question;
-                    sendData.QuestionOptions = $scope.QuestionOptions;
-                    sendData.QuestionBase64Image = $scope.qoestionBase64Image;
-                    sendData.QuestionOptionsBase64Image = $scope.QuestionOptionsBase64Image;
+            $scope.startOnlineQuizEntity = function () {
+                var sendData = {};
+                sendData.QuizId = "3";
+                var aut = JSON.parse(localStorage.getItem("lt"));
+                sendData.StudentId = aut.user_id;
+                debugger;
+                dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/StudentQuizAnswers', sendData).then(function (id) {
+                    dataService.getData(RESOURCES.USERS_DOMAIN + '/api/StudentQuizAnswers/' + id).then(function (data) {
+                        debugger;
+                        $scope.StudentQuizAnswerId = id;
+                        $scope.DtDefine = data.DtDefine;
+                    })
+                });
+            }
+
+            $scope.getQueationsEntity = function () {
+                debugger;
+                dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Quizes/3?$expand=Questions/QuestionOptions').then(function (data) {
                     debugger;
-                    if ($stateParams.mode == "create") {
-                        dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/Questions', sendData).then(function (id) {
-                            Notification.success('با موفقیت ذخیره شد.');
-                            $state.go("questionSearch");
-                        });
-                    } else if ($stateParams.mode == "edit") {
-                        dataService.updateEntity(RESOURCES.USERS_DOMAIN + '/api/Questions/' + $scope.question.Id, sendData);
-                        $state.go("questionSearch");
-                    }
-                }
+                    $scope.Questions = data.Questions;
+                });
+            }
+
+            $scope.AnswerQuizQuestionEntity = function () {
+                var sendData = {};
+                sendData.StudentQuizAnswerId = $scope.StudentQuizAnswerId;
+                sendData.QuestionOptionIdAnswer = 15;
+                debugger;
+                dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/StudentQuestionAnswers', [sendData]).then(function (id) {
+                    debugger
+                });
+            }
+
+            $scope.finishQuizQuestionEntity = function () {
+                debugger;
+                dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/StudentQuizAnswers/FinishQuiz/3').then(function (id) {
+                    debugger
+                });
             }
 
             $scope.saveAssignmentEntity = function () {
