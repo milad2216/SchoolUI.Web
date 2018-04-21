@@ -2,78 +2,99 @@
 define(['app'], function (app) {
     app.register.controller('onlineQuizSearchController', ['$scope', '$rootScope', 'dataService', '$stateParams', 'enumService', '$state', 'RESOURCES', 'Notification',
         function ($scope, $rootScope, dataService, $stateParams, enumService, $state, RESOURCES, Notification) {
-            debugger;
 
-
-            $scope.qoestionBase64ImageOnSelect = function (fileStream, fileInfo) {
-                debugger
-                $scope.qoestionBase64Image = fileStream.split(',')[1];
-                $scope.FileName = fileInfo.files[0].name;
+            $scope.startQuiz = function (e) {
+                var myItem = $scope.kendoGrid.dataItem($(e.target).closest("tr"));
+                $state.go("studentQuizAnswer", { quiz: myItem, mode: "edit" });
             }
+            $scope.dataSource = new kendo.data.DataSource({
+                type: 'odata',
+                transport: {
+                    read: {
+                        type: "GET",
+                        url: RESOURCES.USERS_DOMAIN + "/api/Quizes",
+                        beforeSend: function (request) {
+                            var aut = JSON.parse(localStorage.getItem("lt"));
+                            request.setRequestHeader('Authorization', aut.token_type + ' ' + aut.access_token);
+                        },
+                        withCredentials: true,
+                        dataType: "json",
+                    }
+                },
+                schema: {
+                    data: function (result) {
+                        return result.Items;
+                    },
+                    total: function (data) {
+                        return data.Count;
+                    },
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "number", editable: false, nullable: true },
+                            Name: { type: "string", defaultValue: null }
+                        }
+                    }
+                },
+                autoSync: false,
+                pageSize: 10,
+                serverPaging: true,
+                serverSorting: true,
+                serverFiltering: true,
+            });
 
-            $scope.qoestionBase64ImageOnRemove = function (e) {
-                $scope.qoestionBase64Image = "";
-            }
-            $scope.qoestionBase64ImageFile = {
-                multiple: false,
-                allowedExtensions: [".img", ".png", ".jpeg", ".jpg"],
-                preview: true,
-            }
 
-            $scope.startOnlineQuizEntity = function () {
-                var sendData = {};
-                sendData.QuizId = "3";
-                var aut = JSON.parse(localStorage.getItem("lt"));
-                sendData.StudentId = aut.user_id;
-                debugger;
-                dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/StudentQuizAnswers', sendData).then(function (id) {
-                    dataService.getData(RESOURCES.USERS_DOMAIN + '/api/StudentQuizAnswers/' + id).then(function (data) {
-                        debugger;
-                        $scope.StudentQuizAnswerId = id;
-                        $scope.DtDefine = data.DtDefine;
-                    })
-                });
-            }
 
-            $scope.getQueationsEntity = function () {
-                debugger;
-                dataService.getData(RESOURCES.USERS_DOMAIN + '/api/Quizes/3?$expand=Questions/QuestionOptions').then(function (data) {
-                    debugger;
-                    $scope.Questions = data.Questions;
-                });
-            }
+            $scope.mainGridOptions = {
+                dataSource: $scope.dataSource,
+                filterable: {
+                    extra: false
+                },
+                height: 490,
+                groupable: false,
+                resizable: true,
+                scrollable: true,
+                pageSize: 10,
+                selectable: "row",
+                sortable: {
+                    mode: "single",
+                    allowUnsort: true
+                },
+                pageable: {
+                    buttonCount: 3,
+                    previousNext: true,
+                    numeric: true,
+                    refresh: true,
+                    info: true,
+                    pageSizes: [10, 20, 50, 100]
+                },
+                dataBound: function () {
+                    $(".k-grid").find('a').removeAttr('href');
+                },
+                editable: "inline",
 
-            $scope.AnswerQuizQuestionEntity = function () {
-                var sendData = {};
-                sendData.StudentQuizAnswerId = $scope.StudentQuizAnswerId;
-                sendData.QuestionOptionIdAnswer = 15;
-                debugger;
-                dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/StudentQuestionAnswers', [sendData]).then(function (id) {
-                    debugger
-                });
-            }
-
-            $scope.finishQuizQuestionEntity = function () {
-                debugger;
-                dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/StudentQuizAnswers/FinishQuiz/3').then(function (id) {
-                    debugger
-                });
-            }
-
-            $scope.saveAssignmentEntity = function () {
-                if ($scope.questionForm.$valid) {
-                    var sendData = {};
-                    sendData.Description = "توضیحات";
-                    sendData.AssignmentId = 1;
-                    //sendData.QuestionBase64Image = $scope.qoestionBase64Image;
-                    //sendData.QuestionOptionsBase64Image = $scope.QuestionOptionsBase64Image;
-                    debugger;
-                    dataService.addEntity(RESOURCES.USERS_DOMAIN + '/api/AssignmentAnswers', { AssignmentAnswer: sendData, Base64File: $scope.qoestionBase64Image, FileName: $scope.FileName }).then(function (id) {
-                        Notification.success('با موفقیت ذخیره شد.');
-                        //$state.go("questionSearch");
-                    });
+                columns: [
+            {
+                field: "Name",
+                title: "نام آزمون",
+                filterable:
+                {
+                    cell:
+                    {
+                        dataSource: {},
+                    }
                 }
+
+            },
+            {
+                command: [{
+                    text: "شروع آزمون", click: $scope.startQuiz
+                }],
+                title: "&nbsp;",
+                width: 200
             }
+                ]
+            };
         }
     ]);
 });

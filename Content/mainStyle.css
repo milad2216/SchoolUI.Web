@@ -839,3 +839,28 @@ div > .md-card-list-item-content {
     overflow-x: unset !important;
     max-height: unset !important;
 }
+
+.custom-option-label {
+    list-style: none !important;
+    display: block;
+}
+
+    .custom-option-label {
+        background-color: #00b5d6;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 1px rgba(0,0,0,0.1);
+        /* color: #fff; */
+        display: block;
+        padding: 15px 15px;
+        position: relative;
+        transition: background 100ms ease-in, color 100ms ease-in;
+    }
+
+.margin-top-50{
+    margin-top:50px !important;
+}
+
+.margin-top-10 {
+    margin-top: 10px !important;
+}

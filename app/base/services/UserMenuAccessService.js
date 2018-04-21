@@ -34,7 +34,7 @@
                     {
                         SystemTitle: "امتحانات", SystemKey: '30f8678d-dffb-e611-ac4f-38d54778b1eb',
                         Childs: [{ Title: " آزمون‌ها", Action: "onlineQuizSearch" }
-                        , { Title: " تکالیف", Action: "assignmentSearch" }]
+                        , { Title: " تکالیف", Action: "studentAssignmentSearch" }]
                     }, {
                         SystemTitle: "ارتباطات", SystemKey: '1f65a61c-ce79-e711-966b-000c29eedd59',
                         Childs: [{ Title: "پیام ها", Action: "message" }, { Title: "ثبت درخواست", Action: "studentRequestSearch" }]

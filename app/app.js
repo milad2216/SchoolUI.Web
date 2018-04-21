@@ -376,6 +376,34 @@ define(['angularAMD'], function (angularAMD) {
                     controllerUrl: '/app/base/views/student/quiz/onlineQuizSearchController.js',
                     templateUrl: '/app/base/views/student/quiz/onlineQuizSearch.html'
                 }))
+            .state('studentQuizAnswer', angularAMD.route(
+                {
+                    url: '/studentQuizAnswer',
+                    controller: 'studentQuizAnswerController',
+                    controllerUrl: '/app/base/views/student/quiz/studentQuizAnswerController.js',
+                    templateUrl: '/app/base/views/student/quiz/studentQuizAnswer.html',
+                    params: {
+                        quiz: {}
+                    }
+                }))
+            .state('studentAssignmentSearch', angularAMD.route(
+                {
+                    url: '/studentAssignmentSearch',
+                    controller: 'studentAssignmentSearchController',
+                    controllerUrl: '/app/base/views/student/assignment/studentAssignmentSearchController.js',
+                    templateUrl: '/app/base/views/student/assignment/studentAssignmentSearch.html'
+                }))
+            .state('studentAssignmentAnswer', angularAMD.route(
+                {
+                    url: '/studentAssignmentAnswer',
+                    controller: 'studentAssignmentAnswerController',
+                    controllerUrl: '/app/base/views/student/assignment/studentAssignmentAnswerController.js',
+                    templateUrl: '/app/base/views/student/assignment/studentAssignmentAnswer.html',
+                    params: {
+                        assignment: {}
+                    }
+
+                }))
     }]);
 
     app.constant('variables', {
