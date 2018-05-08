@@ -7247,3 +7247,89 @@ table.hoghogh {
     background-color: #fbc02d !important;
 }
 
+form .form-group > input {
+color:#fff;
+}
+
+/**********/
+@media only screen and (max-width: 1219px) {
+    .sidebar_main_hiding #page_content:before,
+    .sidebar_main_active #page_content:before {
+        z-index: 0 !important;
+    }
+
+    .sidebar_main_active #sidebar_main {
+        box-shadow: none;
+    }
+
+    .sidebar_main_active .pn-tab-container,
+    .sidebar_main_open .pn-tab-container {
+        margin-right: 250px;
+    }
+
+    .cartable_open .pn-tab-container {
+        margin-right: 275px;
+    }
+
+    .cartable_open.sidebar_main_active .pn-tab-container,
+    .cartable_open.sidebar_main_open .pn-tab-container {
+        margin-right: 515px;
+    }
+
+    .sidebar_main_open #sidebar_main {
+        left: auto;
+        right: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #sidebar_main {
+        width: 240px;
+    }
+
+    .sidebar_main_active .pn-tab-container,
+    .sidebar_main_open .pn-tab-container {
+        margin-right: 250px;
+    }
+
+    .cartable_open .pn-tab-container {
+        margin-right: 275px;
+    }
+
+    .cartable_open.sidebar_main_active .pn-tab-container,
+    .cartable_open.sidebar_main_open .pn-tab-container {
+        margin-right: 515px;
+    }
+}
+
+@media only screen and (min-width: 1220px) {
+    .sidebar_main_active #page_content,
+    .sidebar_main_open #page_content {
+        margin-right: 0;
+    }
+
+    .sidebar_main_open .pn-tab-container,
+    .sidebar_main_active .pn-tab-container {
+        margin-right: 250px;
+    }
+
+    .cartable_open .pn-tab-container {
+        margin-right: 275px;
+    }
+
+    .cartable_open.sidebar_main_active .pn-tab-container,
+    .cartable_open.sidebar_main_open .pn-tab-container {
+        margin-right: 515px;
+    }
+}
+
+.pn-tab-container {
+    margin-top: 52px;
+    background: #f6f6f6;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    padding-top: 13px;
+    padding-bottom: 11px;
+    margin-bottom: 44px;
+    margin-left: 10px;
+}

@@ -402,7 +402,7 @@
     }
 
     .app_theme_dark #header_main {
-        background: #546e7a;
+        background: rgb(61,81,181);
     }
 
         .app_theme_dark #header_main .uk-navbar .uk-navbar-nav > li.uk-open > a:after {

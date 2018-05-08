@@ -39,9 +39,11 @@
     <link href="/Content/Notification/angular-ui-notification.min.css" rel="stylesheet" />
     <link href="/Content/angular/angular-block-ui.css" rel="stylesheet" />
     <link href="/Content/mainStyle.css" rel="stylesheet" />
+    <link href="/Content/kendo/2016.1.412/kendo.materialblack.min.css" rel="stylesheet" />
     <link href="/Content/kendo/2016.1.412/kendo.common.min.css" rel="stylesheet" />
     <link href="/Content/kendo/2016.1.412/kendo.rtl.min.css" rel="stylesheet" />
-    <link href="" id="kendoCSS" rel="stylesheet" />
+    <link href="../Content/app/login/login.css" rel="stylesheet" />
+    <!--<link href="" id="kendoCSS" rel="stylesheet" />-->
     <script data-main="/app/main.js" src="/Scripts/core/require.js"></script>
 
     <link runat="server" rel="icon" href="/Content/images/favicon.ico" type="image/x-icon" />
@@ -64,7 +66,7 @@
                 <div class="uk-clearfix uk-position-relative">
                     
                     <div class="content-view">
-                        <div id="page_overflow" style="overflow-y:unset !important">
+                        <div id="page_overflow" style="background-color:transparent !important;overflow-x:hidden">
                             <!--pn-page-overflow-->
                             <div id="top_bar2" ng-show="featureTab.Show">
                                 <div class="tab_bar2_inner">
@@ -74,7 +76,6 @@
                                                  ng-class="{active:true}"
                                                  ng-click="onClickTab(tab)">
                                                 <a class="pn-tab-header-link pn-tab-header-link2">{{featureTab.Title}}</a>
-                                                <i ng-click="closeTab()" class="fa fa-times-circle close-image" aria-hidden="true"></i>
 
                                             </div>
                                         </div>
@@ -82,7 +83,7 @@
                                 </div>
                             </div>
 
-                            <div class="pn-tab-container pn-tab-ui-views" style="height:650px" ng-show="featureTab.Show">
+                            <div class="pn-tab-container pn-tab-ui-views" ng-show="featureTab.Show">
                                 <ul class="uiTabs">
 
                                     <li ui-view></li>
@@ -145,13 +146,12 @@
             </div>
         </div>-->
 
-        <div class="md-fab-wrapper md-fab-in-card">
-            <!--<pn-md-fab-sheet></pn-md-fab-sheet>-->
+        <!--<div class="md-fab-wrapper md-fab-in-card">
             <div class="md-fab md-fab-accent md-fab-sheet" api-fab-sheet="apiFabSheet" pn-md-fab-sheet>
             </div>
-        </div>
+        </div>-->
     </div>
 
-    <div ng-if="statusforlogin" ui-view="login" style="padding-top:64px;" ></div>
+    <div ng-if="statusforlogin" ui-view="login" ></div>
 </body>
 </html>

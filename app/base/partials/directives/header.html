@@ -8,16 +8,14 @@
             <div class="uk-navbar-flip">
                 <ul class="uk-navbar-nav user_actions">
                     <li><a href="#" class="user_action_icon uk-visible-large" id="full_screen_toggle" pn-full-screen-toggle><i class="material-icons md-24 md-light">&#xE5D0;</i></a></li>
-                    <li><pn-main-search-show></pn-main-search-show></li>
+                    <!--<li><pn-main-search-show></pn-main-search-show></li>-->
                     <li class="user">
                         <a class="user_action_image" id="menu1" data-toggle="dropdown">
                             <i style="font-size: 20px; vertical-align: text-top;"
                                class="fa fa-user md-24 md-light"></i>
                         </a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                            <li><a role="menuitem" tabindex="-1" ng-click="toggleCheatSheet()">راهنمای سیستم</a></li>
-                            <li><a role="menuitem" tabindex="-1">تنظیمات</a></li>
-                            <li><a role="menuitem" tabindex="-1" ng-click="useFulMenu()">منوی پرکاربرد</a></li>
+                            <li><a role="menuitem" tabindex="-1" ng-click="useFulMenu()">پروفایل</a></li>
                             <li><a role="menuitem" tabindex="-1" ng-click="logout()">خروج</a></li>
 
                         </ul>
@@ -27,7 +25,7 @@
         </nav>
     </div>
     <div class="header_main_search_form">
-        <pn-main-search-hide ng-if="!mainSearchPersistent"></pn-main-search-hide>
+        <!--<pn-main-search-hide ng-if="!mainSearchPersistent"></pn-main-search-hide>-->
         <form class="uk-form uk-autocomplete" data-uk-autocomplete="{source:'data/search_data.json'}">
             <input type="text" class="header_main_search_input" />
             <button class="header_main_search_btn uk-button-link">

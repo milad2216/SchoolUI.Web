@@ -23,7 +23,7 @@
 
 
 .k-autocomplete.k-state-default, .k-picker-wrap.k-state-default, .k-numeric-wrap.k-state-default, .k-dropdown-wrap.k-state-default {
-    border-color: #ddd !important;
+
 }
 
 .ProductBox {
@@ -393,8 +393,6 @@ div.k-grid-header {
 }
 
 .k-grid td {
-    padding-top: 0px !important; 
-    padding-bottom: 0px !important;
     cursor: pointer;
     border-style: solid;
 }
@@ -496,4 +494,7 @@ div.k-grid-header {
 
 .label-blue {
     color: #1c94c6;
+}
+.md-btn, .uk-modal-dialog .uk-modal-header .uk-modal-title, md-card-toolbar, uk-row-first, heading_b {
+    font-family: 'Yekan' !important;
 }

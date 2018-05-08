@@ -45,7 +45,7 @@ define(['app'], function (app) {
                 }
             },
             autoSync: false,
-            pageSize: 9,
+            pageSize: 10,
             serverPaging: true,
             serverSorting: true,
             serverFiltering: true,
@@ -56,7 +56,7 @@ define(['app'], function (app) {
             filterable: {
                 extra: false
             },
-            height: 490,
+            height: 500,
             groupable: false,
             resizable: true,
             scrollable: true,

@@ -1,27 +1,27 @@
 ﻿<form id="payItemForm" name="payItemForm" style="color:black;">
-    <div class="row margin-top-10 mar-right-5per">
+    <div class="col-md-12 margin-top-10">
         <div class="form-group col-md-3">
 
             <label>عنوان پرداخت</label>
-            <input type="text" class="col-md-8 " required ng-model="payItem.DscPay" placeholder="عنوان پرداخت">
+            <input type="text" class="col-md-8 k-input" required ng-model="payItem.DscPay" placeholder="عنوان پرداخت">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>میزان پرداخت</label>
-            <input type="number" class="col-md-8 " required ng-model="payItem.Price" placeholder="میزان پرداخت">
+            <input type="number" class="col-md-8 k-input" required ng-model="payItem.Price" placeholder="میزان پرداخت">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>کلاس</label>
-            <pn-combo-box ng-model="schoolClassId" class="col-md-8 "  api="api"  source="schoolClassOptions"></pn-combo-box>
+            <pn-combo-box ng-model="schoolClassId" class="row col-md-8 combo"  api="api"  source="schoolClassOptions"></pn-combo-box>
 
         </div>
         <div class="form-group col-md-3">
 
             <label>دانش‌آموز</label>
-            <pn-combo-box ng-model="StudentId" class="col-md-8 "  api="api"  source="studentOptions"></pn-combo-box>
+            <pn-combo-box ng-model="StudentId" class="col-md-8 combo row"  api="api"  source="studentOptions"></pn-combo-box>
 
         </div>
 

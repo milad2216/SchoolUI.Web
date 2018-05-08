@@ -1,20 +1,20 @@
-﻿<form id="disciplineItemForm" name="disciplineItemForm" style="color:black;">
+﻿<form id="disciplineItemForm" name="disciplineItemForm">
     <div class="col-xs-6">
-        <div class="form-group col-xs-8 mar-right-5per">
+        <div class="form-group col-xs-12 ">
             <label>دانش‌آموز</label>
-            <pn-combo-box ng-model="disciplineItem.StudentId" class="col-md-10" api="api" source="studentOptions"></pn-combo-box>
+            <pn-combo-box ng-model="disciplineItem.StudentId" class="col-md-12 combo row" api="api" source="studentOptions"></pn-combo-box>
         </div>
     </div>
     <div class="col-xs-6">
-        <div class="form-group col-xs-8 mar-right-5per">
+        <div class="form-group col-xs-12">
             <label>عنوان مورد انظباطی:</label>
-            <input type="text" class="col-md-10 " maxlength="100" required ng-model="disciplineItem.Title" id="title">
+            <input type="text" class="col-md-12 k-input" maxlength="100" required ng-model="disciplineItem.Title" id="title">
         </div>
     </div>
     <div class="col-xs-12">
-        <div class="form-group mar-top-23 col-xs-12 mar-right-5per">
+        <div class="form-group mar-top-23 col-xs-12">
             <label> توضیحات مورد انظباطی:</label>
-            <textarea rows="5" class="mousetrap" maxlength="500" required ng-model="disciplineItem.Description" id="Description" lang="fa"></textarea>
+            <textarea rows="5" class="mousetrap k-textbox" maxlength="500" required ng-model="disciplineItem.Description" id="Description" lang="fa"></textarea>
         </div>
     </div>
     <div class="col-xs-12">

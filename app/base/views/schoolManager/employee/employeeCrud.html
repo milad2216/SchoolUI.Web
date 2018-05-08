@@ -1,36 +1,36 @@
-﻿<form id="employeeForm" name="employeeForm" style="color:black;">
-    <div class="row margin-top-10 mar-right-5per">
+﻿<form id="employeeForm" name="employeeForm" >
+    <div class="col-md-12 margin-top-10">
         <div class="form-group col-md-3">
 
             <label>نام</label>
-            <input type="text" class="col-md-8 " required ng-model="employee.FirstName" placeholder="نام به فارسی">
+            <input type="text" class="col-md-8 k-input" required ng-model="employee.FirstName" placeholder="نام به فارسی">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>نام خانوادگی</label>
-            <input type="text" class="col-md-8 " required ng-model="employee.LastName" placeholder="نام خانوادگی به فارسی">
+            <input type="text" class="col-md-8 k-input" required ng-model="employee.LastName" placeholder="نام خانوادگی به فارسی">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>نام پدر</label>
-            <input type="text" class="col-md-8 " ng-model="employee.FaderName" placeholder="نام پدر به فارسی">
+            <input type="text" class="col-md-8 k-input" ng-model="employee.FaderName" placeholder="نام پدر به فارسی">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>محل تولد</label>
-            <input type="text" class="col-md-8 " required ng-model="employee.BirthPlace" placeholder="محل تولد به فارسی">
+            <input type="text" class="col-md-8 k-input" required ng-model="employee.BirthPlace" placeholder="محل تولد به فارسی">
 
         </div>
 
     </div>
-    <div class="row margin-top-10 mar-right-5per">
+    <div class="col-md-12 margin-top-10 ">
         <div class="form-group col-md-3">
 
             <label>محل صدور</label>
-            <input type="text" class="col-md-8 " required ng-model="employee.BirthCertificateIssuancePlace" placeholder="محل صدور به فارسی">
+            <input type="text" class="col-md-8 k-input" required ng-model="employee.BirthCertificateIssuancePlace" placeholder="محل صدور به فارسی">
 
         </div>
         <div class="form-group col-md-3">
@@ -42,69 +42,69 @@
         <div class="form-group col-md-3">
 
             <label>کد ملی</label>
-            <input type="text" class="col-md-8 " required ng-model="employee.NationalCode" placeholder="کد ملی">
+            <input type="text" class="col-md-8 k-input" required ng-model="employee.NationalCode" placeholder="کد ملی">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>تلفن ثابت</label>
-            <input type="text" class="col-md-8 " required ng-model="employee.LandLinePhoneNumber" placeholder="تلفن ثابت">
+            <input type="text" class="col-md-8 k-input" required ng-model="employee.LandLinePhoneNumber" placeholder="تلفن ثابت">
 
         </div>
     </div>
-    <div class="row margin-top-10 mar-right-5per">
+    <div class="col-md-12 margin-top-10">
         <div class="form-group col-md-3">
 
             <label>تلفن همراه</label>
-            <input type="text" class="col-md-8 " ng-model="employee.MobilePhoneNumber" placeholder="تلفن همراه">
+            <input type="text" class="col-md-8 k-input" ng-model="employee.MobilePhoneNumber" placeholder="تلفن همراه">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>تلفن اضطراری</label>
-            <input type="text" class="col-md-8 " required ng-model="employee.EmergencyPhoneNumber" placeholder="تلفن اضطراری">
+            <input type="text" class="col-md-8 k-input" required ng-model="employee.EmergencyPhoneNumber" placeholder="تلفن اضطراری">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>پست الکترونیکی</label>
-            <input type="text" class="col-md-8 " required ng-model="employee.Email" placeholder="پست الکترونیکی">
+            <input type="text" class="col-md-8 k-input" required ng-model="employee.Email" placeholder="پست الکترونیکی">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>پست سازمانی</label>
-            <input type="text" class="col-md-8 " ng-model="employee.Post" placeholder="پست سازمانی">
+            <input type="text" class="col-md-8 k-input" ng-model="employee.Post" placeholder="پست سازمانی">
 
         </div>
     </div>
-    <div class="row margin-top-10 mar-right-5per">
+    <div class="col-md-12 margin-top-10">
         <div class="form-group col-md-3">
 
             <label>مدرک</label>
-            <pn-combo-box ng-model="employee.AcademicDegree" class="col-md-8 " required source="academicDegreeOptions" textfield="Text" valuefield="Id"></pn-combo-box>
+            <pn-combo-box ng-model="employee.AcademicDegree" class="col-md-8 combo row" required source="academicDegreeOptions" textfield="Text" valuefield="Id"></pn-combo-box>
 
         </div>
 
         <div class="form-group col-md-3">
 
             <label>گرایش مدرک</label>
-            <input type="text" class="col-md-8 " ng-model="employee.Major" placeholder="گرایش مدرک">
+            <input type="text" class="col-md-8 k-input" ng-model="employee.Major" placeholder="گرایش مدرک">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>آدرس</label>
-            <input type="text" class="col-md-8 " ng-model="employee.Address" placeholder="آدرس">
+            <input type="text" class="col-md-8 k-input" ng-model="employee.Address" placeholder="آدرس">
 
         </div>
     </div>
 
 
-    <div class="row margin-top-10 mar-right-5per">
+    <div class="col-md-12 margin-top-10">
         <div class="form-group col-md-6">
             <label>عکس کارمند</label>
-            <div class="col-md-9 margin-top15">
+            <div class="row col-md-9 margin-top15">
                 <pn-file-upload ng-model="Base64ImageFile" config="base64ImageFileOptions" api="api" on-selected="base64ImageFileOnSelect(fileStream, fileInfo)" on-remove="base64ImageFileOnRemove(e)"></pn-file-upload>
             </div>
         </div>

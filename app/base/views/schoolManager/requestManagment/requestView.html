@@ -1,18 +1,18 @@
 ﻿<div style="color:black;">
     <div class="col-xs-12">
-        <div class="form-group col-xs-4 mar-right-5per">
+        <div class="form-group col-xs-4">
             <label>عنوان درخواست:</label>
-            <input type="text" class="col-md-10 " maxlength="100" readonly="readonly" required ng-model="studentRequest.Title" id="title">
+            <input type="text" class="col-md-12 k-input" maxlength="100" readonly="readonly" required ng-model="studentRequest.Title" id="title">
         </div>
     </div>
     <div class="col-xs-12">
-        <div class="form-group col-xs-12 mar-top-23 mar-right-5per">
+        <div class="form-group col-xs-12 mar-top-23">
             <label> متن درخواست:</label>
-            <textarea rows="5" readonly="readonly" class="mousetrap" maxlength="500" required ng-model="studentRequest.Description" id="Description" lang="fa"></textarea>
+            <textarea rows="5" readonly="readonly" class="mousetrap k-textbox" maxlength="500" required ng-model="studentRequest.Description" id="Description" lang="fa"></textarea>
         </div>
     </div>
-    <div class="col-xs-12 row">
-        <div style="margin-right: 40%;">
+    <div class="col-xs-12">
+        <div class="col-md-12 center">
 
             <button type="button" class="btn btn-success" ng-click="approvedRequest()">تایید درخواست</button>
             <button type="button" class="btn btn-danger" ng-click="deniedRequest()">رد درخواست</button>

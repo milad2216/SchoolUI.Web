@@ -1,33 +1,33 @@
 ﻿<form id="studentForm" name="studentForm" style="color:black;">
-    <div class="row margin-top-10 mar-right-5per">
+    <div class="col-md-12 margin-top-10">
 
         <div class="form-group col-md-3">
 
             <label>نام</label>
-            <input type="text" class="col-md-8 " required ng-model="student.FirstName" placeholder="نام به فارسی">
+            <input type="text" class="col-md-8 k-input" required ng-model="student.FirstName" placeholder="نام به فارسی">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>نام خانوادگی</label>
-            <input type="text" class="col-md-8 " required ng-model="student.LastName" placeholder="نام خانوادگی به فارسی">
+            <input type="text" class="col-md-8 k-input" required ng-model="student.LastName" placeholder="نام خانوادگی به فارسی">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>محل تولد</label>
-            <input type="text" class="col-md-8 " required ng-model="student.BirthPlace" placeholder="محل تولد به فارسی">
+            <input type="text" class="col-md-8 k-input" required ng-model="student.BirthPlace" placeholder="محل تولد به فارسی">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>محل صدور</label>
-            <input type="text" class="col-md-8 " required ng-model="student.BirthCertificateIssuancePlace" placeholder="محل صدور به فارسی">
+            <input type="text" class="col-md-8 k-input" required ng-model="student.BirthCertificateIssuancePlace" placeholder="محل صدور به فارسی">
 
         </div>
 
     </div>
-    <div class="row margin-top-10 mar-right-5per">
+    <div class="col-md-12 margin-top-10 ">
         <div class="form-group col-md-3">
 
             <label>تاریخ تولد</label>
@@ -37,128 +37,128 @@
         <div class="form-group col-md-3">
 
             <label>کد ملی</label>
-            <input type="text" maxlength="10" class="col-md-8 " required ng-model="student.NationalCode" placeholder="کد ملی">
+            <input type="text" maxlength="10" class="col-md-8 k-input" required ng-model="student.NationalCode" placeholder="کد ملی">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>تلفن ثابت</label>
-            <input type="tel" class="col-md-8 " required ng-model="student.LandLinePhoneNumber" placeholder="تلفن ثابت">
+            <input type="tel" class="col-md-8 k-input" required ng-model="student.LandLinePhoneNumber" placeholder="تلفن ثابت">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>تلفن همراه</label>
-            <input type="tel" class="col-md-8 " ng-model="student.MobilePhoneNumber" placeholder="تلفن همراه">
+            <input type="tel" class="col-md-8 k-input" ng-model="student.MobilePhoneNumber" placeholder="تلفن همراه">
 
         </div>
     </div>
-    <div class="row margin-top-10 mar-right-5per">
+    <div class="col-md-12 margin-top-10">
         <div class="form-group col-md-3">
 
             <label>تلفن اضطراری</label>
-            <input type="tel" class="col-md-8 " required ng-model="student.EmergencyPhoneNumber" placeholder="تلفن اضطراری">
+            <input type="tel" class="col-md-8 k-input" required ng-model="student.EmergencyPhoneNumber" placeholder="تلفن اضطراری">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>پست الکترونیکی</label>
-            <input type="email" class="col-md-8 " required ng-model="student.Email" placeholder="پست الکترونیکی">
+            <input type="email" class="col-md-8 k-input" required ng-model="student.Email" placeholder="پست الکترونیکی">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>معدل سال قبل</label>
-            <input type="number" class="col-md-8 " ng-model="student.LastYearGPA" placeholder="معدل سال قبل">
+            <input type="number" class="col-md-8 k-input" ng-model="student.LastYearGPA" placeholder="معدل سال قبل">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>آدرس</label>
-            <input type="text" class="col-md-8 " maxlength="500" ng-model="student.Address" placeholder="آدرس">
+            <input type="text" class="col-md-8 k-input" maxlength="500" ng-model="student.Address" placeholder="آدرس">
 
         </div>
     </div>
-    <div class="row margin-top-10 mar-right-5per">
+    <div class="col-md-12 margin-top-10">
         <div class="form-group col-md-3">
 
             <label>کلاس</label>
-            <pn-combo-box ng-model="student.SchoolClassId" class="col-md-8 " required api="api" source="schoolClassOptions"></pn-combo-box>
+            <pn-combo-box ng-model="student.SchoolClassId" class="col-md-8 row combo" required api="api" source="schoolClassOptions"></pn-combo-box>
 
         </div>
         <div class="form-group col-md-3">
 
             <label>سال تحصیلی</label>
-            <pn-combo-box ng-model="student.AcademicYearId" class="col-md-8 " source="academicYearOptions" api="academicYearApi" on-close='academicYearOnSelect(combo)' textfield="text" valuefield="value"></pn-combo-box>
+            <pn-combo-box ng-model="student.AcademicYearId" class="col-md-8 row combo" source="academicYearOptions" api="academicYearApi" on-close='academicYearOnSelect(combo)' textfield="text" valuefield="value"></pn-combo-box>
 
         </div>
         <div class="form-group col-md-3">
 
             <label>مقطع تحصیلی</label>
-            <pn-combo-box ng-model="student.GradeAcademicYearId" class="col-md-8 " api="api" source="gradeAcademicYearOptions" textfield="text" valuefield="value"></pn-combo-box>
+            <pn-combo-box ng-model="student.GradeAcademicYearId" class="col-md-8 row combo" api="api" source="gradeAcademicYearOptions" textfield="text" valuefield="value"></pn-combo-box>
 
         </div>
         <div class="form-group col-md-3">
 
             <label>راننده</label>
-            <pn-combo-box ng-model="student.DriverId" class="col-md-8 " api="api" source="driverOptions"></pn-combo-box>
+            <pn-combo-box ng-model="student.DriverId" class="col-md-8 combo" api="api" source="driverOptions"></pn-combo-box>
 
         </div>
     </div>
 
-    <div class="row margin-top-10 mar-right-5per">
+    <div class="col-md-12 margin-top-10">
         <div class="form-group col-md-3">
 
             <label>نام پدر</label>
-            <input type="text" class="col-md-8 " ng-model="ParentFather.FirstName" placeholder="نام پدر">
+            <input type="text" class="col-md-8 k-input" ng-model="ParentFather.FirstName" placeholder="نام پدر">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>نام خانوادگی پدر</label>
-            <input type="text" class="col-md-8 " ng-model="ParentFather.LastName" placeholder="نام خانوادگی پدر">
+            <input type="text" class="col-md-8 k-input" ng-model="ParentFather.LastName" placeholder="نام خانوادگی پدر">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>تلفن همراه پدر</label>
-            <input type="tel" class="col-md-8 " ng-model="ParentFather.MobilePhoneNumber" placeholder="تلفن همراه پدر">
+            <input type="tel" class="col-md-8 k-input" ng-model="ParentFather.MobilePhoneNumber" placeholder="تلفن همراه پدر">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>پست الکترونیکی پدر</label>
-            <input type="email" class="col-md-8 " ng-model="ParentFather.Email" placeholder="پست الکترونیکی پدر">
+            <input type="email" class="col-md-8 k-input" ng-model="ParentFather.Email" placeholder="پست الکترونیکی پدر">
 
         </div>
     </div>
-    <div class="row margin-top-10 mar-right-5per">
+    <div class="col-md-12 margin-top-10 ">
         <div class="form-group col-md-3">
 
             <label>نام مادر</label>
-            <input type="text" class="col-md-8 " ng-model="ParentMother.FirstName" placeholder="نام مادر">
+            <input type="text" class="col-md-8 k-input" ng-model="ParentMother.FirstName" placeholder="نام مادر">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>نام خانوادگی مادر</label>
-            <input type="text" class="col-md-8 " ng-model="ParentMother.LastName" placeholder="نام خانوادگی مادر">
+            <input type="text" class="col-md-8 k-input" ng-model="ParentMother.LastName" placeholder="نام خانوادگی مادر">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>تلفن همراه مادر</label>
-            <input type="tel" class="col-md-8 " ng-model="ParentMother.MobilePhoneNumber" placeholder="تلفن همراه مادر">
+            <input type="tel" class="col-md-8 k-input" ng-model="ParentMother.MobilePhoneNumber" placeholder="تلفن همراه مادر">
 
         </div>
         <div class="form-group col-md-3">
 
             <label>پست الکترونیکی مادر</label>
-            <input type="email" class="col-md-8 " ng-model="ParentMother.Email" placeholder="پست الکترونیکی مادر">
+            <input type="email" class="col-md-8 k-input" ng-model="ParentMother.Email" placeholder="پست الکترونیکی مادر">
 
         </div>
     </div>
-    <div class="row margin-top-10 mar-right-5per">
+    <div class="col-md-12 margin-top-10 ">
         <div class="form-group col-md-6">
             <label>عکس دانش آموز</label>
             <div class="col-md-9 margin-top15">

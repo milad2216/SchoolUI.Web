@@ -77,7 +77,7 @@
                 dataService.DispatchErrReponseForKendo(e);
             },
             autoSync: false,
-            pageSize: 9,
+            pageSize: 10,
             serverPaging: true,
             serverSorting: true,
             serverFiltering: true,
@@ -88,7 +88,7 @@
             filterable: {
                 extra: false
             },
-            height: 490,
+            height: 500,
             groupable: false,
             resizable: true,
             scrollable: true,

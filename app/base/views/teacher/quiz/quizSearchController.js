@@ -67,7 +67,7 @@
             filterable: {
                 extra: false
             },
-            height: 490,
+            height: 500,
             groupable: false,
             resizable: true,
             scrollable: true,
